@@ -1,0 +1,13 @@
+/* Don't display the circle of the radio button */
+input[type="radio"] {
+    width: 0;
+	height: 0;
+}
+
+input[type="radio"]:checked + label {
+    color: var(--primary);
+}
+
+input[type="radio"] + label {
+    padding: 0.45em;
+}
