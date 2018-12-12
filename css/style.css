@@ -1,29 +1,75 @@
+html, body {
+    height: 100%;
+}
 body {
     background: #efefef;
     background-image: linear-gradient(90deg, transparent 50%, rgba(226, 126, 44, .5) 0),
                       linear-gradient(transparent 50%, rgba(226, 126, 44, 0.5) 0);
-    background-size: 133px 133px;
+    background-size: 6.75vw 6.75vw;
 }
 
+.btn-primary {
+    background-color: #C61000;
+    border-color: #C61000;
+}
+.btn-primary:hover {
+    background-color: #C61000;
+    border-color: #C61000;
+}
+.carousel-control-container {
+    background-color: #C61000;
+    min-width: 50px;
+    border-radius: 25px;
+    padding: 0 10px;
+    transition: max-width 1s;
+}
+.carousel-control-container > span {
+    height: 50px;
+    vertical-align: middle;
+}
+.carousel-control-prev-icon {
+    margin-right: 3px;
+}
+.carousel-control-next-icon {
+    margin-left: 3px;
+}
+.carousel-control-text {
+    font-weight: bold;
+}
 .centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.plate > img {
-    width: 600px;
-    height: 600px;
-    z-index: 3;
-    left: 48.5%;
-}
 .plate {
-    width: 650px;
-    height: 650px;
-    z-index: 2;
+    width: 35vw;
+    height: 35vw;
     background-color: #efefef;
-    box-sizing: border-box;
-    box-shadow: inset 0 0 10px #606060;
+    box-shadow: inset 0 0 10px #606060; 
+}
+img {
+    width: 34vw;
+    height: 34vw;
+}
+
+svg {
+    height: 35vw;
+    position: absolute;
+}
+
+.fork {
+    fill: #efefef;
+    stroke: #606060;
+    stroke-width: 0.2px;
+    left: 30%;
+}
+
+.knife {
+    fill: #efefef;
+    stroke: #606060;
+    stroke-width: 0.2px;
+    right: 30%;
 }
 
 ul, ol {
