@@ -1,0 +1,9 @@
+/* Here goes all the styles to customize generic used bootstrap elements */
+.btn-primary {
+    background-color: #C61000;
+    border-color: #C61000;
+}
+.btn-primary:hover {
+    background-color: #C61000;
+    border-color: #C61000;
+}

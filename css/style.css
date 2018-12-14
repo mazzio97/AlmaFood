@@ -7,42 +7,9 @@ body {
                       linear-gradient(transparent 50%, rgba(226, 126, 44, 0.5) 0);
     background-size: 6.75vw 6.75vw;
 }
-.carousel {
-    text-align: center;
-}
-.btn-primary {
-    background-color: #C61000;
-    border-color: #C61000;
-}
-.btn-primary:hover {
-    background-color: #C61000;
-    border-color: #C61000;
-}
-.carousel-control-container {
-    background-color: #C61000;
-    border-radius: 25px;
-    padding: 0;
-    display: inline-block;
-}
-.carousel-control-container > span {
-    color: white;
-    height: 50px;
-    vertical-align: middle;
-}
-.carousel-control-prev-icon {
-    margin-right: 3px;
-}
-.carousel-control-next-icon {
-    margin-left: 3px;
-}
-.carousel-control-text {
-    font-weight: bold;
-}
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
+.logo {
+    width: 34vw;
+    height: 34vw;
 }
 .plate {
     width: 35vw;
@@ -50,95 +17,73 @@ body {
     background-color: #efefef;
     box-shadow: inset 0 0 10px #606060;
 }
-img {
-    width: 34vw;
-    height: 34vw;
-}
-
-svg {
-    height: 35vw;
+.fork, .knife {
+    height: 30vw;
     position: absolute;
 }
-
 .fork {
     fill: #efefef;
     stroke: #606060;
     stroke-width: 0.2px;
-    left: 25%;
+    left: 27.5%;
 }
-
 .knife {
     fill: #efefef;
     stroke: #606060;
     stroke-width: 0.2px;
-    left: 75%;
+    left: 72.5%;
 }
 
-ul, ol {
-    list-style: none;
+/* Carousel */
+.carousel, .carousel-inner, .carousel-item {
+    height: 100%;
+}
+.carousel-control {
+    position: absolute;
+    width: 100%;
+    bottom: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
+}
+.carousel-control-container {
+    background-color: #C61000;
+    border-radius: 2em;
+    padding: 0;
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    padding: 0.5em 0;
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+.carousel-control-container > .fa-chevron-left {
+    margin-right: 0.25em;
+}
+.carousel-control-container > .fa-chevron-right {
+    margin-left: 0.25em;
 }
 
-/* Don't display the circle of the radio button */
-input[type="radio"] {
-    display: none;
+/* Registration Form */
+input[name="userRole"] {
+	width: 0;
+	height: 0;
 }
-
-input[type="radio"]:checked+label {
+input[name="userRole"]:hover + label {
+	cursor: pointer;
+}
+input[name="userRole"]:checked + label {
     color: var(--primary);
 }
-
-input[type="radio"]+label {
+input[name="userRole"] + label {
     padding: 0.45em;
 }
 
-/* Notifications styles */
-.notifications {
-    position: relative;
-    padding: 0;
-    list-style: none;
-}
-
-.notifications ul {
-    list-style-type: disc;
-}
-
-.notifications>li:after,
-.notifications>li:before {
-    display: table;
-    content: ' ';
-}
-
-.notifications>li:after {
-    clear: both;
-}
-
-.notifications>li .notification-panel {
-    position: relative;
-    float: right;
-    width: 100%;
-    padding-left: 60px;
-    text-align: left;
-}
-
-.notifications>li .notification-image {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: var(--info);
-}
-
-@media only screen and (max-width: 1200px) {
-    .plate {
-        display: none;
-    }
-}
-
+/* Media Queries */
 @media only screen and (max-width: 992px) {
     .knife, .fork {
         display: none;
     }
 }
-
 @media only screen and (max-width: 768px) {
     .carousel-control-prev, .carousel-control-next {
         display: none;

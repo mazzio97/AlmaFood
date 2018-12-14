@@ -1,0 +1,12 @@
+ul, ol {
+    list-style: none;
+}
+a:hover {
+    text-decoration: none;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
