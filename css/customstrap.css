@@ -7,3 +7,41 @@
     background-color: #C61000;
     border-color: #C61000;
 }
+.navbar {
+    color: white;
+    background-color: #C61000;
+    font-weight: bold;
+    padding-left: 0.35em;
+    padding-right: 0;
+}
+.nav-link {
+    color: white;
+    font-size: 1.5em;
+    padding: 1em 0.5em; 
+}
+.nav-link:hover, .active {
+    background-color: white;
+    color: #C61000;
+}
+.nav-link span {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar {
+        padding: 0 0.75em;
+    }
+    .navbar i {
+        margin: 0 0.25em;
+    }
+    .navbar li {
+        padding: 1em 0;
+    }
+    .nav-link {
+        font-size: 1.25em;
+        padding: 1em;
+    }
+    .nav-link span {
+        display: inline-block;
+    }
+}
