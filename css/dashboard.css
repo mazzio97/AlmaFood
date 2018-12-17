@@ -1,8 +1,16 @@
+.nav-link {
+    display: inline;
+}
+
 /* Notifications */
 .notifications {
     position: relative;
     padding: 0;
     list-style: none;
+}
+
+.notification-panel {
+    margin: 1em auto;
 }
 
 .notifications ul {
@@ -23,13 +31,5 @@
     position: relative;
     float: right;
     width: 100%;
-    padding-left: 60px;
     text-align: left;
-}
-
-.notifications>li .notification-image {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: var(--info);
 }
