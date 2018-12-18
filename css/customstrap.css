@@ -1,15 +1,10 @@
+:root {
+    --alma: #C61000;
+}
 /* Here goes all the styles to customize generic used bootstrap elements */
-.btn-primary {
-    background-color: #C61000;
-    border-color: #C61000;
-}
-.btn-primary:hover {
-    background-color: #C61000;
-    border-color: #C61000;
-}
 .navbar {
     color: white;
-    background-color: #C61000;
+    background-color: var(--alma);
     font-weight: bold;
     padding-left: 0.35em;
     padding-right: 0;
@@ -17,16 +12,16 @@
 .nav-link {
     color: white;
     font-size: 1.5em;
-    padding: 1em 0.5em; 
+    padding: 1em 0.5em;
+    display: inline;
 }
 .nav-link:hover, .active {
     background-color: white;
-    color: #C61000;
+    color: var(--alma);
 }
 .nav-link span {
     display: none;
 }
-
 @media only screen and (min-width: 768px) {
     .navbar {
         padding: 0 0.75em;
@@ -44,4 +39,9 @@
     .nav-link span {
         display: inline-block;
     }
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before, 
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-color: var(--alma);
 }
