@@ -10,13 +10,14 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -60%);
 }
+/* Any big enough value can do the trick */
 .rounded-borders {
-    border-radius: 9999px; 
+    border-radius: 100rem;
 }
 .squared-borders {
-    padding: 0.2em;
-    border-radius: 0.4em;
-    border: 0.075em solid;
+    padding: 0.2rem;
+    border-radius: 0.4rem;
+    border: 0.075rem solid;
 }
 .fa-sad-cry, .fa-frown {
     color: var(--danger);
