@@ -1,0 +1,36 @@
+body {
+	background-color: #efefef;
+}
+
+.form-search {
+	margin: 2em auto;
+	padding: 1.5em 1em;
+}
+
+.badge-category {
+	font-size: 0.75em;
+	color: white;
+	background-color: rgba(226, 126, 44);
+}
+
+.supplier {
+	background-color: white;
+	box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+	margin: 2em auto;
+	padding: 1em 1.5em;
+}
+
+.filter {
+	margin-top: 2em;
+}
+
+.category-filter {
+	border-radius: 0.25em;
+	padding: 1em;
+	margin: 0.5em 0;
+	background-color: white;
+}
+
+.filters .fas {
+	font-size: 1.5em;
+}

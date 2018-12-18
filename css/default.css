@@ -10,3 +10,20 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -60%);
 }
+.rounded-borders {
+    border-radius: 9999px; 
+}
+.squared-borders {
+    padding: 0.2em;
+    border-radius: 0.4em;
+    border: 0.075em solid;
+}
+.fa-sad-cry, .fa-frown {
+    color: var(--danger);
+}
+.fa-meh {
+    color: var(--warning);
+}
+.fa-smile, .fa-grin-hearts {
+    color: var(--success);
+}
