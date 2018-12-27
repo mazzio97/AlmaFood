@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION["username"]))
+    header("location: /almafood");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +24,7 @@
 
 <body>
   <nav class="navbar sticky-top">
-    <a class="navbar-brand">AlmaFood</a>
+    <a class="navbar-brand"><?= $_SESSION["nome"] . " " . $_SESSION["cognome"] ?></a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active" href="#">
@@ -39,7 +45,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="exit.php">
           <i class="fas fa-sign-out-alt"></i>
           <span>Esci</span>
         </a>

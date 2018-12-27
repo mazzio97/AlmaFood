@@ -1,3 +1,14 @@
+<?php
+  session_start();
+  if (isset($_SESSION["username"]))
+    header("location: /almafood/dashboard.php");
+  elseif (isset($_COOKIE["username"])) {
+    foreach ($_COOKIE as $key => $value)
+      $_SESSION[$key] = $value;
+    header("location: /almafood/dashboard.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,8 +27,8 @@
 </head>
 
 <body>
-  <svg class="fork centered" 
-  version="1.1" 
+  <svg class="fork centered"
+  version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   width="42.765644mm"
   height="290.20813mm"
@@ -29,9 +40,9 @@
 
   <div class="plate rounded-circle centered"></div>
 
-  <svg class="knife centered" 
-  version="1.1" 
-  xmlns="http://www.w3.org/2000/svg" 
+  <svg class="knife centered"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
   width="31.714291mm"
   height="289.38098mm"
   viewBox="0 0 31.714291 289.38098"
@@ -51,11 +62,11 @@
               <div class="card my-5">
                 <div class="card-body">
                   <h5 class="card-title text-center">Sign In</h5>
-                  <form>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="true">
+                  <form action="login.php" method="post">
+                    <input type="email" id="inputEmail" name="user" class="form-control" placeholder="Email address" required="true">
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="true">
                     <div class="custom-control mb-3">
-                      <input type="checkbox" class="custom-control-input" id="rememberPassword">
+                      <input type="checkbox" class="custom-control-input" id="rememberPassword" name="remember">
                       <label class="custom-control-label" for="rememberPassword">Remember password</label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
@@ -81,19 +92,19 @@
               <div class="card my-5">
                 <div class="card-body">
                   <h5 class="card-title text-center">Register</h5>
-                  <form>
+                  <form action="signup.php" method="post">
                     <div class="row">
                       <div class="col">
-                        <input type="text" id="inputName" class="form-control" placeholder="Name" required="true">
+                        <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" required="true">
                       </div>
                       <div class="col">
-                        <input type="text" id="inputSurname" class="form-control" placeholder="Surname" required="true">
+                        <input type="text" id="inputSurname" name="surname" class="form-control" placeholder="Surname" required="true">
                       </div>
                     </div>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
+                    <input type="email" id="inputEmail" name="email"class="form-control" placeholder="Email address" required="true">
                     <div class="row">
                       <div class="col-8">
-                        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
+                        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required="true">
                       </div>
                       <div class="col-4 text-right">
                         <input type="radio" name="userRole" value="client" id="client" checked="checked" class="valid"
@@ -103,9 +114,9 @@
                         <label for="supplier"><i class="fas fa-shipping-fast fa-2x"></i></label>
                       </div>
                     </div>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="true">
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password"
-                      required="true">
+                    <input type="text" id="inputRestaurant" name="restaurant" class="form-control" placeholder="Restaurant Name" required="true">
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="true">
+                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="true">
                     <div class="custom-control mb-3">
                       <input type="checkbox" class="custom-control-input" id="acceptTerms">
                       <label class="custom-control-label" for="acceptTerms">Accept <a href="#">Terms &amp; Conditions</a></label>
