@@ -34,17 +34,15 @@ checkError($data === NULL, "USER", $_POST["user"] . " is not a registered user/m
 checkError($data["password"] != $_POST["password"], "USER", "wrong password");
 unset($_SESSION["errid"]);
 unset($_SESSION["error"]);
+unset($data["password"]);
 
 // SESSION AND COOKIES
 $_SESSION["tipo"] = isset($data["ristorante"]) ? "fornitore" : "cliente";
-
 $expires = isset($_POST["remember"]) ? 2147483647 : 1;
 foreach ($data as $key => $value) {
   $_SESSION[$key] = $value;
   setcookie($key, $value, $expires, "/");
 }
-unset($_SESSION["password"]);
-setcookie("password", "", 1, "/");
 
 header("location: /almafood/dashboard.php");
 ?>
