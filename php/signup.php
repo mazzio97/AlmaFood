@@ -3,7 +3,7 @@ function checkError($condition, $errid, $error) {
   if ($condition) {
     $_SESSION["errid"] = $errid;
     $_SESSION["error"] = $error;
-    header("location: /almafood");
+    header("location: /almafood/");
   }
 }
 

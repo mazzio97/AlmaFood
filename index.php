@@ -57,11 +57,11 @@
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Sign In</h3>
-              <form class="form-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="true">
+              <form class="form-group" action="php/login.php" method="post">
+                <input type="email" id="inputEmail" name="user" class="form-control" placeholder="Email address" required="true">
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="true">
                 <div class="custom-control">
-                  <input type="checkbox" class="custom-control-input" id="rememberPassword">
+                  <input type="checkbox" class="custom-control-input" id="rememberPassword" name="remember">
                   <label class="custom-control-label" for="rememberPassword">Remember password</label>
                 </div>
                 <button class="btn btn-lg btn-alma btn-block text-uppercase" type="submit">Sign in</button>
@@ -84,19 +84,19 @@
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Register</h5>
-                <form>
+                <form action="php/signup.php" method="post">
                   <div class="row">
                     <div class="col">
-                      <input type="text" id="inputName" class="form-control" placeholder="Name" required="true">
+                      <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" required="true">
                     </div>
                     <div class="col">
-                      <input type="text" id="inputSurname" class="form-control" placeholder="Surname" required="true">
+                      <input type="text" id="inputSurname" name="surname" class="form-control" placeholder="Surname" required="true">
                     </div>
                   </div>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
+                  <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="true">
                   <div class="row">
                     <div class="col-8">
-                      <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
+                      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required="true">
                     </div>
                     <div class="col-4 text-right user-role">
                       <input type="radio" name="userRole" value="client" id="client" checked="checked" class="valid">
@@ -105,7 +105,8 @@
                       <label for="supplier"><i class="fas fa-shipping-fast fa-2x"></i></label>
                     </div>
                   </div>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="true">
+                  <input type="text" id="inputRestaurant" name="restaurant" class="form-control" placeholder="Restaurant Name" required="true">
+                  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="true">
                   <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password"
                     required="true">
                   <div class="custom-control mb-3">

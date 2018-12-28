@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(!isset($_SESSION["username"]))
-    header("location: /almafood");
+    header("location: /almafood/");
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="exit.php">
+        <a class="nav-link" href="php/exit.php">
           <i class="fas fa-sign-out-alt"></i>
           <span>Esci</span>
         </a>
