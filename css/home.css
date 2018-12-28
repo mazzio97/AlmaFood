@@ -20,16 +20,14 @@ body {
 .fork, .knife {
     height: 30vw;
     position: absolute;
+    fill: #C0C0C0;
+    stroke: #606060;
 }
 .fork {
-    fill: #efefef;
-    stroke: #606060;
     stroke-width: 0.2px;
     left: 27.5%;
 }
 .knife {
-    fill: #efefef;
-    stroke: #606060;
     stroke-width: 0.2px;
     left: 72.5%;
 }
@@ -55,6 +53,11 @@ body {
     padding: 0.5rem 0;
     margin-top: 0.5rem;
     font-weight: bold;
+    border: 0.2rem solid var(--alma);
+}
+.carousel-control-container:hover {
+    color: var(--alma);
+    background-color: #efefef;
 }
 .carousel-control-container > .fa-chevron-left {
     margin-right: 0.25rem;
@@ -72,7 +75,7 @@ input[name="userRole"]:hover + label {
 	cursor: pointer;
 }
 input[name="userRole"]:checked + label {
-    color: var(--primary);
+    color: var(--alma);
 }
 input[name="userRole"] + label {
     padding: 0.45rem;
@@ -88,4 +91,8 @@ input[name="userRole"] + label {
     .carousel-control-prev, .carousel-control-next {
         display: none;
     }
+}
+
+.form-control, .btn, .user-role {
+    margin: 0.5rem auto;
 }
