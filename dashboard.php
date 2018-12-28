@@ -17,9 +17,11 @@
   <link rel="stylesheet" href="css/customstrap.css" />
   <link rel="stylesheet" href="css/default.css" />
   <link rel="stylesheet" href="css/dashboard.css" />
-  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.bootstrap-growl.min.js"></script>
+  <script src="js/dashboard.js"></script>
 </head>
 
 <body>
