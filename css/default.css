@@ -35,3 +35,6 @@ a:hover {
 .fa-smile, .fa-grin-hearts {
     color: var(--success);
 }
+i:hover {
+    cursor: pointer;
+}

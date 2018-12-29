@@ -46,5 +46,9 @@
 .btn-alma {
     color: #fff;
     background-color: var(--alma);
-    border-color: var(--alma);
+    border: 0.125rem solid var(--alma);
+}
+.btn-alma:hover {
+    color: var(--alma);
+    background-color: #efefef;
 }
