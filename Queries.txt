@@ -1,0 +1,33 @@
+// ORDINI CLIENTE (user, n) -> CLIENT DASHBOARD
+SELECT ordine.idOrdine, ordine.dataora, ordine.costoTot, ordine.rec_qualità, ordine.rec_prezzo, aula.nome, stato.nome, fornitore.ristorante
+FROM ordine, aula, stato, fornitore
+WHERE ordine.idAula = aula.idAula
+AND ordine.idStato = stato.idStato
+AND ordine.forn_user = fornitore.username
+AND ordine.cli_user = ?
+ORDER BY ordine.dataora DESC
+LIMIT ?
+
+// ORDINI FORNITORE PENDENTI (2, user) -> VENDOR DASHBOARD
+SELECT ordine.idOrdine, ordine.dataora, ordine.costoTot, aula.nome, cliente.nome, cliente.cognome
+FROM ordine, aula, cliente
+WHERE ordine.idAula = aula.idAula
+AND ordine.idStato = ?
+AND ordine.forn_user = ?
+AND ordine.cli_user = cliente.username
+ORDER BY ordine.dataora ASC
+
+// ORDINI FORNITORE ATTIVI (2, user) -> VENDOR ORDERS
+SELECT ordine.idOrdine, ordine.dataora, ordine.costoTot, aula.nome, cliente.nome, cliente.cognome
+FROM ordine, aula, cliente
+WHERE ordine.idAula = aula.idAula
+AND ordine.idStato = ?
+AND ordine.forn_user = ?
+AND ordine.cli_user = cliente.username
+ORDER BY ordine.dataora ASC
+
+// PIETANZE IN ORDINE (idOrdine) -> CLIENT DASHBOARD + VENDOR DASHBOARD + VENDOR ORDERS
+SELECT pietanza.nome, pietanza_in_ordine.quantità
+FROM pietanza, pietanza_in_ordine
+WHERE pietanza_in_ordine.idOrdine = ?
+AND pietanza_in_ordine.idPietanza = pietanza.idPietanza

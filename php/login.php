@@ -1,20 +1,24 @@
 <?php
-function checkError($condition, $errid, $error) {
+$output = array();
+
+function checkError($condition, $errorClass, $errorSource, $errorDescription) {
   if ($condition) {
-    $_SESSION["errid"] = $errid;
-    $_SESSION["error"] = $error;
-    header("location: /almafood/");
+    $output["error"] = array(
+      "class" => $errorClass,
+      "source" => $errorSource,
+      "description" => $errorDescription
+    );
+    print json_encode($output);
     die();
   }
 }
 
 // SESSION
 session_start();
-checkError(!isset($_POST["user"]) or !isset($_POST["password"]), "INTERNAL", "missing variables");
 
 // CONNECTION
 $connection = new mysqli("localhost", "root", "", "almafood");
-checkError($connection->connect_error, "SERVER", "connection failed:" . $connection->connect_error);
+checkError($connection->connect_error, "SERVER", "CONNECTION", $connection->connect_error);
 
 // QUERY
 foreach (array("cliente", "fornitore") as $table) {
@@ -22,7 +26,7 @@ foreach (array("cliente", "fornitore") as $table) {
   $statement->bind_param("ss", $_POST["user"], $_POST["user"]);
   $statement->execute();
   $result = $statement->get_result();
-  checkError($result === false, "SERVER", "query failed: " .  $connection->error);
+  checkError($result === false, "SERVER", "QUERY", $connection->error);
   if ($data = $result->fetch_assoc())
     break;
 }
@@ -30,19 +34,18 @@ $statement->close();
 $connection->close();
 
 // DATA
-checkError($data === NULL, "USER", $_POST["user"] . " is not a registered user/mail");
-checkError($data["password"] != $_POST["password"], "USER", "wrong password");
-unset($_SESSION["errid"]);
-unset($_SESSION["error"]);
+checkError($data === NULL, "USER", "USERNAME", $_POST["user"] . " is not a registered user/mail");
+checkError($data["password"] != $_POST["password"], "USER", "PASSWORD", "wrong password");
 unset($data["password"]);
 
 // SESSION AND COOKIES
 $_SESSION["tipo"] = isset($data["ristorante"]) ? "fornitore" : "cliente";
-$expires = isset($_POST["remember"]) ? 2147483647 : 1;
+$expires = $_POST["remember"] == "true" ? 2147483647 : 1;
 foreach ($data as $key => $value) {
   $_SESSION[$key] = $value;
   setcookie($key, $value, $expires, "/");
 }
 
-header("location: /almafood/dashboard.php");
+$output["error"] = array("class" => "NONE");
+print json_encode($output);
 ?>
