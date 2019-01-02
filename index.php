@@ -58,11 +58,15 @@
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Sign In</h3>
-              <form class="form-group">
-                <input type="email" id="inputUser" class="form-control" placeholder="Email or Username" required="true">
-                <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
+              <form>
+                <div class="form-group">
+                  <input type="email" id="inputUser" class="form-control" placeholder="Email or Username" required="true">
+                </div>
+                <div class="form-group">              
+                  <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
+                </div>
                 <p id="loginErr" style="display: none; color: red">Error Paragraph</p> <!-- MAZZIO GUARDAMI !-->
-                <div class="custom-control">
+                <div class="custom-control mb-3">
                   <input type="checkbox" class="custom-control-input" id="rememberPassword">
                   <label class="custom-control-label" for="rememberPassword">Remember password</label>
                 </div>
@@ -80,27 +84,30 @@
       <div class="carousel-item active">
         <img class="logo centered" src="img/almafood.png" />
       </div>
+
       <!-- REGISTRATION -->
       <div class="carousel-item">
         <div class="container centered">
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Register</h5>
-                <form class="form-group">
-                  <div class="row">
-                    <div class="col">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-6">
                       <input type="text" id="inputName" class="form-control" placeholder="Name" required="true">
                     </div>
-                    <div class="col">
+                    <div class="form-group col-6">
                       <input type="text" id="inputSurname" class="form-control" placeholder="Surname" required="true">
                     </div>
                   </div>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
-                  <div class="row">
-                    <div class="col-8">
+                  <div class="form-group">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-8">
                       <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
                     </div>
-                    <div class="col-4 text-right user-role">
+                    <div class="form-group col-4 text-right user-role">
                       <input type="radio" name="userRole" value="client" id="client" checked="checked">
                       <label for="client"><i class="fas fa-user fa-2x"></i></label>
                       <input type="radio" name="userRole" value="supplier" id="supplier">
@@ -108,8 +115,12 @@
                     </div>
                   </div>
                   <!-- <input type="text" id="inputRestaurant" class="form-control" placeholder="Restaurant Name" required="true"> -->
-                  <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
-                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="true">
+                  <div class="form-group">
+                    <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="true">
+                  </div>
                   <p id="registerErr" class="badge badge-danger w-100 d-none">Error Paragraph</p>
                   <div class="custom-control mb-3">
                     <input type="checkbox" class="custom-control-input" id="acceptTerms">

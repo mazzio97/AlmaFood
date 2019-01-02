@@ -66,12 +66,12 @@ input[name="userRole"] + label {
     padding: 0.45rem;
 }
 
-.form-group .form-control, .form-group .btn {
-    margin: 0.5rem auto;
+.form-group {
+    margin-bottom: 0.75rem;
 }
 
 .user-role label {
-    margin-top: 0.25rem;
+    margin-top: -0.25rem;
     margin-bottom: 0; 
 }
 
