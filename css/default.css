@@ -19,17 +19,27 @@ a:hover {
   color: var(--alma);
   text-decoration: none;
 }
-.btn-alma {
+.btn-alma, .btn-outline-alma {
   font-size: 1.25rem;
   font-weight: bold;
+  padding: 0.75rem 0.5rem;
+  border: 0.15rem solid var(--alma);
+}
+.btn-alma {
   color: var(--light-grey);
   background-color: var(--alma);
-  padding: 0.75rem 0.5rem;
-  border: 0.175rem solid var(--alma);
 }
 .btn-alma:hover {
   color: var(--alma);
   background-color: var(--light-grey);
+}
+.btn-outline-alma {
+  color: var(--alma);
+  background-color: var(--light-grey);
+}
+.btn-outline-alma:hover {
+  color: var(--light-grey);
+  background-color: var(--alma);
 }
 .centered {
   position: absolute;
