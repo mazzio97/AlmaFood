@@ -1,54 +1,62 @@
-/* Here goes all the styles to customize generic used bootstrap elements */
+/* Here goes all the styles used to customize generic bootstrap elements */
 .navbar {
-    color: white;
-    background-color: var(--alma);
-    font-weight: bold;
-    padding-left: 0.35rem;
-    padding-right: 0;
+  color: white;
+  background-color: var(--alma);
+  font-weight: bold;
+  padding-left: 0.35rem;
+  padding-right: 0;
 }
 .nav-link {
-    color: white;
-    font-size: 1.5rem;
-    padding: 1rem 0.75rem;
-    display: inline;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 0.75rem;
+  display: inline;
 }
 .nav-link:hover, .nav-link .active {
-    background-color: white;
-    color: var(--alma);
+  background-color: white;
+  color: var(--alma);
 }
 .nav-link span {
-    display: none;
-}
-@media only screen and (min-width: 768px) {
-    .navbar {
-        padding: 0 0.75rem;
-    }
-    .navbar i {
-        margin: 0 0.25rem;
-    }
-    .navbar li {
-        padding: 1rem 0;
-    }
-    .nav-link {
-        font-size: 1.25rem;
-        padding: 1.25rem;
-    }
-    .nav-link span {
-        display: inline-block;
-    }
+  display: none;
 }
 
 .custom-control-input:checked ~ .custom-control-label::before, 
 .custom-control-input:checked ~ .custom-control-label::after {
-    background-color: var(--alma);
+  background-color: var(--alma);
 }
 
-.btn-alma {
-    color: #fff;
-    background-color: var(--alma);
-    border: 0.125rem solid var(--alma);
+.card-footer {
+  padding-top: 0;
+  padding-bottom: 0;
 }
-.btn-alma:hover {
-    color: var(--alma);
-    background-color: #efefef;
+.card-footer .col-4 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.card-footer .col-4:last-child {
+  border-right:none;
+}
+
+.modal-body ul {
+  list-style-type: disc;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    padding: 0 0.75rem;
+  }
+  .navbar i {
+    margin: 0 0.25rem;
+  }
+  .navbar li {
+    padding: 1rem 0;
+  }
+  .nav-link {
+    font-size: 1.25rem;
+    padding: 1.25rem;
+  }
+  .nav-link span {
+    display: inline-block;
+  }
 }

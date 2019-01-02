@@ -1,35 +1,14 @@
 /* Notifications */
 .notifications {
-    position: relative;
-    padding: 0;
-    list-style: none;
+  position: relative;
+  padding: 0;
+  list-style: none;
 }
-
 .notification-panel {
-    margin: 1rem auto;
-}
-
-.notifications ul {
-    list-style-type: disc;
-}
-
-.notifications>li .notification-panel {
-    position: relative;
-    float: right;
-    width: 100%;
-    text-align: left;
-}
-
-.card-footer {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.card-footer .col-4 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.125);
-}
-.card-footer .col-4:last-child {
-  border-right:none;
+  position: relative;
+  margin: 1rem auto;
+  float: right;
+  width: 100%;
+  text-align: left;
 }
   

@@ -59,160 +59,51 @@
     <div class="row">
       <div class="col-xs-12 col-lg-6 mx-auto">
         <ul class="notifications">
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header">
-                  <div class="row">
-                    <div class="col-6 text-left">Pinco Pallino</div>
-                    <div class="col-6 text-right text-muted">ORD001234</div>
-                  </div>
+          <li class="notification-panel">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-6 text-left">Pinco Pallino</div>
+                  <div class="col-6 text-right text-muted">ORD001234</div>
                 </div>
-                <div class="card-body text-left">
-                  <div class="row">
-                    <div class="col-6 text-left text-muted">Orario consegna</div>
-                    <div class="col-6 text-right">19:00</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6 text-left text-muted">Stato pagamento</div>
-                    <div class="col-6 text-right">&euro; 16.50</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6 text-left text-muted">Luogo consegna</div>
-                    <div class="col-6 text-right">Aula 2.9</div>
-                  </div>
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Dettagli ordine</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <ul>
-                            <li>Crescione con fric&ograve;</li>
-                            <li>Rotolo salsiccia, cipolla, peperoni, provola e patatine fritte</li>
-                          </ul>
-                        </div>
+              </div>
+              <div class="card-body text-left">
+                <div class="row">
+                  <div class="col-6 text-left text-muted">Orario consegna</div>
+                  <div class="col-6 text-right">19:00</div>
+                </div>
+                <div class="row">
+                  <div class="col-6 text-left text-muted">Stato pagamento</div>
+                  <div class="col-6 text-right">&euro; 16.50</div>
+                </div>
+                <div class="row">
+                  <div class="col-6 text-left text-muted">Luogo consegna</div>
+                  <div class="col-6 text-right">Aula 2.9</div>
+                </div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Dettagli ordine</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <ul>
+                          <li>Crescione con fric&ograve;</li>
+                          <li>Rotolo salsiccia, cipolla, peperoni, provola e patatine fritte</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer text-center">
-                  <div class="row">
-                    <div class="col-4"><a href="#" class="text-info" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-info"></i> Dettagli</a></div>
-                    <div class="col-4"><a href="#" class="text-success"><i class="fa fa-check"></i> Accetta</a></div>
-                    <div class="col-4"><a href="#" class="text-danger"><i class="fa fa-times"></i> Rifiuta</a></div>
-                  </div>
-                </div>
               </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header text-center">
-                  Luca Giuliani - <span class="text-muted">10 minutes ago</span>
-                </div>
-                <div class="card-body text-left">
-                  <ul>
-                    <li>Piadina salsiccia e cipolla</li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <a href="#" class="btn btn-success col-6">Accept</a>
-                    <a href="#" class="btn btn-danger col-6">Decline</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header text-center">
-                  Milo Marchetti - <span class="text-muted">1 hour ago</span>
-                </div>
-                <div class="card-body text-left">
-                  <ul>
-                    <li>Crescione con fric&ograve;</li>
-                    <li>Rotolo salsiccia, cipolla, peperoni, provola e patatine fritte</li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <a href="#" class="btn btn-success col-6">Accept</a>
-                    <a href="#" class="btn btn-danger col-6">Decline</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header text-center">
-                  Diego Mazzieri - <span class="text-muted">2 minutes ago</span>
-                </div>
-                <div class="card-body text-left">
-                  <ul>
-                    <li>Piadina crudo, squacquerone e rucola</li>
-                    <li>Roloto salame piccante, crema di carciofi e taleggio</li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <a href="#" class="btn btn-success col-6">Accept</a>
-                    <a href="#" class="btn btn-danger col-6">Decline</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header text-center">
-                  Luca Giuliani - <span class="text-muted">10 minutes ago</span>
-                </div>
-                <div class="card-body text-left">
-                  <ul>
-                    <li>Piadina salsiccia e cipolla</li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <a href="#" class="btn btn-success col-6">Accept</a>
-                    <a href="#" class="btn btn-danger col-6">Decline</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="notification-panel">
-              <div class="card">
-                <div class="card-header text-center">
-                  Milo Marchetti - <span class="text-muted">1 hour ago</span>
-                </div>
-                <div class="card-body text-left">
-                  <ul>
-                    <li>Crescione con fric&ograve;</li>
-                    <li>Rotolo salsiccia, cipolla, peperoni, provola e patatine fritte</li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <a href="#" class="btn btn-success col-6">Accept</a>
-                    <a href="#" class="btn btn-danger col-6">Decline</a>
-                  </div>
+              <div class="card-footer text-center">
+                <div class="row">
+                  <div class="col-4"><a href="#" class="text-info" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-info"></i> Dettagli</a></div>
+                  <div class="col-4"><a href="#" class="text-success"><i class="fa fa-check"></i> Accetta</a></div>
+                  <div class="col-4"><a href="#" class="text-danger"><i class="fa fa-times"></i> Rifiuta</a></div>
                 </div>
               </div>
             </div>

@@ -1,40 +1,60 @@
 :root {
-    --alma: #C61000;
+  --alma: #C61000;
+  --cloth: rgb(226, 126, 44);
+  --cloth-shadow: rgba(226, 126, 44, 0.5);
+  --light-grey: #efefef;
+  --dark-grey: #606060;
+  --silver: #c0c0c0;
+}
+body {
+	background-color: var(--light-grey);
 }
 ul, ol {
-    list-style: none;
+  list-style: none;
 }
 a {
-    color: var(--alma);
+  color: var(--alma);
 }
 a:hover {
-    color: var(--alma);
-    text-decoration: none;
+  color: var(--alma);
+  text-decoration: none;
+}
+.btn-alma {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--light-grey);
+  background-color: var(--alma);
+  padding: 0.75rem 0.5rem;
+  border: 0.175rem solid var(--alma);
+}
+.btn-alma:hover {
+  color: var(--alma);
+  background-color: var(--light-grey);
 }
 .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-/* Any big enough value can do the trick */
 .rounded-borders {
-    border-radius: 100rem;
+  /* Any big enough value can do the trick */
+  border-radius: 100rem;
 }
 .squared-borders {
-    padding: 0.2rem;
-    border-radius: 0.4rem;
-    border: 0.075rem solid;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  border: 0.075rem solid;
 }
 .fa-sad-cry, .fa-frown {
-    color: var(--danger);
+  color: var(--danger);
 }
 .fa-meh {
-    color: var(--warning);
+  color: var(--warning);
 }
 .fa-smile, .fa-grin-hearts {
-    color: var(--success);
+  color: var(--success);
 }
 i:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

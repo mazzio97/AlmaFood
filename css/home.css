@@ -3,10 +3,12 @@ html, body {
 }
 body {
     background: #efefef;
-    background-image: linear-gradient(90deg, transparent 50%, rgba(226, 126, 44, .5) 0),
-                      linear-gradient(transparent 50%, rgba(226, 126, 44, 0.5) 0);
+    background-image: linear-gradient(90deg, transparent 50%, var(--cloth-shadow) 0),
+                      linear-gradient(transparent 50%, var(--cloth-shadow) 0);
     background-size: 6.75vw 6.75vw;
 }
+
+/* Table */
 .logo {
     width: 34vw;
     height: 34vw;
@@ -14,14 +16,14 @@ body {
 .plate {
     width: 35vw;
     height: 35vw;
-    background-color: #efefef;
-    box-shadow: inset 0 0 10px #606060;
+    background-color: var(--light-grey);
+    box-shadow: inset 0 0 10px var(--dark-grey);
 }
 .fork, .knife {
     height: 30vw;
     position: absolute;
-    fill: #C0C0C0;
-    stroke: #606060;
+    fill: var(--silver);
+    stroke: var(--dark-grey);
 }
 .fork {
     stroke-width: 0.2px;
@@ -41,28 +43,11 @@ body {
     width: 100%;
     bottom: 1.5rem;
     text-align: center;
-    font-size: 1.5rem;
 }
-.carousel-control-container {
-    background-color: #C61000;
-    border-radius: 2rem;
-    padding: 0;
-    display: inline-block;
-    color: white;
-    vertical-align: middle;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    font-weight: bold;
-    border: 0.2rem solid var(--alma);
-}
-.carousel-control-container:hover {
-    color: var(--alma);
-    background-color: #efefef;
-}
-.carousel-control-container > .fa-chevron-left {
+.carousel-control .fa-chevron-left {
     margin-right: 0.25rem;
 }
-.carousel-control-container > .fa-chevron-right {
+.carousel-control .fa-chevron-right {
     margin-left: 0.25rem;
 }
 
@@ -81,18 +66,19 @@ input[name="userRole"] + label {
     padding: 0.45rem;
 }
 
-/* Media Queries */
+.form-control, .btn, .user-role {
+    margin: 0.5rem auto;
+}
+
+/* TOFIX: Media Queries */
 @media only screen and (max-width: 992px) {
     .knife, .fork {
         display: none;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .carousel-control-prev, .carousel-control-next {
         display: none;
     }
-}
-
-.form-control, .btn, .user-role {
-    margin: 0.5rem auto;
 }

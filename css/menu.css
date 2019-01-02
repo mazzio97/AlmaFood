@@ -1,16 +1,13 @@
-body {
-	background-color: #efefef;
-}
 .card {
 	margin: 2rem auto;
 }
 .card-header {
 	background-color: var(--alma);
-	color:#efefef;
+	color:var(--light-grey);
 }
 .menu-plate {
 	padding: 1rem 0 0;
-	border-bottom: 0.1rem solid #efefef;
+	border-bottom: 0.1rem solid var(--light-grey);
 }
 .menu-plate:last-child {
 	border-bottom: none;
@@ -28,7 +25,7 @@ body {
 }
 
 .card-body {
-	color: #606060;
+	color: var(--dark-grey);
 	padding-top: 0;
 	padding-bottom: 0;
 }

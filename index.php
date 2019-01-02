@@ -126,11 +126,11 @@
     <!-- CONTROLS -->
     <div class="container row">
       <div class="carousel-control mx-auto">
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 carousel-control-container" role="button" data-slide="prev">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 d-inline-block btn-alma rounded-borders" role="button" data-slide="prev">
           <i class="fas fa-chevron-left"></i>
           <span>Accedi</span>
         </a>
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 carousel-control-container" role="button" data-slide="next">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 d-inline-block btn-alma rounded-borders" role="button" data-slide="next">
           <span>Registrati</span>
           <i class="fas fa-chevron-right"></i>
         </a>
