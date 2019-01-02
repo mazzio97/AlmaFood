@@ -59,7 +59,7 @@
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Sign In</h3>
               <form class="form-group">
-                <input type="email" id="inputUser" class="form-control" placeholder="email or username" required="true">
+                <input type="email" id="inputUser" class="form-control" placeholder="Email or Username" required="true">
                 <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
                 <p id="loginErr" style="display: none; color: red">Error Paragraph</p> <!-- MAZZIO GUARDAMI !-->
                 <div class="custom-control">
@@ -86,7 +86,7 @@
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Register</h5>
-                <form>
+                <form class="form-group">
                   <div class="row">
                     <div class="col">
                       <input type="text" id="inputName" class="form-control" placeholder="Name" required="true">
