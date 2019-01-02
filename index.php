@@ -101,16 +101,16 @@
                       <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
                     </div>
                     <div class="col-4 text-right user-role">
-                      <input type="radio" name="userRole" value="client" id="client" checked="checked" class="valid">
+                      <input type="radio" name="userRole" value="client" id="client" checked="checked">
                       <label for="client"><i class="fas fa-user fa-2x"></i></label>
-                      <input type="radio" name="userRole" value="supplier" id="supplier" class="valid">
+                      <input type="radio" name="userRole" value="supplier" id="supplier">
                       <label for="supplier"><i class="fas fa-shipping-fast fa-2x"></i></label>
                     </div>
                   </div>
-                  <input type="text" id="inputRestaurant" class="form-control" placeholder="Restaurant Name" required="true">
+                  <!-- <input type="text" id="inputRestaurant" class="form-control" placeholder="Restaurant Name" required="true"> -->
                   <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
                   <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="true">
-                  <p id="registerErr" style="display:none; color: red">Error Paragraph</p> <!-- MAZZIO GUARDAMI !-->
+                  <p id="registerErr" class="badge badge-danger w-100 d-none">Error Paragraph</p>
                   <div class="custom-control mb-3">
                     <input type="checkbox" class="custom-control-input" id="acceptTerms">
                     <label class="custom-control-label" for="acceptTerms">Accept <a href="#">Terms &amp; Conditions</a></label>
