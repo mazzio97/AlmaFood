@@ -19,7 +19,7 @@
 	background-color: #ffffff;
 	box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
 	margin: 2rem auto;
-	padding: 1rem 1.5rem;
+	padding: 0.5rem 0;
 }
 
 .filter {
@@ -36,4 +36,35 @@
 .custom-control-input:checked ~ .custom-control-label::before, 
 .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--alma);
+}
+.category-filter {
+	font-size: 1.25rem;
+}
+
+.fa-sad-cry, .fa-frown {
+	color: var(--danger);
+}
+.fa-meh {
+	color: var(--warning);
+}
+.fa-smile, .fa-grin-hearts {
+	color: var(--success);
+}
+.checkbox-opinion input:checked + label .fa-sad-cry,
+.checkbox-opinion input:checked + label .fa-frown {
+	color: var(--light-grey);
+	background-color: var(--danger);
+}
+.checkbox-opinion input:checked + label .fa-meh {
+	color: var(--light-grey);
+	background-color: var(--warning);
+}
+.checkbox-opinion input:checked + label .fa-smile,
+.checkbox-opinion input:checked + label .fa-grin-hearts {
+	color: var(--light-grey);
+	background-color: var(--success);
+}
+
+.badge {
+	font-size: 1.1rem;
 }

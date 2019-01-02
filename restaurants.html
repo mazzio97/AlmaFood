@@ -25,110 +25,82 @@
     <div class="row mx-auto">
       <div class="col-12 col-xl-4">
         <div class="row">
-        <div class="filter col-6 col-xl-12">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#categoryFilter"
-            aria-expanded="false" aria-controls="categoryFilter">
-            <i class="fas fa-filter"></i> Categoria
-          </button>
-          <div id="categoryFilter" class="collapse category-filter">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="allCategory" checked>
-              <label class="custom-control-label" for="allCategory">Tutte</label>
+          <div class="filter col-6 col-xl-12">
+            <button class="btn-alma squared-borders" type="button" data-toggle="collapse" data-target="#categoryFilter"
+              aria-expanded="false" aria-controls="categoryFilter">
+              <i class="fas fa-filter"></i> Categoria
+            </button>
+            <div id="categoryFilter" class="collapse category-filter">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="allCategory" checked>
+                <label class="custom-control-label" for="allCategory">Tutte</label>
+              </div>
+              <hr />
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="piadaCategory">
+                <label class="custom-control-label" for="piadaCategory">Piadine</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="crescCategory">
+                <label class="custom-control-label" for="crescCategory">Crescioni</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="rotoCategory">
+                <label class="custom-control-label" for="rotoCategory">Rotoli</label>
+              </div>
             </div>
-            <hr />
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="piadaCategory">
-              <label class="custom-control-label" for="piadaCategory">Piadine</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="crescCategory">
-              <label class="custom-control-label" for="crescCategory">Crescioni</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="rotoCategory">
-              <label class="custom-control-label" for="rotoCategory">Rotoli</label>
+          </div>
+          <div class="filter col-6 col-xl-12">
+            <button class="btn-alma squared-borders" type="button" data-toggle="collapse" data-target="#opinionFilter"
+              aria-expanded="false" aria-controls="opinionFilter">
+              <i class="fas fa-meh-blank"></i> Opinione
+            </button>
+            <div id="opinionFilter" class="collapse category-filter">
+              <div class="checkbox-opinion">
+                  <input type="checkbox" id="shitCheck" class="not-visible"/>
+                  <label for="shitCheck"><i class="fas fa-sad-cry squared-borders"></i></label>
+                  <span>Assolutamente no</span>
+                </div>
+              <div class="checkbox-opinion">
+                <input type="checkbox" id="badCheck" class="not-visible"/>
+                <label for="badCheck"><i class="fas fa-frown squared-borders"></i></label>
+                <span>Più no che si</span>
+              </div>
+              <div class="checkbox-opinion">
+                <input type="checkbox" id="sosoCheck" class="not-visible"/>
+                <label for="sosoCheck"><i class="fas fa-meh squared-borders"></i></label>
+                <span>Nella media</span>
+              </div>
+              <div class="checkbox-opinion">
+                <input type="checkbox" id="goodCheck" class="not-visible"/>
+                <label for="goodCheck"><i class="fas fa-smile squared-borders"></i></label>
+                <span>Più si che no</span>
+              </div>
+              <div class="checkbox-opinion">
+                <input type="checkbox" id="excellentCheck" class="not-visible"/>
+                <label for="excellentCheck"><i class="fas fa-grin-hearts squared-borders"></i></label>
+                <span>Assolutamente si</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="filter col-6 col-xl-12">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#opinionFilter"
-            aria-expanded="false" aria-controls="opinionFilter">
-            <i class="fas fa-meh-blank"></i> Opinione
-          </button>
-          <div id="opinionFilter" class="collapse category-filter">
-            <div><i class="fas fa-sad-cry squared-borders"></i> Assolutamente no</div>
-            <div><i class="fas fa-frown squared-borders"></i> Più no che si</div>
-            <div><i class="fas fa-meh squared-borders"></i> Nella media</div>
-            <div><i class="fas fa-smile squared-borders"></i> Più si che no</div>
-            <div><i class="fas fa-grin-hearts squared-borders"></i> Assolutamente si</div>
-          </div>
-        </div>
-      </div>
       </div>
 
       <div class="col-12 col-xl-7 offset-xl-1 suppliers-list">
-        <div class="row supplier">
-          <div class="col-8">
-            <h4>Mascia</h4>
-            <span class="badge badge-category">Piadine</span>
-            <span class="badge badge-category">Rotoli</span>
-            <span class="badge badge-category">Crescioni</span>
-          </div>
-          <div class="row col-4">
-            <div class="col-6">Opinione<br />Utenti</span></div>
-            <div class="col-6"><i class="fas fa-sad-cry fa-2x squared-borders"></i></div>
-          </div>
-        </div>
-
-        <div class="row supplier">
-          <div class="col-8">
-            <h4>Mascia</h4>
-            <span class="badge badge-category">Piadine</span>
-            <span class="badge badge-category">Rotoli</span>
-            <span class="badge badge-category">Crescioni</span>
-          </div>
-          <div class="row col-4">
-            <div class="col-6">Opinione<br />Utenti</span></div>
-            <div class="col-6"><i class="fas fa-sad-cry fa-2x squared-borders"></i></div>
-          </div>
-        </div>
-
-        <div class="row supplier">
-          <div class="col-8">
-            <h4>Mascia</h4>
-            <span class="badge badge-category">Piadine</span>
-            <span class="badge badge-category">Rotoli</span>
-            <span class="badge badge-category">Crescioni</span>
-          </div>
-          <div class="row col-4">
-            <div class="col-6">Opinione<br />Utenti</span></div>
-            <div class="col-6"><i class="fas fa-sad-cry fa-2x squared-borders"></i></div>
-          </div>
-        </div>
-
-        <div class="row supplier">
-          <div class="col-8">
-            <h4>Mascia</h4>
-            <span class="badge badge-category">Piadine</span>
-            <span class="badge badge-category">Rotoli</span>
-            <span class="badge badge-category">Crescioni</span>
-          </div>
-          <div class="row col-4">
-            <div class="col-6">Opinione<br />Utenti</span></div>
-            <div class="col-6"><i class="fas fa-sad-cry fa-2x squared-borders"></i></div>
-          </div>
-        </div>
-
-        <div class="row supplier">
-          <div class="col-8">
-            <h4>Mascia</h4>
-            <span class="badge badge-category">Piadine</span>
-            <span class="badge badge-category">Rotoli</span>
-            <span class="badge badge-category">Crescioni</span>
-          </div>
-          <div class="row col-4">
-            <div class="col-6">Opinione<br />Utenti</span></div>
-            <div class="col-6"><i class="fas fa-sad-cry fa-2x squared-borders"></i></div>
+        <div class="card supplier text-center">
+          <div class="card-body">
+            <h4 class="card-title text-uppercase">Mascia</h4>
+            <div class="row">
+              <div class="col-6">
+                <span class="badge badge-category">Piadine</span>
+                <span class="badge badge-category">Rotoli</span>
+                <span class="badge badge-category">Crescioni</span>
+              </div>
+              <div class="col-6 text-center">
+                <div><i class="fas fa-sad-cry fa-3x squared-borders"></i></div>
+                <div>Opinione<br />Utenti</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
