@@ -1,0 +1,72 @@
+<?php
+function checkError($condition, $errorClass, $errorSource, $errorDescription) {
+  if ($condition) {
+    $output["error"] = array(
+      "class" => $errorClass,
+      "source" => $errorSource,
+      "description" => $errorDescription
+    );
+    print json_encode($output);
+    die();
+  }
+}
+// SESSION
+session_start();
+
+$output = array();
+if(isset($_GET["request"]))
+{
+    //CONNECTION
+    $connection = new mysqli("localhost", "root", "", "almafood");
+	checkError($connection->connect_error, "SERVER", "CONNECTION", $connection->connect_error);
+
+	switch ($_GET["request"]) {
+		case "orders":
+            $stmt = $connection->prepare("SELECT cliente.nome AS nomeCliente,
+                                                 cliente.cognome AS cognomeCliente,
+                                                 ordine.idOrdine AS ordine,
+                                                 ordine.costoTot AS costo,
+                                                 aula.nome AS aula
+                                          FROM ordine, cliente, aula
+                                          WHERE ordine.cli_user = cliente.username
+                                          AND  ordine.idAula = aula.idAula
+                                          AND ordine.idStato = 1
+                                          AND cliente.username = ?
+                                          ORDER BY ordine.dataora ASC");
+            $stmt->bind_param("s", $_SESSION["username"]);
+			$stmt->execute();
+			$result = $stmt->get_result();
+
+            $output["order"] = array();
+			while($row = $result->fetch_assoc()) {
+				$output["order"][] = $row;
+			}
+            checkError(count($output["order"]) == 0, "SERVER", "QUERY", "Query errata -> nessun risultato");
+			break;
+
+		case "dishes_in_order":
+            $orderId = 0;
+			if(isset($_GET["orderId"])){
+				$orderId = $_GET["orderId"];
+			}
+            $stmt = $connection->prepare("SELECT pietanza.nome AS nomePietanza
+                                          FROM pietanza_in_ordine, pietanza
+                                          WHERE pietanza_in_ordine.idPietanza = pietanza.idPietanza
+                                          AND idOrdine=?");
+            $stmt->bind_param("i", $orderId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $output["dish"] = array();
+            while($row = $result->fetch_assoc()) {
+                $output["dish"][] = $row;
+            }
+            checkError(count($output["dish"]) == 0, "SERVER", "QUERY", "Query errata -> nessun risultato");
+            break;
+	}
+    $output["error"] = array("class" => "NONE");
+    print json_encode($output);
+    $stmt->close();
+    $connection->close();
+}
+?>
