@@ -3,7 +3,7 @@ $(document).ready(function() {
         $(".carousel-control").remove();
     });
 
-    $("#loginBtn").click(function() {
+    $("#loginBtn").click(function(event) {
       event.preventDefault();
 
       var input = {
@@ -31,7 +31,7 @@ $(document).ready(function() {
       }, "json");
     });
 
-    $("#registerBtn").click(function() {
+    $("#registerBtn").click(function(event) {
       event.preventDefault();
 
       if(!$("#acceptTerms").prop("checked")) {
