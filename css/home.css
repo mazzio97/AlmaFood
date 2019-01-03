@@ -1,3 +1,7 @@
+:root {
+    --logo-size: 74vw;
+}
+
 html, body {
     height: 100%;
 }
@@ -5,33 +9,25 @@ body {
     background: #efefef;
     background-image: linear-gradient(90deg, transparent 50%, var(--cloth-shadow) 0),
                       linear-gradient(transparent 50%, var(--cloth-shadow) 0);
-    background-size: 6.75vw 6.75vw;
+    background-size: calc(var(--logo-size)/5) calc(var(--logo-size)/5);
 }
 
 /* Table */
+.fork, .knife {
+    display: none;
+}
+.logo, .plate {
+    top: 40%;
+}
 .logo {
-    width: 34vw;
-    height: 34vw;
+    width: var(--logo-size);
+    height: var(--logo-size);
 }
 .plate {
-    width: 35vw;
-    height: 35vw;
+    width: calc(var(--logo-size) + 1vw);
+    height: calc(var(--logo-size) + 1vw);
     background-color: var(--light-grey);
     box-shadow: inset 0 0 10px var(--dark-grey);
-}
-.fork, .knife {
-    height: 30vw;
-    position: absolute;
-    fill: var(--silver);
-    stroke: var(--dark-grey);
-}
-.fork {
-    stroke-width: 0.2px;
-    left: 27.5%;
-}
-.knife {
-    stroke-width: 0.2px;
-    left: 72.5%;
 }
 
 /* Carousel */
@@ -41,7 +37,7 @@ body {
 .carousel-control {
     position: absolute;
     width: 100%;
-    bottom: 1.5rem;
+    bottom: 0;
     text-align: center;
 }
 .carousel-control .fa-chevron-left {
@@ -64,26 +60,53 @@ input[name="userRole"]:checked + label {
 }
 input[name="userRole"] + label {
     padding: 0.45rem;
+    margin-top: -0.25rem;
+    margin-bottom: 0; 
 }
 
 .form-group {
     margin-bottom: 0.75rem;
 }
 
-.user-role label {
-    margin-top: -0.25rem;
-    margin-bottom: 0; 
-}
-
-/* TOFIX: Media Queries */
-@media only screen and (max-width: 992px) {
-    .knife, .fork {
-        display: none;
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+    :root {
+        --logo-size: 60vw;
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .carousel-control-prev, .carousel-control-next {
-        display: none;
+@media only screen and (min-width: 992px) {
+    :root {
+        --logo-size: 42vw;
+    }
+    .knife, .fork {
+        display: block;
+        top: 40%;
+        height: calc(var(--logo-size) - 5vw);
+        position: absolute;
+        fill: var(--silver);
+        stroke: var(--dark-grey);
+        stroke-width: 0.2px;
+    }
+    .fork {
+        left: 22.5%
+    }
+    .knife {
+        left: 77.5%;
+    }
+    .carousel-control {
+        bottom: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    :root {
+        --logo-size: 34vw;
+    }
+    .fork {
+        left: 27.5%
+    }
+    .knife {
+        left: 72.5%;
     }
 }

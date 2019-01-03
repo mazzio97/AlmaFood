@@ -107,7 +107,7 @@
                     <div class="form-group col-8">
                       <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
                     </div>
-                    <div class="form-group col-4 text-right user-role">
+                    <div class="form-group col-4 text-right">
                       <input type="radio" name="userRole" value="client" id="client" checked="checked">
                       <label for="client"><i class="fas fa-user fa-2x"></i></label>
                       <input type="radio" name="userRole" value="supplier" id="supplier">
@@ -137,11 +137,11 @@
     <!-- CONTROLS -->
     <div class="container row">
       <div class="carousel-control mx-auto">
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 d-inline-block btn-alma rounded-borders" role="button" data-slide="prev">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-borders mb-3" role="button" data-slide="prev">
           <i class="fas fa-chevron-left"></i>
           <span>Accedi</span>
         </a>
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-2 d-inline-block btn-alma rounded-borders" role="button" data-slide="next">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-borders mb-3" role="button" data-slide="next">
           <span>Registrati</span>
           <i class="fas fa-chevron-right"></i>
         </a>
