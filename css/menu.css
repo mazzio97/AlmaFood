@@ -16,12 +16,14 @@
 	color: black;
 }
 .menu-plate i {
-	font-size: 1.5em;
 	padding: 0 0.25rem;
 	color: var(--alma);
 }
+.fa-edit, .fa-trash {
+	font-size: 1.5em;
+}
 .menu-plate .d-inline {
-	margin-right: 1rem;
+	margin-right: 0.5rem;
 }
 
 .card-body {
