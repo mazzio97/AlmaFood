@@ -16,7 +16,7 @@ body {
 .fork, .knife {
     display: none;
 }
-.logo, .plate {
+.logo, .plate, .carousel-item .container {
     top: 40%;
 }
 .logo {
