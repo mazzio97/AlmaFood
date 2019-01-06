@@ -26,27 +26,28 @@ if(isset($_GET["request"]))
                                                  cliente.cognome AS cognomeCliente,
                                                  ordine.idOrdine AS ordine,
                                                  ordine.costoTot AS costo,
+                                                 ordine.dataora AS oraConsegna,
                                                  aula.nome AS aula
-                                          FROM ordine, cliente, aula
-                                          WHERE ordine.cli_user = cliente.username
-                                          AND  ordine.idAula = aula.idAula
-                                          AND ordine.idStato = 1
-                                          AND cliente.username = ?
-                                          ORDER BY ordine.dataora ASC");
+                                      FROM ordine, cliente, aula
+                                      WHERE ordine.cli_user = cliente.username
+                                      AND  ordine.idAula = aula.idAula
+                                      AND ordine.idStato = 1
+                                      AND " . $_SESSION["tipo"] . ".username = ?
+                                      ORDER BY ordine.dataora ASC");
             $stmt->bind_param("s", $_SESSION["username"]);
 			$stmt->execute();
 			$result = $stmt->get_result();
 
             $output["order"] = array();
-			while($row = $result->fetch_assoc()) {
+			while ($row = $result->fetch_assoc()) {
 				$output["order"][] = $row;
 			}
-            checkError(count($output["order"]) == 0, "SERVER", "QUERY", "Query errata -> nessun risultato");
+            checkError(count($output["order"]) == 0, "SERVER", "QUERY", "Nessun ordine da visualizzare");
 			break;
 
 		case "dishes_in_order":
             $orderId = 0;
-			if(isset($_GET["orderId"])){
+			if (isset($_GET["orderId"])) {
 				$orderId = $_GET["orderId"];
 			}
             $stmt = $connection->prepare("SELECT pietanza.nome AS nomePietanza
@@ -61,7 +62,7 @@ if(isset($_GET["request"]))
             while($row = $result->fetch_assoc()) {
                 $output["dish"][] = $row;
             }
-            checkError(count($output["dish"]) == 0, "SERVER", "QUERY", "Query errata -> nessun risultato");
+            checkError(count($output["dish"]) == 0, "SERVER", "QUERY", "Nessun risultato");
             break;
 	}
     $output["error"] = array("class" => "NONE");

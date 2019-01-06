@@ -12,11 +12,34 @@ function showNotification(msg, type) {
         });
     }
 }
+function getDateFromUTC(utc) {
+    var date = new Date();
+    date.setTime(utc * 1000);
+    return date;
+}
+function getUTCFromDate(date) {
+    return Math.floor(date.getTime() / 1000);
+}
+function getHoursMin(utc) {
+    console.log(getDateFromUTC(utc));
+    return getDateFromUTC(utc).getHours() + ":" + getDateFromUTC(utc).getMinutes();
+}
 $(document).ready(function() {
+    $("ul.notifications").on("click","a.text-success" ,function() {
+        showNotification("Richiesta accettata", "success");
+        $(this).parentsUntil(".notification-panel").slideUp("slow");
+    });
+    $("ul.notifications").on("click","a.text-danger" ,function() {
+        showNotification("Richiesta declinata", "danger");
+        $(this).parentsUntil(".notification-panel").slideUp("slow");
+    });
     $.getJSON("php/dashboard.php?request=orders", function(output) {
         var html_code = "";
-        if(output["order"] == null)
+        if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
+            html_code += '<li><p align="center" style="color: red">' + output["error"]["description"] + '</p></li>';
+            $("ul.notifications").html(html_code);
             return;
+        }
         for (var i = 0; i < output["order"].length; i++) {
                 html_code += `<li>
                               <div class="notification-panel">
@@ -30,7 +53,7 @@ $(document).ready(function() {
                                   <div class="card-body text-left">
                                     <div class="row">
                                       <div class="col-6 text-left text-muted">Orario consegna</div>
-                                      <div class="col-6 text-right">19:00</div>
+                                      <div class="col-6 text-right">` + getHoursMin(output["order"][i]["oraConsegna"]) + `</div>
                                     </div>
                                     <div class="row">
                                       <div class="col-6 text-left text-muted">Stato pagamento</div>
@@ -77,14 +100,5 @@ $(document).ready(function() {
                     </li>`;
             }
         $("ul.notifications").html(html_code);
-    });
-
-    $("ul.notifications").on("click","a.text-success" ,function() {
-        showNotification("Richiesta accettata", "success");
-        $(this).parentsUntil(".notification-panel").slideUp("slow");
-    });
-    $("ul.notifications").on("click","a.text-danger" ,function() {
-        showNotification("Richiesta declinata", "danger");
-        $(this).parentsUntil(".notification-panel").slideUp("slow");
     });
 });
