@@ -21,17 +21,24 @@ function getUTCFromDate(date) {
     return Math.floor(date.getTime() / 1000);
 }
 function getHoursMin(utc) {
-    console.log(getDateFromUTC(utc));
     return getDateFromUTC(utc).getHours() + ":" + getDateFromUTC(utc).getMinutes();
 }
 $(document).ready(function() {
     $("ul.notifications").on("click","a.text-success" ,function() {
+        var orderId = $(this).parentsUntil(".notification-panel").find("#orderId").text();
+        var newState = 2;
         showNotification("Richiesta accettata", "success");
         $(this).parentsUntil(".notification-panel").slideUp("slow");
+        $.getJSON("php/dashboard.php?request=modify_order&orderId=" +
+            orderId + "&state=" + newState);
     });
     $("ul.notifications").on("click","a.text-danger" ,function() {
+        var orderId = $(this).parentsUntil(".notification-panel").find("#orderId").text();
+        var newState = 3;
         showNotification("Richiesta declinata", "danger");
         $(this).parentsUntil(".notification-panel").slideUp("slow");
+        $.getJSON("php/dashboard.php?request=modify_order&orderId=" +
+            orderId + "&state=" + newState);
     });
     $.getJSON("php/dashboard.php?request=orders", function(output) {
         var html_code = "";
@@ -47,7 +54,7 @@ $(document).ready(function() {
                                   <div class="card-header">
                                     <div class="row">
                                       <div class="col-6 text-left">` + output["order"][i]["cognomeCliente"] + " " + output["order"][i]["nomeCliente"] +`</div>
-                                      <div class="col-6 text-right text-muted">` + output["order"][i]["ordine"] +`</div>
+                                      <div class="col-6 text-right text-muted" id="orderId">` + output["order"][i]["ordine"] +`</div>
                                     </div>
                                   </div>
                                   <div class="card-body text-left">

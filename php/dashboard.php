@@ -53,7 +53,7 @@ if(isset($_GET["request"]))
             $stmt = $connection->prepare("SELECT pietanza.nome AS nomePietanza
                                           FROM pietanza_in_ordine, pietanza
                                           WHERE pietanza_in_ordine.idPietanza = pietanza.idPietanza
-                                          AND idOrdine=?");
+                                          AND idOrdine = ?");
             $stmt->bind_param("i", $orderId);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -63,6 +63,17 @@ if(isset($_GET["request"]))
                 $output["dish"][] = $row;
             }
             checkError(count($output["dish"]) == 0, "SERVER", "QUERY", "Nessun risultato");
+            break;
+        case "modify_order":
+            $orderId = 0;
+            $state = 0;
+			if (isset($_GET["orderId"]) && isset($_GET["state"])) {
+				$orderId = $_GET["orderId"];
+                $state = $_GET["state"];
+			}
+            $stmt = $connection->prepare("UPDATE ordine SET idStato = ? WHERE idOrdine = ?");
+            $stmt->bind_param("ii", $state, $orderId);
+            $stmt->execute();
             break;
 	}
     $output["error"] = array("class" => "NONE");
