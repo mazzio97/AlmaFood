@@ -47,10 +47,6 @@ a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.rounded-borders {
-  /* Any big enough value can do the trick */
-  border-radius: 100rem;
-}
 .squared-borders {
   border-radius: 0.4rem;
 }
