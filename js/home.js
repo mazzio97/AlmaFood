@@ -2,8 +2,6 @@ $(document).ready(function() {
     $(".carousel-control a").click(function() {
         $(".carousel-control").remove();
         $(".plate").remove();
-        $(".fork").remove();
-        $(".knife").remove();
     });
 
     $("#loginBtn").click(function(event) {
