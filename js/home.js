@@ -1,78 +1,81 @@
+function showError(error, selector) {
+  switch(error["class"]) {
+    case "NONE":
+      $(location).attr("href", "/almafood/dashboard.php");
+      break;
+    case "SERVER":
+      error["description"] = "internal error";
+      break;
+  }
+  $(selector).show();
+  $(selector).html(error["description"]);
+}
+
+function checkboxToggle() {
+  $("#inputName").parent().toggle();
+  $("#inputSurname").parent().toggle();
+  $("#inputRestaurant").parent().toggle();
+}
+
 $(document).ready(function() {
+    $("#loginErr").hide();
+    $("#registerErr").hide();
+    $("#inputRestaurant").parent().hide();
+
     $(".carousel-control a").click(function() {
         $(".carousel-control").remove();
         $(".plate").remove();
     });
 
+    $("#client").change(function(){
+      checkboxToggle();
+    });
+
+    $("#vendor").change(function(){
+      checkboxToggle();
+    });
+
     $("#loginBtn").click(function(event) {
       event.preventDefault();
-
+      // JSON DATA
       var input = {
-        user: $("#inputUser").val(),
+        user: $("#inputUser").val().trim(),
         password: $("#inputLoginPassword").val(),
         remember: $("#rememberPassword").prop("checked")
       };
-
+      // DATA
       $.post("php/login.php", input, function(output) {
-        switch(output["error"]["class"]) {
-          case "NONE":
-            $(location).attr("href", "/almafood/dashboard.php");
-            break;
-          case "USER":
-            $("#loginErr").show();
-            $("#loginErr").html(output["error"]["description"]);
-            $("#inputLogiPassword").val("");
-            if (output["error"]["source"] === "USERNAME")
-              $("#inputUser").val("");
-            break;
-          default:
-            $("#loginErr").show();
-            $("#loginErr").html("internal error");
-        }
+        showError(output["error"], "#loginErr");
       }, "json");
     });
 
     $("#registerBtn").click(function(event) {
       event.preventDefault();
-
+      // TERMS CHECKS
       if(!$("#acceptTerms").prop("checked")) {
         $("#registerErr").show();
-        $("#registerErr").html("accept the terms to go on");
+        $("#registerErr").html("accetta i termini per continuare");
         return;
       }
+      // PASSWORDS CHECKS
       if($("#inputRegisterPassword").val() != $("#inputConfirmPassword").val()) {
         $("#registerErr").show();
-        $("#registerErr").html("passwords are not the same");
+        $("#registerErr").html("le passwords non corrispondono");
         return;
       }
-
+      // JSON DATA
       var input = {
-        name: $("#inputName").val(),
-        surname: $("#inputSurname").val(),
-        email: $("#inputEmail").val(),
-        username: $("#inputUsername").val(),
+        name: $("#inputName").val().trim(),
+        surname: $("#inputSurname").val().trim(),
+        restaurant: $("#inputRestaurant").val().trim(),
+        email: $("#inputEmail").val().trim(),
+        username: $("#inputUsername").val().trim(),
         userRole: $("#client").prop("checked") ? "cliente" : "fornitore",
-        restaurant: $("#inputRestaurant").val(),
         password: $("#inputRegisterPassword").val()
       };
-
+      // POST
       $.post("php/signup.php", input, function(output) {
-        switch(output["error"]["class"]) {
-          case "NONE":
-            $(location).attr("href", "/almafood/dashboard.php");
-            break;
-          case "USER":
-            $("#registerErr").show();
-            $("#registerErr").html(output["error"]["description"]);
-            if(output["error"]["source"] === "USERNAME")
-              $("#inputUsername").val("");
-            else
-              $("#inputEmail").val("");
-            break;
-          default:
-            $("#registerErr").show();
-            $("#registerErr").html("internal error");
-        }
+        showError(output["error"], "#registerErr");
       }, "json");
     });
 });

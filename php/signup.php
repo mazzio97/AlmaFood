@@ -30,8 +30,8 @@ foreach (array("cliente", "fornitore") as $table) {
   if ($data = $result->fetch_assoc())
     break;
 }
-checkError($data and $data["username"] === $_POST["username"], "USER", "USERNAME", "this username already signed up");
-checkError($data and $data["email"] === $_POST["email"], "USER", "EMAIL", "this email already signed up");
+checkError($data and $data["username"] === $_POST["username"], "USER", "USERNAME", "questo username è già presente");
+checkError($data and $data["email"] === $_POST["email"], "USER", "EMAIL", "questa e-mail è già stata utilizzata");
 
 // INSERTION
 if ($_POST["userRole"] === "cliente") {

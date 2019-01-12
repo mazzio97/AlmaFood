@@ -34,8 +34,8 @@ $statement->close();
 $connection->close();
 
 // DATA
-checkError($data === NULL, "USER", "USERNAME", $_POST["user"] . " is not a registered user/mail");
-checkError($data["password"] != $_POST["password"], "USER", "PASSWORD", "wrong password");
+checkError($data === NULL, "USER", "USERNAME", $_POST["user"] . " non è uno username/e-mail presente");
+checkError($data["password"] != $_POST["password"], "USER", "PASSWORD", "password errata");
 unset($data["password"]);
 
 // SESSION AND COOKIES
