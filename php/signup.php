@@ -1,24 +1,5 @@
 <?php
-$output = array();
-
-function checkError($condition, $errorClass, $errorSource, $errorDescription) {
-  if ($condition) {
-    $output["error"] = array(
-      "class" => $errorClass,
-      "source" => $errorSource,
-      "description" => $errorDescription
-    );
-    print json_encode($output);
-    die();
-  }
-}
-
-// SESSION
-session_start();
-
-// CONNECTION
-$connection = new mysqli("localhost", "root", "", "almafood");
-checkError($connection->connect_error, "SERVER", "CONNECTION", $connection->connect_error);
+foreach (glob('utils/*.php') as $file) require_once $file;
 
 // QUERY
 foreach (array("cliente", "fornitore") as $table) {
@@ -54,6 +35,5 @@ $_SESSION["ruolo"] = $_POST["userRole"];
 if ($_POST["userRole"] == "fornitore")
   $_SESSION["ristorante"] = $_POST["restaurant"];
 
-$output["error"] = array("class" => "NONE");
-print json_encode($output);
+closeWithoutErrors();
 ?>

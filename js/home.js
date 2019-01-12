@@ -2,10 +2,9 @@ function showError(error, selector) {
   switch(error["class"]) {
     case "NONE":
       $(location).attr("href", "/almafood/dashboard.php");
-      break;
+      return;
     case "SERVER":
       error["description"] = "internal error";
-      break;
   }
   $(selector).show();
   $(selector).html(error["description"]);

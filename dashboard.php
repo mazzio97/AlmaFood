@@ -1,7 +1,7 @@
 <?php
   session_start();
-  // if(!isset($_SESSION["username"]))
-  //   header("location: /almafood/");
+  if(!isset($_SESSION["username"]))
+    header("location: /almafood/");
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 
 <body>
   <nav class="navbar sticky-top">
-    <a class="navbar-brand"><?= $_SESSION["nome"] . " " . $_SESSION["cognome"] ?></a>
+    <a class="navbar-brand"><?= $_SESSION["nominativo"] ?></a>
     <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active" href="#">
