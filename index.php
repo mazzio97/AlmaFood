@@ -57,24 +57,22 @@
         <div class="container centered">
           <div class="row">
             <div class="card col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <h3 class="text-center">Accedi</h3>
-              <form>
+              <form class="card-body">
+                <h3 class="text-center">Accedi</h3>
                 <div class="form-group">
-                  <input type="email" id="inputUser" class="form-control" placeholder="Email o Username" required="true">
+                  <input type="text" id="inputUser" class="form-control" placeholder="Email o Username" required="true">
                 </div>
                 <div class="form-group">
                   <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
                 </div>
-                <p id="registerErr" class="badge badge-danger w-100 d-none">Errore</p>
+                <p id="loginErr" class="badge badge-danger w-100 d-none">Errore</p>
                 <div class="custom-control mb-3">
                   <input type="checkbox" class="custom-control-input" id="rememberPassword">
                   <label class="custom-control-label" for="rememberPassword">Ricordami</label>
                 </div>
                 <button class="btn btn-lg btn-alma btn-block text-uppercase" type="submit" id="loginBtn">Sign in</button>
-                <div class="row">
-                  <span class="text-center col-12">Non hai ancora un account? <a href="#landingPage" data-slide="prev">Registrati</a></span>
-                </div>
               </form>
+              <span class="text-center w-100 mb-3">Non hai ancora un account? <a href="#landingPage" data-slide="prev">Registrati</a></span>
             </div>
           </div>
         </div>
@@ -90,45 +88,45 @@
         <div class="container centered">
           <div class="row">
             <div class="card col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <h3 class="text-center">Registrati</h5>
-                <form>
-                  <div class="form-row">
-                    <div class="form-group col-6">
-                      <input type="text" id="inputName" class="form-control" placeholder="Nome" required="true">
-                    </div>
-                    <div class="form-group col-6">
-                      <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" required="true">
-                    </div>
+              <form class="card-body">
+                <h3 class="text-center">Registrati</h5>
+                <div class="form-row">
+                  <div class="form-group col-6">
+                    <input type="text" id="inputName" class="form-control" placeholder="Nome" required="true">
                   </div>
-                  <div class="form-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="true">
+                  <div class="form-group col-6">
+                    <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" required="true">
                   </div>
-                  <div class="form-row">
-                    <div class="form-group col-8">
-                      <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
-                    </div>
-                    <div class="form-group col-4 text-right">
-                      <input type="radio" name="userRole" value="client" id="client" checked="checked">
-                      <label for="client"><i class="fas fa-user fa-2x"></i></label>
-                      <input type="radio" name="userRole" value="supplier" id="supplier">
-                      <label for="supplier"><i class="fas fa-shipping-fast fa-2x"></i></label>
-                    </div>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="true">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-8">
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
                   </div>
-                  <!-- <input type="text" id="inputRestaurant" class="form-control" placeholder="Restaurant Name" required="true"> -->
-                  <div class="form-group">
-                    <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
+                  <div class="form-group col-4 text-right">
+                    <input type="radio" name="userRole" value="client" id="client" checked="checked">
+                    <label for="client"><i class="fas fa-user fa-2x"></i></label>
+                    <input type="radio" name="userRole" value="supplier" id="supplier">
+                    <label for="supplier"><i class="fas fa-shipping-fast fa-2x"></i></label>
                   </div>
-                  <div class="form-group">
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Conferma Password" required="true">
-                  </div>
-                  <p id="registerErr" class="badge badge-danger w-100 d-none">Errore</p>
-                  <div class="custom-control mb-3">
-                    <input type="checkbox" class="custom-control-input" id="acceptTerms">
-                    <label class="custom-control-label" for="acceptTerms">Accetto <a href="#">Termini &amp; Condizioni</a></label>
-                  </div>
-                  <button class="btn btn-lg btn-alma btn-block text-uppercase" type="submit" id="registerBtn">Registrati</button>
-                </form>
-                <div class="text-center">Sei gi&agrave; registrato? <a href="#landingPage" data-slide="next">Accedi</a></div>
+                </div>
+                <!-- <input type="text" id="inputRestaurant" class="form-control" placeholder="Restaurant Name" required="true"> -->
+                <div class="form-group">
+                  <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Conferma Password" required="true">
+                </div>
+                <p id="registerErr" class="badge badge-danger w-100 d-none">Errore</p>
+                <div class="custom-control mb-3">
+                  <input type="checkbox" class="custom-control-input" id="acceptTerms">
+                  <label class="custom-control-label" for="acceptTerms">Accetto <a href="#">Termini &amp; Condizioni</a></label>
+                </div>
+                <button class="btn btn-lg btn-alma btn-block text-uppercase" type="submit" id="registerBtn">Registrati</button>
+              </form>
+              <span class="text-center w-100 mb-3">Sei gi&agrave; registrato? <a href="#landingPage" data-slide="next">Accedi</a></span>
             </div>
           </div>
         </div>
