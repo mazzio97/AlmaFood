@@ -25,7 +25,7 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/home.js"></script>
 </head>
 
 <body>
@@ -56,7 +56,7 @@
       <div class="carousel-item">
         <div class="container centered">
           <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Accedi</h3>
               <form>
                 <div class="form-group">
@@ -89,7 +89,7 @@
       <div class="carousel-item">
         <div class="container centered">
           <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card col-sm-9 col-md-7 col-lg-5 mx-auto">
               <h3 class="text-center">Registrati</h5>
                 <form>
                   <div class="form-row">
@@ -137,11 +137,11 @@
     <!-- CONTROLS -->
     <div class="container row">
       <div class="carousel-control mx-auto">
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-borders mb-3" role="button" data-slide="prev">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-pill mb-3" role="button" data-slide="prev">
           <i class="fas fa-chevron-left"></i>
           <span>Accedi</span>
         </a>
-        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-borders mb-3" role="button" data-slide="next">
+        <a href="#landingPage" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-pill mb-3" role="button" data-slide="next">
           <span>Registrati</span>
           <i class="fas fa-chevron-right"></i>
         </a>

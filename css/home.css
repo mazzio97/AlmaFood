@@ -34,6 +34,9 @@ body {
 .carousel, .carousel-inner, .carousel-item {
     height: 100%;
 }
+.carousel-item .card {
+    background-color: var(--light-grey);
+}
 .carousel-control {
     position: absolute;
     width: 100%;
@@ -49,8 +52,7 @@ body {
 
 /* Registration Form */
 input[name="userRole"] {
-	width: 0;
-	height: 0;
+	display: none;
 }
 input[name="userRole"]:hover + label {
 	cursor: pointer;
