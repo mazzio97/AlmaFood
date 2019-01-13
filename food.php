@@ -1,3 +1,7 @@
+<?php
+  require_once "php/utils/sessioncontrol.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +18,8 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/utils/htmlRetriever.js"></script>
+  <script src="js/food.js"></script>
 </head>
 
 <body>
@@ -38,31 +44,16 @@
           <div class="input-group-prepend">
             <label for="plateName" class="input-group-text">Categoria </label>
           </div>
-          <select class="custom-select" id="plateCategory">
-            <option selected>Scegli...</option>
-            <option value="1">Piadine</option>
-            <option value="2">Rotoli</option>
-            <option value="3">Crescioni</option>
+          <select class="template-categories custom-select" id="plateCategory">
+            <option ?>?</option>
           </select>
         </div>
       </div>
       <h4>Ingredienti</h4>
-      <div class="row mb-3" style="margin-left: 0.5rem">
+      <div class="template-ingredients row mb-3" style="margin-left: 0.5rem">
         <div class="custom-control ingredient-checkbox col-4 col-md-3">
-          <input type="checkbox" class="custom-control-input" id="allCategory" checked>
-          <label class="custom-control-label" for="allCategory">Pomodoro</label>
-        </div>
-        <div class="custom-control ingredient-checkbox col-4 col-md-3">
-          <input type="checkbox" class="custom-control-input" id="piadaCategory">
-          <label class="custom-control-label" for="piadaCategory">Salame</label>
-        </div>
-        <div class="custom-control ingredient-checkbox col-4 col-md-3">
-          <input type="checkbox" class="custom-control-input" id="crescCategory">
-          <label class="custom-control-label" for="crescCategory">Formaggio</label>
-        </div>
-        <div class="custom-control ingredient-checkbox col-4 col-md-3">
-          <input type="checkbox" class="custom-control-input" id="rotoCategory">
-          <label class="custom-control-label" for="rotoCategory">Insalata</label>
+          <input type="checkbox" class="custom-control-input" id="ingredient?" unchecked>
+          <label class="custom-control-label" for="ingredient?">?</label>
         </div>
       </div>
 
