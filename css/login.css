@@ -2,22 +2,17 @@
     --logo-size: 74vw;
 }
 
-html, body {
+html, body, .carousel, .carousel-inner, .carousel-item {
     height: 100%;
-}
-body {
-    background: #efefef;
-    background-image: linear-gradient(90deg, transparent 50%, var(--cloth-shadow) 0),
-                      linear-gradient(transparent 50%, var(--cloth-shadow) 0);
-    background-size: calc(var(--logo-size)/5) calc(var(--logo-size)/5);
 }
 
 /* Table */
+.logo, .plate, .fork, .knife {
+    z-index: 1;
+    top: 45%;
+}
 .fork, .knife {
     display: none;
-}
-.logo, .plate, .carousel-item .container {
-    top: 40%;
 }
 .logo {
     width: var(--logo-size);
@@ -31,13 +26,19 @@ body {
 }
 
 /* Carousel */
-.carousel, .carousel-inner, .carousel-item {
-    height: 100%;
+.carousel {
+    background: linear-gradient(90deg, transparent 50%, var(--cloth-shadow) 0),
+                linear-gradient(transparent 50%, var(--cloth-shadow) 0);
+    background-size: calc(var(--logo-size)/5) calc(var(--logo-size)/5);
+}
+.carousel-item {
+    z-index: 1;
 }
 .carousel-item .card {
     background-color: var(--light-grey);
 }
 .carousel-control {
+    z-index: 2;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -83,7 +84,6 @@ input[name="userRole"] + label {
     }
     .knife, .fork {
         display: block;
-        top: 40%;
         height: calc(var(--logo-size) - 5vw);
         position: absolute;
         fill: var(--silver);

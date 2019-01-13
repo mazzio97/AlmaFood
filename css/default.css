@@ -6,12 +6,20 @@
   --dark-grey: #606060;
   --silver: #c0c0c0;
 }
+
 body {
 	background-color: var(--light-grey);
 }
-ul, ol {
-  list-style: none;
+
+/* Position */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+/* Links */
 a {
   color: var(--alma);
 }
@@ -19,6 +27,8 @@ a:hover {
   color: var(--alma);
   text-decoration: none;
 }
+
+/* Buttons */
 .btn-alma, .btn-outline-alma {
   font-size: 1.25rem;
   font-weight: bold;
@@ -41,24 +51,39 @@ a:hover {
   color: var(--light-grey);
   background-color: var(--alma);
 }
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.squared-borders {
-  border-radius: 0.4rem;
-}
-.not-visible {
-  width: 0;
-  height: 0;
+
+/* Checkbox */
+.custom-control-input:checked ~ .custom-control-label::before, 
+.custom-control-input:checked ~ .custom-control-label::after {
+  background-color: var(--alma);
 }
 
-i:hover {
-  cursor: pointer;
+/* Range */
+input[type=range] {
 }
-i.squared-borders {
-  padding: 0.2em;
-  border: 0.05em solid;
-} 
+input[type=range]:focus {
+  outline: none;
+}
+/* la sbarretta del cazzo su chrome */
+input[type=range]::-webkit-slider-runnable-track {
+}
+/* il cazzo de pallino indicatore su chrome */
+input[type=range]::-webkit-slider-thumb {
+}
+/* la sbarretta del cazzo su mozilla */
+input[type=range]::-moz-range-track {
+}
+/* il cazzo de pallino indicatore su mozilla */
+input[type=range]::-moz-range-thumb {
+}
+
+/* Lists */
+ul, ol {
+  list-style: none;
+}
+
+/* Visibility */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}

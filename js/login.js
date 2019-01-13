@@ -1,7 +1,7 @@
 function showError(error, selector) {
   switch(error["class"]) {
     case "NONE":
-      $(location).attr("href", "/almafood/dashboard.php");
+      $(location).attr("href", "/almafood");
       return;
     case "SERVER":
       error["description"] = "internal error";
