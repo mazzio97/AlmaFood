@@ -1,7 +1,5 @@
 <?php
-  session_start();
-  if(!isset($_SESSION["username"]))
-    header("location: /almafood/");
+  require_once "php/utils/sessioncontrol.php";
 ?>
 
 <!DOCTYPE html>

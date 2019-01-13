@@ -1,5 +1,7 @@
 <?php
-foreach (glob('utils/*.php') as $file) require_once $file;
+require_once "utils/session.php";
+require_once "utils/errors.php";
+require_once "utils/connection.php";
 
 // QUERY
 foreach (array("cliente", "fornitore") as $table) {

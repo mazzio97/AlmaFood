@@ -1,5 +1,6 @@
 <?php
-  session_start();
+  require_once "php/utils/session.php";
+  
   if (isset($_SESSION["username"]))
     header("location: /almafood/dashboard.php");
   elseif (isset($_COOKIE["username"])) {
