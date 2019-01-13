@@ -35,5 +35,5 @@ foreach ($data as $key => $value) {
   setcookie($key, $value, $expires, "/");
 }
 
-closeWithoutErrors();
+closeWithoutErrors(array());
 ?>

@@ -19,6 +19,7 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.bootstrap-growl.min.js"></script>
+  <script src="js/utils/htmlRetriever.js"></script>
   <script src="js/dashboard.js"></script>
 </head>
 
@@ -56,52 +57,51 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-6 mx-auto">
-        <ul class="notifications">
+        <ul class="template-orders notifications">
           <li class="notification-panel">
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                  <div class="col-6 text-left">Pinco Pallino</div>
-                  <div class="col-6 text-right text-muted">ORD001234</div>
+                  <div class="col-6 text-left">?</div>
+                  <div class="col-6 text-right text-muted">#<span class="order-id">?</span></div>
                 </div>
               </div>
               <div class="card-body text-left">
                 <div class="row">
-                  <div class="col-6 text-left text-muted">Orario consegna</div>
-                  <div class="col-6 text-right">19:00</div>
+                  <div class="col-6 text-left text-muted">Data Consegna</div>
+                  <div class="col-6 text-right">?</div>
                 </div>
                 <div class="row">
-                  <div class="col-6 text-left text-muted">Stato pagamento</div>
-                  <div class="col-6 text-right">&euro; 16.50</div>
+                  <div class="col-6 text-left text-muted">Luogo Consegna</div>
+                  <div class="col-6 text-right">?</div>
                 </div>
                 <div class="row">
-                  <div class="col-6 text-left text-muted">Luogo consegna</div>
-                  <div class="col-6 text-right">Aula 2.9</div>
-                </div>
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Dettagli ordine</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <ul>
-                          <li>Crescione con fric&ograve;</li>
-                          <li>Rotolo salsiccia, cipolla, peperoni, provola e patatine fritte</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="col-6 text-left text-muted">Prezzo</div>
+                  <div class="col-6 text-right">? &euro;</div>
                 </div>
               </div>
               <div class="card-footer text-center">
                 <div class="row">
-                  <div class="col-4"><a href="#" class="text-info" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-info"></i> Dettagli</a></div>
+                  <div class="col-4"><a href="#" class="order-details text-info" data-toggle="modal" data-target="#details"><i class="fa fa-info"></i> Dettagli</a></div>
                   <div class="col-4"><a href="#" class="text-success"><i class="fa fa-check"></i> Accetta</a></div>
                   <div class="col-4"><a href="#" class="text-danger"><i class="fa fa-times"></i> Rifiuta</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Dettagli Ordine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="template-details">
+                      <li>?</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

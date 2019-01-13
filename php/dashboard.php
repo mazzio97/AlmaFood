@@ -18,7 +18,7 @@
                                       WHERE ordine.cli_user = cliente.username
                                       AND  ordine.idAula = aula.idAula
                                       AND ordine.idStato = 1
-                                      AND " . $_SESSION["tipo"] . ".username = ?
+                                      AND " . $_SESSION['tipo'] . ".username = ?
                                       ORDER BY ordine.dataora ASC");
         $stmt->bind_param("s", $_SESSION["username"]);
         $stmt->execute();
@@ -66,6 +66,6 @@
 
     $stmt->close();
     $connection->close();
-    closeWithoutErrors();
+    closeWithoutErrors($output);
   }
 ?>

@@ -11,7 +11,7 @@ function checkError($condition, $errorClass, $errorSource, $errorDescription) {
   }
 }
 
-function closeWithoutErrors() {
+function closeWithoutErrors($output) {
   $output["error"] = array("class" => "NONE");
   print json_encode($output);
 }

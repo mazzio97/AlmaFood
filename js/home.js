@@ -59,7 +59,7 @@ $(document).ready(function() {
       // PASSWORDS CHECKS
       if($("#inputRegisterPassword").val() != $("#inputConfirmPassword").val()) {
         $("#registerErr").show();
-        $("#registerErr").html("le passwords non corrispondono");
+        $("#registerErr").html("le password non corrispondono");
         return;
       }
       // JSON DATA
