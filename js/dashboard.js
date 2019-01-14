@@ -29,17 +29,17 @@ function getOrderId(e) {
 
 $(function() {
   $(".instance-orders").on("click","a.text-success" ,function() {
-    var orderId = $(this).parentsUntil(".template-orders").find("#orderId").text();
+    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
     var newState = 2;
     showNotification("Richiesta accettata", "success");
-    $(this).parentsUntil(".template-orders").slideUp("slow");
+    $(this).parentsUntil(".notification-panel").slideUp("slow");
     $.getJSON("php/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
   });
   $(".instance-orders").on("click", "a.text-danger", function() {
-    var orderId = $(this).parentsUntil(".template-orders").find("#orderId").text();
+    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
     var newState = 3;
     showNotification("Richiesta declinata", "danger");
-    $(this).parentsUntil(".template-orders").slideUp("slow");
+    $(this).parentsUntil(".notification-panel").slideUp("slow");
     $.getJSON("php/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
   });
   $(".instance-orders").on("click", "a.order-details", function() {
