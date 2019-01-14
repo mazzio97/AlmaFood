@@ -1,29 +1,60 @@
-var categories;
-var ingredients;
+var numIngredients;
 
 $(function() {
   $.getJSON("php/dish/getData.php", function(output) {
-    categories = output["categories"];
-    ingredients = output["ingredients"];
-
     var template = retrieveTemplate("template-categories");
-    var html_code = bindArgs(template, "selected", "Scegli...");
-    for(key in categories)
-      html_code += bindArgs(template, 'value="' + categories[key] + '"', key);
+    var html_code = bindArgs(template, "value='0' selected", "Scegli...");
+    for(key in output["categories"])
+      html_code += bindArgs(template, 'value="' + output["categories"][key] + '"', key);
     $(".instance-categories").html(html_code);
 
     var html_code = "";
     var template = retrieveTemplate("template-ingredients");
-    for(key in ingredients)
-      html_code += bindArgs(template, ingredients[key], ingredients[key], key);
+    for(key in output["ingredients"])
+      html_code += bindArgs(template, output["ingredients"][key], output["ingredients"][key], key);
     $(".instance-ingredients").html(html_code);
   });
 
   $("#cancel").click(function() {
-    console.log("annulla");
+    $("[name*='vendor_menu']").click();
   });
 
   $("#save").click(function() {
-    console.log("salva");
+    var input = {
+      name: $("#plateName").val().trim(),
+      price: $("#coin").val(),
+      category: $("#plateCategory").val(),
+      ingredients: []
+    };
+    $(".instance-ingredients [type*='checkbox']").each(function() {
+      if ($(this).prop("checked"))
+        input.ingredients.push($(this).attr("id").replace("ingredient", ""));
+    })
+    // DATA CHECK
+    var ok = true;
+    if (input.name === "") {
+      $("#plateName").val("");
+      $("#plateName").css("border-color", "red");
+      ok = false;
+    }
+    if (input.price === "" || (10 * input.price) % 1 !== 0) {
+      $("#coin").val("");
+      $("#coin").css("border-color", "red");
+      ok = false;
+    }
+    if (input.category === "0") {
+      $("#plateCategory").css("border-color", "red");
+      ok = false;
+    }
+
+    // POST
+    if (ok) {
+      $.post("php/dish/saveDish.php", input, function(output) {
+        if(output["error"]["class"] === "NONE")
+          $("[name*='vendor_menu']").click();
+        else
+          alert(output["error"]["description"]);
+      }, "json");
+    }
   });
 });

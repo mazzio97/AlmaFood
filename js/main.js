@@ -1,5 +1,3 @@
-var homepage = { "cliente": "html/restaurants.html", "fornitore": "html/dashboard.html" };
-
 $(function() {
   $.getJSON("php/json/session.php", function(output) {
     if (output["tipo"] === "cliente") {

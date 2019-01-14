@@ -65,7 +65,7 @@
           <span>Ordini</span>
         </a>
       </li>
-      <li name="dish" class="nav-item">
+      <li name="vendor_menu" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-utensils"></i>
           <span>Menu</span>

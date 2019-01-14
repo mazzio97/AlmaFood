@@ -1,7 +1,7 @@
 <?php
   foreach (glob('../utils/*.php') as $f) require_once $f;
 
-  $statement = $connection->prepare("SELECT * FROM categoria");
+  $statement = $connection->prepare("SELECT * FROM categoria ORDER BY nome");
   $statement->execute();
   $result = $statement->get_result();
   checkError($result === false, "SERVER", "QUERY", $connection->error);
