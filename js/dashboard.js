@@ -24,10 +24,11 @@ function getHoursMin(utc) {
     return getDateFromUTC(utc).getHours() + ":" + getDateFromUTC(utc).getMinutes();
 }
 function getOrderId(e) {
-  return e.parentsUntil(".template-orders").find(".order-id").text();
+  return e.parentsUntil(".instance-orders").find(".order-id").text();
 }
-$(document).ready(function() {
-    $(".template-orders").on("click","a.text-success" ,function() {
+
+function refreshDashboard() {
+    $(".instance-orders").on("click","a.text-success" ,function() {
         var orderId = $(this).parentsUntil(".template-orders").find("#orderId").text();
         var newState = 2;
         showNotification("Richiesta accettata", "success");
@@ -35,7 +36,7 @@ $(document).ready(function() {
         $.getJSON("php/dashboard.php?request=modify_order&orderId=" +
             orderId + "&state=" + newState);
     });
-    $(".template-orders").on("click", "a.text-danger", function() {
+    $(".instance-orders").on("click", "a.text-danger", function() {
         var orderId = $(this).parentsUntil(".template-orders").find("#orderId").text();
         var newState = 3;
         showNotification("Richiesta declinata", "danger");
@@ -43,14 +44,14 @@ $(document).ready(function() {
         $.getJSON("php/dashboard.php?request=modify_order&orderId=" +
             orderId + "&state=" + newState);
     });
-    $(".template-orders").on("click", "a.order-details", function() {
+    $(".instance-orders").on("click", "a.order-details", function() {
       var orderId = getOrderId($(this));
       $.getJSON("php/dashboard.php?request=dishes_in_order&orderId=" + orderId, function(output) {
         var html_code = "";
         var template = retrieveTemplate("template-details");
         for(var i = 0; i < output["dish"].length; i++)
           html_code += bindArgs(template, output["dish"][i]["nomePietanza"]);
-        $("div.modal-body>ul").html(html_code);
+        $(".instance-details").html(html_code);
      });
     })
 
@@ -64,12 +65,12 @@ $(document).ready(function() {
         var template = retrieveTemplate("template-orders");
         for (var i = 0; i < output["order"].length; i++) {
           var ordine = output["order"][i];
-          html_code += bindArgs(template, ordine["nomeCliente"] + " " + ordine["cognomeCliente"],
+          html_code += bindArgs(template, ordine["nominativo"],
                                           ("00000" + ordine["ordine"]).slice(-6),
                                           getDateFromUTC(ordine["oraConsegna"]),
                                           ordine["aula"],
                                           ordine["costo"]);
         }
-        $(".template-orders").html(html_code);
+        $(".instance-orders").html(html_code);
     });
-});
+}

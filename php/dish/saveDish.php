@@ -1,6 +1,3 @@
 <?php
-  require_once "utils/session.php";
-  require_once "utils/errors.php";
-  require_once "utils/connection.php";
-
+  foreach (glob('../utils/*.php') as $f) require_once $f;
 ?>

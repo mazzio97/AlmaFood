@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(!isset($_SESSION["username"]))
-    header("location: /almafood/login.php");
+    header("location: /almafood/enter.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,26 +25,23 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  <script src="js/login.js"></script>
+  <script src="js/utils/htmlRetriever.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/dish.js"></script>
 </head>
 
 <body>
   <nav class="navbar sticky-top">
     <a class="navbar-brand"><?= $_SESSION["nominativo"] ?></a>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">
-          <i class="fas fa-bell"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li class="nav-item">
+    <ul class="client-nav nav justify-content-end" style="display: none">
+      <li name="restaurants" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-search-location"></i>
-          <span>Trova ristoranti</span>
+          <span>Ristoranti</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li name="client_orders" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-history"></i>
           <span>Ordini</span>
@@ -57,9 +54,35 @@
         </a>
       </li>
     </ul>
+    <ul class="vendor-nav nav justify-content-end" style="display: none">
+      <li name="dashboard" class="nav-item">
+        <a class="nav-link active" href="#">
+          <i class="fas fa-bell"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li name="vendor_orders" class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-history"></i>
+          <span>Ordini</span>
+        </a>
+      </li>
+      <li name="vendor_menu" class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-utensils"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="php/exit.php">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Esci</span>
+        </a>
+      </li>
+    </ul>
   </nav>
 
-  <?php include("dashboard.html"); ?>
+  <div id="pageContainer"></div>
 </body>
 
 </html>

@@ -1,7 +1,11 @@
+<script type="text/javascript">refreshDashboard();</script>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-lg-6 mx-auto">
-      <ul class="template-orders notifications">
+
+      <ul class="instance-orders notifications"></ul>
+      <ul class="template-orders notifications d-none">
         <li class="notification-panel">
           <div class="card">
             <div class="card-header">
@@ -32,25 +36,28 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Dettagli Ordine</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <ul class="template-details">
-                    <li>?</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </li>
       </ul>
+
+      <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Dettagli Ordine</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class="instance-details"></ul>
+              <ul class="template-details d-none">
+                <li>?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

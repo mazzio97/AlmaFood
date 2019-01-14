@@ -43,7 +43,7 @@ $(document).ready(function() {
         remember: $("#rememberPassword").prop("checked")
       };
       // DATA
-      $.post("php/login.php", input, function(output) {
+      $.post("php/enter/login.php", input, function(output) {
         showError(output["error"], "#loginErr");
       }, "json");
     });
@@ -73,7 +73,7 @@ $(document).ready(function() {
         password: $("#inputRegisterPassword").val()
       };
       // POST
-      $.post("php/signup.php", input, function(output) {
+      $.post("php/enter/signup.php", input, function(output) {
         showError(output["error"], "#registerErr");
       }, "json");
     });

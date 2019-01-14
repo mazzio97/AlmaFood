@@ -1,6 +1,6 @@
 <?php
   require_once "php/utils/session.php";
-  
+
   if (isset($_SESSION["username"]))
     header("location: /almafood");
   elseif (isset($_COOKIE["username"])) {
@@ -22,8 +22,7 @@
   <link rel="stylesheet" href="css/default.css" />
   <link rel="stylesheet" href="css/login.css" />
   <!-- scripts -->
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   <script src="js/login.js"></script>
@@ -67,7 +66,7 @@
                   <input type="checkbox" class="custom-control-input" id="rememberPassword">
                   <label class="custom-control-label" for="rememberPassword">Ricordami</label>
                 </div>
-                <button class="btn btn-alma btn-block text-uppercase" type="submit" id="loginBtn">Sign in</button>
+                <button class="btn btn-alma btn-block text-uppercase" type="submit" id="loginBtn">Accedi</button>
               </form>
               <span class="text-center w-100 mb-3">Non hai ancora un account? <a href="#almaCarousel" data-slide="prev">Registrati</a></span>
             </div>
