@@ -29,7 +29,7 @@ $connection->close();
 // SESSION
 $_SESSION["username"] = $_POST["username"];
 $_SESSION["email"] = $_POST["email"];
-$_SESSION["ruolo"] = $_POST["userRole"];
+$_SESSION["tipo"] = $_POST["userRole"];
 if ($_POST["userRole"] == "fornitore")
   $_SESSION["ristorante"] = $_POST["restaurant"];
 else

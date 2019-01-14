@@ -16,7 +16,7 @@ function checkboxToggle() {
   $("#inputRestaurant").parent().toggle();
 }
 
-$(document).ready(function() {
+$(function() {
     $("#loginErr").hide();
     $("#registerErr").hide();
     $("#inputRestaurant").parent().hide();

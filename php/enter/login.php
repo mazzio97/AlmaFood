@@ -21,11 +21,11 @@ unset($data["password"]);
 
 // SESSION AND COOKIES
 if (isset($data["ristorante"])) {
-  $_SESSION["tipo"] = "fornitore";
-  $_SESSION["nominativo"] = $data["ristorante"];
+  $data["tipo"] = "fornitore";
+  $data["nominativo"] = $data["ristorante"];
 } else {
-  $_SESSION["tipo"] = "cliente";
-  $_SESSION["nominativo"] = $data["nome"] . " " . $data["cognome"];
+  $data["tipo"] = "cliente";
+  $data["nominativo"] = $data["nome"] . " " . $data["cognome"];
 }
 $expires = $_POST["remember"] == "true" ? 2147483647 : 1;
 foreach ($data as $key => $value) {

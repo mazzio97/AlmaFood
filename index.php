@@ -27,8 +27,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   <script src="js/utils/htmlRetriever.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/dashboard.js"></script>
-  <script src="js/dish.js"></script>
 </head>
 
 <body>
@@ -47,7 +45,7 @@
           <span>Ordini</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li name="exit" class="nav-item">
         <a class="nav-link" href="php/exit.php">
           <i class="fas fa-sign-out-alt"></i>
           <span>Esci</span>
@@ -67,13 +65,13 @@
           <span>Ordini</span>
         </a>
       </li>
-      <li name="vendor_menu" class="nav-item">
+      <li name="dish" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-utensils"></i>
           <span>Menu</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li name="exit" class="nav-item">
         <a class="nav-link" href="php/exit.php">
           <i class="fas fa-sign-out-alt"></i>
           <span>Esci</span>

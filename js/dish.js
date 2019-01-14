@@ -1,7 +1,7 @@
 var categories;
 var ingredients;
 
-function refreshDish() {
+$(function() {
   $.getJSON("php/dish/getData.php", function(output) {
     categories = output["categories"];
     ingredients = output["ingredients"];
@@ -18,4 +18,12 @@ function refreshDish() {
       html_code += bindArgs(template, ingredients[key], ingredients[key], key);
     $(".instance-ingredients").html(html_code);
   });
-}
+
+  $("#cancel").click(function() {
+    console.log("annulla");
+  });
+
+  $("#save").click(function() {
+    console.log("salva");
+  });
+});
