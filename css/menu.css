@@ -6,11 +6,13 @@
 	color:var(--light-grey);
 }
 .menu-plate {
-	padding: 1rem 0 0;
 	border-bottom: 0.1rem solid var(--light-grey);
 }
 .menu-plate:last-child {
 	border-bottom: none;
+}
+.menu-plate > .row {
+	padding: 1rem 0 0;
 }
 .menu-plate h5 {
 	color: black;
@@ -31,8 +33,6 @@
 	padding-top: 0;
 	padding-bottom: 0;
 }
-.btn {
-	font-size: 1.25rem;
-	margin-top: 1.5rem;
-	padding: 0.75rem;
+.template-category ~ .btn-alma {
+	float: right;
 }
