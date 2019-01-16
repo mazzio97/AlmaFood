@@ -28,7 +28,7 @@ function getOrderId(e) {
 }
 
 $(function() {
-  $.getJSON("php/dashboard/dashboard.php?request=orders", function(output) {
+  $.post("php/dashboard/dashboard.php", { request: "orders" }, function(output) {
     var html_code = "";
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       html_code += '<li><p align="center" style="color: red">' + output["error"]["description"] + '</p></li>';
@@ -45,30 +45,28 @@ $(function() {
                                       ordine["costo"]);
     }
     $(".instance-orders").html(html_code);
-  });
+  }, "json");
 
-  $(".instance-orders").on("click","a.text-success" ,function() {
-    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
-    var newState = 2;
+  $(".instance-orders").on("click","a.text-success", function() {
+    var id = getOrderId($(this));
     showNotification("Richiesta accettata", "success");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.getJSON("php/dashboard/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
+    $.post("php/dashboard/dashboard.php", { request: "modify_order", orderId: id, state: 2 });
   });
   $(".instance-orders").on("click", "a.text-danger", function() {
-    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
-    var newState = 3;
+    var id = getOrderId($(this));
     showNotification("Richiesta declinata", "danger");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.getJSON("php/dashboard/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
+    $.post("php/dashboard/dashboard.php", { request: "modify_order", orderId: id, state: 3 });
   });
   $(".instance-orders").on("click", "a.order-details", function() {
-    var orderId = getOrderId($(this));
-    $.getJSON("php/dashboard/dashboard.php?request=dishes_in_order&orderId=" + orderId, function(output) {
+    var id = getOrderId($(this));
+    $.post("php/dashboard/dashboard.php", { request: "dishes_in_order", orderId: id }, function(output) {
       var html_code = "";
       var template = retrieveTemplate("template-details");
       for(var i = 0; i < output["dish"].length; i++)
-        html_code += bindArgs(template, output["dish"][i]["nomePietanza"]);
+        html_code += bindArgs(template, output["dish"][i]["pietanza"]);
       $(".instance-details").html(html_code);
-   });
+   }, "json");
   })
 });

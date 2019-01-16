@@ -7,7 +7,7 @@ function loadPage(pageName) {
 }
 
 $(function() {
-  $.getJSON("php/json/session.php", function(output) {
+  $.getJSON("php/json/getSession.php", function(output) {
     if (output["tipo"] === "cliente") {
       $(".client-nav").show();
       loadPage("restaurants");

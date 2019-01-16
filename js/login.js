@@ -26,11 +26,11 @@ $(function() {
         $(".plate").remove();
     });
 
-    $("#client").change(function(){
+    $("#client").change(function() {
       checkboxToggle();
     });
 
-    $("#vendor").change(function(){
+    $("#vendor").change(function() {
       checkboxToggle();
     });
 
