@@ -1,10 +1,11 @@
 <?php
-  require_once "utils/errors.php";
-  require_once "utils/session.php";
+  require_once "../utils/errors.php";
+  require_once "../utils/session.php";
 
   if(isset($_GET["request"]))
   {
-    require_once "utils/connection.php";
+    require_once "../utils/connection.php";
+    $output = array();
 
     switch ($_GET["request"]) {
       case "orders":

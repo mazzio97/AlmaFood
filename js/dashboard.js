@@ -28,32 +28,7 @@ function getOrderId(e) {
 }
 
 $(function() {
-  $(".instance-orders").on("click","a.text-success" ,function() {
-    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
-    var newState = 2;
-    showNotification("Richiesta accettata", "success");
-    $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.getJSON("php/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
-  });
-  $(".instance-orders").on("click", "a.text-danger", function() {
-    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
-    var newState = 3;
-    showNotification("Richiesta declinata", "danger");
-    $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.getJSON("php/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
-  });
-  $(".instance-orders").on("click", "a.order-details", function() {
-    var orderId = getOrderId($(this));
-    $.getJSON("php/dashboard.php?request=dishes_in_order&orderId=" + orderId, function(output) {
-      var html_code = "";
-      var template = retrieveTemplate("template-details");
-      for(var i = 0; i < output["dish"].length; i++)
-        html_code += bindArgs(template, output["dish"][i]["nomePietanza"]);
-      $(".instance-details").html(html_code);
-   });
-  })
-
-  $.getJSON("php/dashboard.php?request=orders", function(output) {
+  $.getJSON("php/dashboard/dashboard.php?request=orders", function(output) {
     var html_code = "";
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       html_code += '<li><p align="center" style="color: red">' + output["error"]["description"] + '</p></li>';
@@ -71,4 +46,29 @@ $(function() {
     }
     $(".instance-orders").html(html_code);
   });
+
+  $(".instance-orders").on("click","a.text-success" ,function() {
+    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
+    var newState = 2;
+    showNotification("Richiesta accettata", "success");
+    $(this).parentsUntil(".notification-panel").slideUp("slow");
+    $.getJSON("php/dashboard/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
+  });
+  $(".instance-orders").on("click", "a.text-danger", function() {
+    var orderId = $(this).parentsUntil(".instance-orders").find(".order-id").text();
+    var newState = 3;
+    showNotification("Richiesta declinata", "danger");
+    $(this).parentsUntil(".notification-panel").slideUp("slow");
+    $.getJSON("php/dashboard/dashboard.php?request=modify_order&orderId=" + orderId + "&state=" + newState);
+  });
+  $(".instance-orders").on("click", "a.order-details", function() {
+    var orderId = getOrderId($(this));
+    $.getJSON("php/dashboard/dashboard.php?request=dishes_in_order&orderId=" + orderId, function(output) {
+      var html_code = "";
+      var template = retrieveTemplate("template-details");
+      for(var i = 0; i < output["dish"].length; i++)
+        html_code += bindArgs(template, output["dish"][i]["nomePietanza"]);
+      $(".instance-details").html(html_code);
+   });
+  })
 });
