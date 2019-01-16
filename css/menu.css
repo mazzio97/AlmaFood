@@ -1,7 +1,7 @@
-.card {
+.template-category {
 	margin: 2rem auto;
 }
-.card-header {
+.template-category .card-header {
 	background-color: var(--alma);
 	color:var(--light-grey);
 }
@@ -11,7 +11,7 @@
 .menu-plate:last-child {
 	border-bottom: none;
 }
-.menu-plate > .row {
+.menu-plate {
 	padding: 1rem 0 0;
 }
 .menu-plate h5 {
