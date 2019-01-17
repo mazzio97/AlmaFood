@@ -67,6 +67,36 @@
     return getResult(func_get_args(), "INSERT INTO pietanza(nome, costo, idCategoria, forn_user) VALUES (?, ?, ?, ?)");
   }
 
+  function getMenuCategories($username) {
+    $result = getResult(func_get_args(), "SELECT categoria.nome, categoria.idCategoria
+                                          FROM pietanza, categoria
+                                          WHERE categoria.idCategoria = pietanza.idCategoria
+                                          AND pietanza.forn_user = ?");
+    while ($row = $result->fetch_assoc())
+     $data[] = $row;
+    return $data;
+  }
+
+  function getMenuDishes($username, $categoryId) {
+    $result = getResult(func_get_args(), "SELECT pietanza.nome, pietanza.costo, pietanza.idPietanza
+                                          FROM pietanza
+                                          WHERE pietanza.forn_user = ?
+                                          AND pietanza.idCategoria = ?");
+    while ($row = $result->fetch_assoc())
+     $data[] = $row;
+    return $data;
+  }
+
+  function getDishIngredients($dishId) {
+    $result = getResult(func_get_args(), "SELECT ingrediente.nome
+                                          FROM ingrediente, composizione
+                                          WHERE ingrediente.idIngrediente = composizione.idIngrediente
+                                          AND composizione.idPietanza = ?");
+    while ($row = $result->fetch_assoc())
+     $data[] = $row;
+    return $data;
+  }
+
   function bindIngredientWithDish($ingredientId, $dishId) {
     getResult(func_get_args(), "INSERT INTO composizione(idIngrediente, idPietanza) VALUES (?, ?)");
   }
