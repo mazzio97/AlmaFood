@@ -1,27 +1,32 @@
+<script src="js/menu.js"></script>
+
 <div class="container">
   <div class="instance-categories row">
   </div>
   <div class="template-categories d-none">
-    <div class="col-12 card">
-      <div class="card-header">
-        <h4 class="mb-0 float-left">?</h4>
-        <div class="float-right">
-          <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true"
-            aria-controls="collapseCategory"></i>
-        </div>
-      </div>
-      <div id="collapseCategory" class="collapse multi-collapse show">
-        <div class="instance-dishes card-body"></div>
-        <div class="template-dishes row">
-          <div class="col-8">
-            <h5>?</h5>
-            <p class="instance-dish-ingredients"></p>
-            <span class="template-dish-ingredients">?</span>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="mb-0 float-left">?</h4>
+          <div class="float-right">
+            <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true"
+              aria-controls="collapseCategory"></i>
           </div>
-          <div class="col-4 text-right">
-            <h5 class="d-inline">&euro;?</h5>
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+        </div>
+        <div id="collapseCategory" class="collapse multi-collapse show">
+          <div class="instance-dishes card-body"></div>
+          <div class="template-dishes d-none">
+            <div class="row menu-plate">
+              <div class="col-8">
+                <h5>?</h5>
+                <p>?</p>
+              </div>
+              <div class="col-4 text-right">
+                <h5 class="d-inline">&euro;?</h5>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>

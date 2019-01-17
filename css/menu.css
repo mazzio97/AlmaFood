@@ -1,30 +1,30 @@
-.template-categories {
+.instance-categories .card {
 	margin: 2rem auto;
 }
-.template-categories.card-header {
+.instance-categories .card-header {
 	background-color: var(--alma);
 	color:var(--light-grey);
 }
-.template-dishes {
+.menu-plate {
 	border-bottom: 0.1rem solid var(--light-grey);
 }
-.template-dishes:last-child {
+.menu-plate:last-child {
 	border-bottom: none;
 }
-.template-dishes {
+.menu-plate {
 	padding: 1rem 0 0;
 }
-.template-dishes h5 {
+.menu-plate h5 {
 	color: black;
 }
-.template-dishes i {
+.menu-plate i {
 	padding: 0 0.25rem;
 	color: var(--alma);
 }
 .fa-edit, .fa-trash {
 	font-size: 1.5em;
 }
-.template-dishes .d-inline {
+.menu-plate .d-inline {
 	margin-right: 0.5rem;
 }
 
