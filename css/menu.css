@@ -1,30 +1,30 @@
-.template-category {
+.template-categories {
 	margin: 2rem auto;
 }
-.template-category .card-header {
+.template-categories.card-header {
 	background-color: var(--alma);
 	color:var(--light-grey);
 }
-.menu-plate {
+.template-dishes {
 	border-bottom: 0.1rem solid var(--light-grey);
 }
-.menu-plate:last-child {
+.template-dishes:last-child {
 	border-bottom: none;
 }
-.menu-plate {
+.template-dishes {
 	padding: 1rem 0 0;
 }
-.menu-plate h5 {
+.template-dishes h5 {
 	color: black;
 }
-.menu-plate i {
+.template-dishes i {
 	padding: 0 0.25rem;
 	color: var(--alma);
 }
 .fa-edit, .fa-trash {
 	font-size: 1.5em;
 }
-.menu-plate .d-inline {
+.template-dishes .d-inline {
 	margin-right: 0.5rem;
 }
 
@@ -33,6 +33,6 @@
 	padding-top: 0;
 	padding-bottom: 0;
 }
-.template-category ~ .btn-alma {
+.instance-categories + .row > .btn-alma {
 	float: right;
 }

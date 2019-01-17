@@ -60,13 +60,13 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li name="vendor_orders" class="nav-item">
+      <li name="client_orders" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-history"></i>
           <span>Ordini</span>
         </a>
       </li>
-      <li name="vendor_menu" class="nav-item">
+      <li name="client_menu" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-utensils"></i>
           <span>Menu</span>
