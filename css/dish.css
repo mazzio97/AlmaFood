@@ -1,0 +1,15 @@
+:root {
+	--check-size: 1.25rem;
+}
+.input-group-prepend label {
+	color: #ffffff;
+	background-color: var(--alma);
+}
+ .ingredient-checkbox label {
+	font-size: var(--check-size);
+ }
+
+ .ingredient-checkbox .custom-control-label::before,
+ .ingredient-checkbox .custom-control-label::after {
+	margin-top: calc(var(--check-size) - 1rem);
+ }

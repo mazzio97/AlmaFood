@@ -62,7 +62,7 @@
                   <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
                 </div>
                 <p id="loginErr" class="badge badge-danger w-100">Errore</p>
-                <div class="custom-control mb-3">
+                <div class="custom-checkbox custom-control mb-3">
                   <input type="checkbox" class="custom-control-input" id="rememberPassword">
                   <label class="custom-control-label" for="rememberPassword">Ricordami</label>
                 </div>
@@ -118,7 +118,7 @@
                   <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Conferma Password" required="true">
                 </div>
                 <p id="registerErr" class="badge badge-danger w-100">Errore</p>
-                <div class="custom-control mb-3">
+                <div class="custom-checkbox custom-control mb-3">
                   <input type="checkbox" class="custom-control-input" id="acceptTerms">
                   <label class="custom-control-label" for="acceptTerms">Accetto <a href="#">Termini &amp; Condizioni</a></label>
                 </div>

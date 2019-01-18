@@ -1,18 +1,18 @@
 .navbar {
-  color: white;
+  color: var(--light-grey);
   background-color: var(--alma);
   font-weight: bold;
   padding-left: 0.35rem;
   padding-right: 0;
 }
 .nav-link {
-  color: white;
+  color: var(--light-grey);
   font-size: 1.5rem;
   padding: 1rem 0.75rem;
   display: inline;
 }
 .nav-link:hover, .nav-link .active {
-  background-color: white;
+  background-color: var(--light-grey);
   color: var(--alma);
 }
 .nav-link span {
