@@ -10,12 +10,22 @@ $(function() {
 
     var html_code = "";
     var template = retrieveTemplate("template-ingredients");
-    for(key in output["ingredients"])
-      html_code += bindArgs(template, output["ingredients"][key], output["ingredients"][key], key);
+    for(key in output["ingredients"]) {
+      var status = "unchecked";
+      if (output["dishIngredients"] !== undefined && output["dishIngredients"].indexOf(key) > -1)
+        status = "checked";
+      html_code += bindArgs(template, output["ingredients"][key], status, output["ingredients"][key], key);
+    }
     $(".instance-ingredients").html(html_code);
+    if (output["dishIngredients"] !== undefined) {
+      $("#plateName").val(output["dishInfo"]["nome"]);
+      $("#coin").val(output["dishInfo"]["costo"]);
+      $("#plateCategory").val(output["dishInfo"]["idCategoria"]);
+    }
   });
 
   $("#cancel").click(function() {
+    $.post("php/dish/unsetCurrentDish.php");
     $("[name*='vendor_menu']").click();
   });
 

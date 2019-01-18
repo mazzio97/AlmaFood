@@ -63,12 +63,9 @@
     return $data;
   }
 
-  function insertDish($name, $price, $category, $username) {
-    return getResult(func_get_args(), "INSERT INTO pietanza(nome, costo, idCategoria, forn_user) VALUES (?, ?, ?, ?)");
-  }
 
   function getMenuCategories($username) {
-    $result = getResult(func_get_args(), "SELECT categoria.nome, categoria.idCategoria
+    $result = getResult(func_get_args(), "SELECT DISTINCT categoria.nome, categoria.idCategoria
                                           FROM pietanza, categoria
                                           WHERE categoria.idCategoria = pietanza.idCategoria
                                           AND pietanza.forn_user = ?");
@@ -97,8 +94,42 @@
     return $data;
   }
 
+  function getDishIngredientsNames($dishId) {
+    $result = getDishIngredients($dishId);
+    foreach ($result as $key) {
+      $data[] = $key["nome"];
+    }
+    return $data;
+  }
+
+  function getDishInfo($dishId) {
+    $result = getResult(func_get_args(), "SELECT pietanza.nome, pietanza.costo, pietanza.idCategoria
+                                          FROM pietanza
+                                          WHERE pietanza.idPietanza = ?");
+
+    return $result->fetch_assoc();
+  }
+
+  function deleteDish($dishId) {
+    getResult(func_get_args(), "DELETE p, c
+                                FROM pietanza p INNER JOIN composizione c ON p.idPietanza = c.idPietanza
+                                WHERE p.idPietanza = ?");
+  }
+
+  function insertDish($name, $price, $category, $username) {
+    return getResult(func_get_args(), "INSERT INTO pietanza(nome, costo, idCategoria, forn_user) VALUES (?, ?, ?, ?)");
+  }
+
+  function updateDish($name, $price, $category, $dishId) {
+    getResult(func_get_args(), "UPDATE pietanza SET nome = ?, costo = ?, idCategoria = ?  WHERE idPietanza = ?");
+  }
+
   function bindIngredientWithDish($ingredientId, $dishId) {
     getResult(func_get_args(), "INSERT INTO composizione(idIngrediente, idPietanza) VALUES (?, ?)");
+  }
+
+  function deleteBind($dishId) {
+    getResult(func_get_args(), "DELETE c FROM composizione c WHERE c.idPietanza = ?");
   }
 
   function getOrdersFrom($username, $tipo) {
