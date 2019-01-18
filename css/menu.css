@@ -1,5 +1,9 @@
+
+.instance-categories {
+	padding-top: 1rem;
+}
 .instance-categories .card {
-	margin: 2rem auto;
+	margin: 1rem auto;
 }
 .instance-categories .card-header {
 	background-color: var(--alma);
