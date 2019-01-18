@@ -60,7 +60,7 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li name="client_orders" class="nav-item">
+      <li name="vendor_orders" class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-history"></i>
           <span>Ordini</span>

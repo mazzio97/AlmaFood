@@ -26,10 +26,10 @@
 						<div class="col-6 text-right">? &euro;</div>
 					</div>
 					</div>
-					<div class="card-footer text-center">
+					<div class="card-footer order-footer text-center">
 					<div class="row">
-						<div class="col-4"><a href="#" class="order-details text-info" data-toggle="modal" data-target="#details"><i class="fa fa-info"></i> Dettagli</a></div>
-						<div class="col-8 vertically-centered">In attesa <i class="fa fa-clock"></i></div>
+						<div class="col-4 order-footer-action"><a href="#" class="order-details text-info" data-toggle="modal" data-target="#details"><i class="fa fa-info"></i> Dettagli</a></div>
+						<div class="col-8 vertically-centered right-aligned">In attesa <i class="fa fa-clock"></i></div>
 					</div>
 					</div>
 				</div>
@@ -56,10 +56,10 @@
 						<div class="col-6 text-right">? &euro;</div>
 					</div>
 					</div>
-					<div class="card-footer text-center">
+					<div class="card-footer order-footer text-center">
 					<div class="row">
-						<div class="col-4"><a href="#" class="order-details text-info" data-toggle="modal" data-target="#details"><i class="fa fa-info"></i> Dettagli</a></div>
-						<div class="col-8 vertically-centered">Accettato <i class="fa fa-check"></i></div>
+						<div class="col-4 order-footer-action"><a href="#" class="order-details text-info" data-toggle="modal" data-target="#details"><i class="fa fa-info"></i> Dettagli</a></div>
+						<div class="col-8 vertically-centered right-aligned">Accettato <i class="fa fa-check"></i></div>
 					</div>
 					</div>
 				</div>
@@ -86,10 +86,10 @@
 						<div class="col-6 text-right">? &euro;</div>
 					</div>
 					</div>
-					<div class="card-footer text-center">
+					<div class="card-footer order-footer text-center">
 					<div class="row">
-						<div class="col-4"><a href="#" class="order-details" data-toggle="modal" data-target="#details"><i class="fa fa-poll"></i> Valuta</a></div>
-						<div class="col-8 vertically-centered">Consegnato <i class="fa fa-truck"></i></div>
+						<div class="col-4 order-footer-action"><a href="#" class="order-details" data-toggle="modal" data-target="#vote"><i class="fa fa-poll"></i> Valuta</a></div>
+						<div class="col-8 vertically-centered right-aligned">Consegnato <i class="fa fa-truck"></i></div>
 					</div>
 					</div>
 				</div>
@@ -115,6 +115,39 @@
 			</div>
 		  </div>
 		</div>
+
+		<div class="modal fade" id="vote" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered vote-modal" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Valuta questo ordine</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row text-center">
+						<div class="col-6">
+							<h6>Qualit&agrave;</h6>
+							<i class="fa fa-star fa-3x"></i>
+							<i class="fa fa-star fa-2x"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="col-6">
+							<h6>Prezzo</h6>
+							<i class="fa fa-euro-sign"></i>
+							<i class="fa fa-euro-sign fa-2x"></i>
+							<i class="fa fa-euro-sign fa-3x"></i>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn">Vota</button>
+				</div>
+			</div>
+			</div>
+		</div>
+
 	  </div>
 	</div>
 </div>

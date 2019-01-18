@@ -23,3 +23,13 @@
 .order-footer-action:last-child {
   border-right: none;
 }
+
+.vote-modal i {
+  margin: 0 0.5rem;
+}
+
+.modal-footer .btn {
+  font-weight: bold;
+  background-color: var(--alma);
+  color: var(--light-grey);
+}
