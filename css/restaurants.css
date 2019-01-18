@@ -14,7 +14,9 @@
 .filter {
 	margin-top: 2rem;
 }
-
+.filter:nth-child(even) {
+	text-align: right
+}
 .category-filter {
 	border-radius: 0.25rem;
 	padding: 1rem;
@@ -56,4 +58,10 @@
 
 .badge {
 	font-size: 1.1rem;
+}
+
+@media only screen and (min-width: 1200px) {
+	.filter:nth-child(even) {
+		text-align: left;
+	}
 }

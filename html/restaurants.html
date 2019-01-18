@@ -1,17 +1,17 @@
 <div class="container">
   <div class="col-12 col-lg-8 mx-auto">
-    <input type="text" class="form-control rounded-borders form-search" placeholder="Cerca fornitori..." />
+    <input type="text" class="form-control rounded-pill form-search" placeholder="Cerca fornitori..." />
     <i class="fas fa-search"></i>
   </div>
   <div class="row mx-auto">
     <div class="col-12 col-xl-4">
       <div class="row">
         <div class="filter col-6 col-xl-12">
-          <button class="btn-alma squared-borders" type="button" data-toggle="collapse" data-target="#categoryFilter"
-            aria-expanded="false" aria-controls="categoryFilter">
+          <button class="btn-alma rounded" type="button" data-toggle="collapse" data-target="#categoryFilter"
+            aria-expanded="true" aria-controls="categoryFilter">
             <i class="fas fa-filter"></i> Categoria
           </button>
-          <div id="categoryFilter" class="collapse category-filter">
+          <div id="categoryFilter" class="collapse category-filter show">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="allCategory" checked>
               <label class="custom-control-label" for="allCategory">Tutte</label>
@@ -32,11 +32,11 @@
           </div>
         </div>
         <div class="filter col-6 col-xl-12">
-          <button class="btn-alma squared-borders" type="button" data-toggle="collapse" data-target="#opinionFilter"
-            aria-expanded="false" aria-controls="opinionFilter">
+          <button class="btn-alma rounded" type="button" data-toggle="collapse" data-target="#opinionFilter"
+            aria-expanded="true" aria-controls="opinionFilter">
             <i class="fas fa-meh-blank"></i> Rapporto Q/P
           </button>
-          <div id="opinionFilter" class="collapse category-filter">
+          <div id="opinionFilter" class="collapse category-filter show">
             <div class="row">
               <div class="col-2"><i class="fa fa-medal fa-2x"></i></div>
               <div class="col-8"><input type="range" min="1" max="5" value="3" step="1"></div>
