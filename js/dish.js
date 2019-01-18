@@ -2,11 +2,11 @@ var numIngredients;
 
 $(function() {
   $.getJSON("php/dish/getData.php", function(output) {
-    var template = retrieveTemplate("template-categories");
+    var template = retrieveTemplate("template-dish-categories");
     var html_code = bindArgs(template, "value='0' selected", "Scegli...");
     for(key in output["categories"])
       html_code += bindArgs(template, 'value="' + output["categories"][key] + '"', key);
-    $(".instance-categories").html(html_code);
+    $(".instance-dish-categories").html(html_code);
 
     var html_code = "";
     var template = retrieveTemplate("template-ingredients");
