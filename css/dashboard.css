@@ -11,17 +11,15 @@
   width: 100%;
   text-align: left;
 }
-
-.card-footer {
+.order-footer {
   padding-top: 0;
   padding-bottom: 0;
 }
-.card-footer .col-4 {
+.order-footer-action {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
-.card-footer .col-4:last-child {
+.order-footer-action:last-child {
   border-right: none;
 }
-  

@@ -19,6 +19,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.vertically-centered {
+  display: flex;
+  align-items: center;
+}
+.left-aligned {
+  display: flex;
+  justify-content: flex-start;
+}
+.right-aligned {
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* Links */
 a {
   color: var(--alma);
