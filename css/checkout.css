@@ -1,0 +1,59 @@
+.alma-title {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.basket-item,
+.basket-total {
+  display: table;
+  padding: 1rem;
+}
+
+.basket-total {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.basket-item {
+  color: var(--light-grey);
+  background-color: var(--dark-grey);
+  font-size: 1.2rem;
+}
+
+.basket-item:nth-child(odd) {
+  background-color: #60606085;
+}
+
+.basket-item:nth-last-child(2) {
+  border-bottom: 0.2rem solid var(--alma);
+}
+
+.basket-item-quantity,
+.basket-item-dish,
+.dots,
+.basket-item-price,
+.basket-total div {
+  display: table-cell;
+}
+
+.basket-item-quantity,
+.basket-item-dish,
+.basket-item-price,
+.basket-total-text,
+.basket-total-price {
+  white-space: nowrap;
+}
+
+.basket-item-quantity .fa-times {
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+.dots {
+  border-bottom: 0.1rem dotted;
+  width: 100%;
+}
+
+.basket-item .dots {
+  border-color: var(--light-grey);
+}
