@@ -47,7 +47,7 @@ $(function() {
     $(".instance-orders").html(html_code);
   }, "json");
 
-  $(".instance-orders").on("click","a.text-success", function() {
+  $(".instance-orders").on("click", "a.text-success", function() {
     var id = getOrderId($(this));
     showNotification("Richiesta accettata", "success");
     $(this).parentsUntil(".notification-panel").slideUp("slow");

@@ -4,7 +4,7 @@
 	background-color: var(--cloth);
 }
 
-.supplier {
+.vendor {
 	background-color: #ffffff;
 	box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
 	margin: 2rem auto;
@@ -24,7 +24,7 @@
 	background-color: #ffffff;
 }
 
-.custom-control-input:checked ~ .custom-control-label::before, 
+.custom-control-input:checked ~ .custom-control-label::before,
 .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--alma);
 }

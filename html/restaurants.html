@@ -1,6 +1,10 @@
+<<script src="js/restaurants.js">
+
+</script>
+
 <div class="container">
   <div class="col-12 col-lg-8 mx-auto mt-4">
-    <input type="text" class="form-control rounded-pill form-search" placeholder="Cerca fornitori..." />
+    <input type="text" class="form-control rounded-pill form-search" id="searchFilter" placeholder="Cerca fornitori..." />
     <i class="fas fa-search"></i>
   </div>
   <div class="row mx-auto">
@@ -11,23 +15,18 @@
             aria-expanded="true" aria-controls="categoryFilter">
             <i class="fas fa-filter"></i> Categoria
           </button>
-          <div id="categoryFilter" class="collapse category-filter show">
+          <div id="categoryFilter" class="collapse category-filter hide">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="allCategory" checked>
+              <input type="checkbox" class="custom-control-input" id="allCategory" checked disabled>
               <label class="custom-control-label" for="allCategory">Tutte</label>
             </div>
             <hr />
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="piadaCategory">
-              <label class="custom-control-label" for="piadaCategory">Piadine</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="crescCategory">
-              <label class="custom-control-label" for="crescCategory">Crescioni</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="rotoCategory">
-              <label class="custom-control-label" for="rotoCategory">Rotoli</label>
+            <div class="instance-filter-category"></div>
+            <div class="template-filter-category d-none">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="?Category">
+                <label class="custom-control-label" for="?Category">?</label>
+              </div>
             </div>
           </div>
         </div>
@@ -36,10 +35,10 @@
             aria-expanded="true" aria-controls="opinionFilter">
             <i class="fas fa-meh-blank"></i> Rapporto Q/P
           </button>
-          <div id="opinionFilter" class="collapse category-filter show">
+          <div id="opinionFilter" class="collapse category-filter hide">
             <div class="row">
               <div class="col-2"><i class="fa fa-medal fa-2x"></i></div>
-              <div class="col-8"><input type="range" class="custom-range" min="1" max="5" value="3" step="1"></div>
+              <div class="col-8"><input type="range" class="custom-range" id="sliderFilter" min="0" max="4" value="2" step="1"></div>
               <div class="col-2"><i class="fa fa-euro-sign fa-2x"></i></div>
             </div>
           </div>
@@ -47,23 +46,24 @@
       </div>
     </div>
 
-    <div class="col-12 col-xl-7 offset-xl-1 suppliers-list">
-      <div class="card supplier text-center">
+    <div class="instance-restaurant col-12 col-xl-7 offset-xl-1 vendors-list"></div>
+    <div class="template-restaurant d-none col-12 col-xl-7 offset-xl-1 vendors-list">
+      <div class="card vendor text-center" style="background-color: #?">
         <div class="card-body">
-          <h4 class="card-title text-uppercase">Mascia</h4>
+          <h4 class="card-title text-uppercase">?</h4>
           <div class="row">
-            <div class="col-6">
-              <span class="badge badge-category">Piadine</span>
-              <span class="badge badge-category">Rotoli</span>
-              <span class="badge badge-category">Crescioni</span>
-            </div>
+            <div class="instance-restaurant-category col-6">?</div>
             <div class="col-6 text-center">
-              <div><i class="fas fa-sad-cry fa-3x squared-borders"></i></div>
-              <div>Opinione<br />Utenti</span></div>
+              <div><i class="far fa-? fa-3x squared-borders" style="color: black"></i></div>
+              <div>Opinione<br />Utenti</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="template-restaurant-category d-none col-6">
+    <span class="badge badge-category">?</span>
+  </div>
+
 </div>

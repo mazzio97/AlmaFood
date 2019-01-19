@@ -63,6 +63,28 @@
     return $data;
   }
 
+  function getAllVendors() {
+    $result = getResult(func_get_args(), "SELECT username, ristorante, qual_sum, qual_tot, prez_sum, prez_tot FROM fornitore");
+    while($row = $result->fetch_assoc()) {
+      $data[$row["username"]]["name"] = $row["ristorante"];
+      $data[$row["username"]]["quality"] = $row["qual_tot"] == 0 ? 0 : $row["qual_sum"] / $row["qual_tot"];
+      $data[$row["username"]]["price"] = $row["prez_tot"] == 0 ? 0 : $row["prez_sum"] / $row["prez_tot"];
+    }
+    return $data;
+  }
+
+  function getCategoriesFromVendor($vendor) {
+    $result = getResult(func_get_args(), "SELECT C.nome
+                                          FROM pietanza P, categoria C
+                                          WHERE P.forn_user = ?
+                                          AND P.idCategoria = C.idCategoria
+                                          GROUP BY P.idCategoria
+                                          ORDER BY COUNT(*)");
+    $data = array();
+    while($row = $result->fetch_assoc())
+      $data[] = $row["nome"];
+    return $data;
+  }
 
   function getMenuCategories($username) {
     $result = getResult(func_get_args(), "SELECT DISTINCT categoria.nome, categoria.idCategoria
