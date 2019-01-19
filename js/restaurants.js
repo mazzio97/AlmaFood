@@ -1,31 +1,31 @@
-function pair(first, second) {
-  return { "first": first, "second": second };
+function ratingInfo(upperBound, color, icon) {
+  return { "upperBound": upperBound, "color": color, "icon": icon };
 }
+function sliderInfo(quality, price) {
+  return { "quality": quality, "price": price };
+}
+
 var restaurants = [];
 var filters = {
   getSubstring: () => $("#searchFilter").val().toLowerCase(),
   getSliderValue: () => $("#sliderFilter").val(),
   getCategories: () => {
     ret = [];
-    $(".instance-filter-category input[type='checkbox']").each(function() {
+    $(".instance-filter-categories input[type='checkbox']").each(function() {
       if ($(this).prop("checked"))
         ret.push($(this).attr("id").replace("Category", ""));
     });
     return ret;
   }
 }
-var ratingMap = {
-  "-2.5": pair("e06666", "sad-cry"),
-  "-1": pair("ea9999", "frown"),
-  "1": pair("dddddd", "meh"),
-  "2.5": pair("b6d7a8", "smile"),
-  "5.5": pair("93c47d", "grin-hearts")
-};
-var sliderMap = [pair(1.5, -2), pair(0, -2), pair(-3, -2), pair(-3, 0), pair(-3, 1)];
+var ratingMap = [ ratingInfo(-2.5, "e06666", "sad-cry"), ratingInfo(-1, "ea9999", "frown"), ratingInfo(1, "dddddd", "meh"),
+                  ratingInfo(2.5, "b6d7a8", "smile"), ratingInfo(5.5, "93c47d", "grin-hearts") ];;
+var sliderMap = [ sliderInfo(1.5, -2), sliderInfo(0, -2), sliderInfo(-3, -2), sliderInfo(-3, 0), sliderInfo(-3, 1) ];
+
 function getRatingInfo(rating) {
-  for (upperBound in ratingMap)
-    if (rating < upperBound)
-      return ratingMap[upperBound];
+  for (var i = 0; i < ratingMap.length; i++)
+    if (rating < ratingMap[i].upperBound)
+      return ratingMap[i];
 }
 function getCategoryMatch(rest, filt) {
   if (filt.length == 0)
@@ -36,49 +36,44 @@ function getCategoryMatch(rest, filt) {
       return true;
   return false;
 }
-function printRestaurants() {
-  var html_code = "";
-  restaurants.forEach(function(restaurant) {
-    var restaurantTemplate = retrieveTemplate("template-restaurant");
-    var categoryTemplate = retrieveTemplate("template-restaurant-category");
-    // FILTER CHECK
-    var filter = restaurant.name.toLowerCase().includes(filters.getSubstring());
-    filter = filter && restaurant.quality >= sliderMap[filters.getSliderValue()].first;
-    filter = filter && restaurant.price >= sliderMap[filters.getSliderValue()].second;
-    filter = filter && getCategoryMatch(restaurant.categories, filters.getCategories());
-    // DATA BINDING
-    if (filter) {
-      categories_code = "";
-      ratingInfo = getRatingInfo(restaurant.quality + restaurant.price);
-      restaurant.categories.forEach(function(category) {
-        categories_code += bindArgs(categoryTemplate, category);
-      });
-      html_code += bindArgs(restaurantTemplate, ratingInfo.first, restaurant.name, categories_code, ratingInfo.second);
-    }
+function filterRestaurants() {
+  $(".instance-restaurants .restaurant").each(function() {
+    var restaurant = restaurants[$(this).attr("id").replace("Restaurant", "")];
+    $(this).toggle(restaurant.name.toLowerCase().includes(filters.getSubstring()) &&
+                   restaurant.quality >= sliderMap[filters.getSliderValue()].quality &&
+                   restaurant.price >= sliderMap[filters.getSliderValue()].price &&
+                   getCategoryMatch(restaurant.categories, filters.getCategories()));
   });
-  $(".instance-restaurant").html(html_code == "" ? "Nessun Ristorante" : html_code);
 }
 
 $(function() {
   $.getJSON("php/restaurants/getData.php", function(output) {
-    for(key in output["restaurants"])
-      restaurants.push(output["restaurants"][key]);
-    restaurants.sort(function(a, b) {
-      return (a.quality + a.price) < (b.quality + b.price);
-    });
+    restaurants = output["restaurants"];
 
     var html_code = "";
-    var template = retrieveTemplate("template-filter-category");
+    var template = retrieveTemplate("template-filter-categories");
     output["categories"].forEach(function(category) {
       html_code += bindArgs(template, category, category, category);
     });
-    $(".instance-filter-category").html(html_code);
+    $(".instance-filter-categories").html(html_code);
 
-    printRestaurants();
+    var html_code = "";
+    for(key in restaurants) {
+      var restaurant = restaurants[key];
+      var restaurantTemplate = retrieveTemplate("template-restaurants");
+      var categoryTemplate = retrieveTemplate("template-restaurant-categories");
+      categories_code = "";
+      info = getRatingInfo(restaurant.quality + restaurant.price);
+      restaurant.categories.forEach(function(category) {
+        categories_code += bindArgs(categoryTemplate, category);
+      });
+      html_code += bindArgs(restaurantTemplate, key, info.color, restaurant.name, categories_code, info.icon);
+    }
+    $(".instance-restaurants").html(html_code == "" ? "Nessun Ristorante" : html_code);
   });
 
-  $("#searchFilter").keyup(() => printRestaurants());
-  $("#sliderFilter").change(() => printRestaurants());
+  $("#searchFilter").keyup(() => filterRestaurants());
+  $("#sliderFilter").change(() => filterRestaurants());
   $(".category-filter").on("click", "input[type='checkbox']", function() {
     var category = $(this).attr("id").replace("Category", "");
     var allChecked;
@@ -90,10 +85,10 @@ $(function() {
     }
     $("#allCategory").prop("checked", allChecked);
     $("#allCategory").prop("disabled", allChecked);
-    printRestaurants();
+    filterRestaurants();
   });
 
-  $(".instance-restaurant").on("click", ".vendor", function() {
+  $(".instance-restaurants").on("click", ".vendor", function() {
     var page = "html/client_menu.html";
     $("#pageContainer").load(page, function(responseTxt, statusTxt, xhr) {
       if(statusTxt === "error" && page !== "html/exit.html")

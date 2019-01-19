@@ -1,5 +1,13 @@
 var numIngredients;
 
+function filterIngredients() {
+  $(".instance-ingredients .ingredient-checkbox").each(function() {
+    var ingredient = $(this).find("label").html().toLowerCase();
+    var substring = $("#searchFilter").val().toLowerCase();
+    $(this).toggle(ingredient.includes(substring));
+  });
+}
+
 $(function() {
   $.getJSON("php/dish/getData.php", function(output) {
     var template = retrieveTemplate("template-dish-categories");
@@ -25,9 +33,11 @@ $(function() {
   });
 
   $("#cancel").click(function() {
-    $.post("php/dish/unsetCurrentDish.php");
+    $.post("php/jsAPI/sessionAPI.php", { req: "del", var: "currentDish" });
     $("[name*='vendor_menu']").click();
   });
+
+  $("#searchFilter").keyup(() => filterIngredients());
 
   $("#save").click(function() {
     var input = {

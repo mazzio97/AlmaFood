@@ -7,7 +7,7 @@ function loadPage(pageName) {
 }
 
 $(function() {
-  $.getJSON("php/json/getSession.php", function(output) {
+  $.post("php/jsAPI/sessionAPI.php", { req: "get", var: "all" }, function(output) {
     if (output["tipo"] === "cliente") {
       $(".client-nav").show();
       loadPage("restaurants");
@@ -15,7 +15,7 @@ $(function() {
       $(".vendor-nav").show();
       loadPage("dashboard");
     }
-  });
+  }, "json");
 
   $("nav li").click(function() {
     loadPage($(this).attr("name"));
