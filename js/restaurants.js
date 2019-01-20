@@ -89,6 +89,8 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
+    var restName = $(this).find(".restaurant-name").text();
+    $.post("php/jsAPI/sessionAPI.php", { req : "set", var : "choosenRest", val : restName });
     var page = "html/client_menu.html";
     $("#pageContainer").load(page, function(responseTxt, statusTxt, xhr) {
       if(statusTxt === "error" && page !== "html/exit.html")
