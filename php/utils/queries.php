@@ -73,6 +73,12 @@
     return $data;
   }
 
+  function getVendorUserFromName($restName) {
+    $result = getResult(func_get_args(), "SELECT fornitore.username FROM fornitore WHERE fornitore.ristorante = ?");
+    $row = $result->fetch_assoc();
+    return $row["username"];
+  }
+
   function getCategoriesFromVendor($vendor) {
     $result = getResult(func_get_args(), "SELECT C.nome
                                           FROM pietanza P, categoria C
