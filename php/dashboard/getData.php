@@ -3,7 +3,7 @@
 
   switch ($_POST["request"]) {
     case "orders":
-      $output["order"] = getOrdersFrom($_SESSION["username"], $_SESSION["tipo"]);
+      $output["order"] = getPendentVendorOrders($_SESSION["username"]);
       checkError(count($output["order"]) == 0, "SERVER", "QUERY", "Nessun ordine da visualizzare");
       break;
 

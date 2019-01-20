@@ -28,7 +28,7 @@ function getOrderId(e) {
 }
 
 $(function() {
-  $.post("php/dashboard/dashboard.php", { request: "orders" }, function(output) {
+  $.post("php/dashboard/getData.php", { request: "orders" }, function(output) {
     var html_code = "";
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       html_code += '<li><p align="center" style="color: red">' + output["error"]["description"] + '</p></li>';
@@ -51,17 +51,17 @@ $(function() {
     var id = getOrderId($(this));
     showNotification("Richiesta accettata", "success");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.post("php/dashboard/dashboard.php", { request: "modify_order", orderId: id, state: 2 });
+    $.post("php/dashboard/getData.php", { request: "modify_order", orderId: id, state: 2 });
   });
   $(".instance-orders").on("click", "a.text-danger", function() {
     var id = getOrderId($(this));
     showNotification("Richiesta declinata", "danger");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.post("php/dashboard/dashboard.php", { request: "modify_order", orderId: id, state: 3 });
+    $.post("php/dashboard/getData.php", { request: "modify_order", orderId: id, state: 3 });
   });
   $(".instance-orders").on("click", "a.order-details", function() {
     var id = getOrderId($(this));
-    $.post("php/dashboard/dashboard.php", { request: "dishes_in_order", orderId: id }, function(output) {
+    $.post("php/dashboard/getData.php", { request: "dishes_in_order", orderId: id }, function(output) {
       var html_code = "";
       var template = retrieveTemplate("template-details");
       for(var i = 0; i < output["dish"].length; i++)

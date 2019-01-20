@@ -160,30 +160,52 @@
     getResult(func_get_args(), "DELETE c FROM composizione c WHERE c.idPietanza = ?");
   }
 
-  function getOrdersFrom($username, $tipo) {
-    $result = getResult(array($username), $tipo === "cliente" ?
-                                          "SELECT fornitore.ristorante AS nominativo,
-                                                  ordine.idOrdine AS ordine,
-                                                  ordine.costoTot AS costo,
-                                                  ordine.dataora AS oraConsegna,
-                                                  aula.nome AS aula
-                                           FROM ordine, fornitore, aula
-                                           WHERE ordine.forn_user = fornitore.username
-                                           AND ordine.idAula = aula.idAula
-                                           AND ordine.idStato = 1
-                                           AND ordine.cli_user = ?
-                                           ORDER BY ordine.dataora ASC" :
-                                          "SELECT CONCAT(cliente.nome, ' ', cliente.cognome) AS nominativo,
-                                                  ordine.idOrdine AS ordine,
-                                                  ordine.costoTot AS costo,
-                                                  ordine.dataora AS oraConsegna,
-                                                  aula.nome AS aula
-                                           FROM ordine, cliente, aula
-                                           WHERE ordine.cli_user = cliente.username
-                                           AND ordine.idAula = aula.idAula
-                                           AND ordine.idStato = 1
-                                           AND ordine.forn_user = ?
-                                           ORDER BY ordine.dataora ASC");
+  function getPendentVendorOrders($username) {
+    $result = getResult(func_get_args(), "SELECT CONCAT(cliente.nome, ' ', cliente.cognome) AS nominativo,
+                                                 ordine.idOrdine AS ordine,
+                                                 ordine.costoTot AS costo,
+                                                 ordine.dataora AS oraConsegna,
+                                                 aula.nome AS aula
+                                          FROM ordine, cliente, aula
+                                          WHERE ordine.cli_user = cliente.username
+                                          AND ordine.idAula = aula.idAula
+                                          AND ordine.idStato = 1
+                                          AND ordine.forn_user = ?
+                                          ORDER BY ordine.dataora ASC");
+    while ($row = $result->fetch_assoc())
+      $data[] = $row;
+    return $data;
+  }
+
+  function getActiveVendorOrders($username) {
+    $result = getResult(func_get_args(), "SELECT CONCAT(cliente.nome, ' ', cliente.cognome) AS nominativo,
+                                                 ordine.idOrdine AS ordine,
+                                                 ordine.costoTot AS costo,
+                                                 ordine.dataora AS oraConsegna,
+                                                 aula.nome AS aula
+                                          FROM ordine, cliente, aula
+                                          WHERE ordine.cli_user = cliente.username
+                                          AND ordine.idAula = aula.idAula
+                                          AND ordine.idStato = 2
+                                          AND ordine.forn_user = ?
+                                          ORDER BY ordine.dataora ASC");
+    while ($row = $result->fetch_assoc())
+      $data[] = $row;
+    return $data;
+  }
+
+  function getClientOrders($username) {
+    $result = getResult(func_get_args(), "SELECT fornitore.ristorante AS nominativo,
+                                                 ordine.idOrdine AS ordine,
+                                                 ordine.costoTot AS costo,
+                                                 ordine.dataora AS oraConsegna,
+                                                 aula.nome AS aula
+                                          FROM ordine, fornitore, aula
+                                          WHERE ordine.forn_user = fornitore.username
+                                          AND ordine.idAula = aula.idAula
+                                          AND ordine.idStato = 1
+                                          AND ordine.cli_user = ?
+                                          ORDER BY ordine.dataora ASC");
     while ($row = $result->fetch_assoc())
       $data[] = $row;
     return $data;
