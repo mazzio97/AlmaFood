@@ -27,7 +27,7 @@ $(function() {
     }, "json");
     $(".instance-categories").on("click", ".fa-edit", function() {
       var dishId = $(this).parent().attr("id");
-      $.post("php/menu/setCurrentDish.php", { dishId : dishId });
+      $.post("php/jsAPI/sessionAPI.php", { req : "set", var : "currentDish", val : dishId });
       $("#pageContainer").load("html/dish.html", function(responseTxt, statusTxt, xhr) {
         if(statusTxt === "error" && page !== "html/exit.html")
           $("#pageContainer").html("<h1>ERROR 404</h1><br/><h4>page " + page + " not found</h4>");
@@ -35,7 +35,7 @@ $(function() {
     });
     $(".instance-categories").on("click", ".fa-trash", function() {
       var dishId = $(this).parent().attr("id");
-      $.post("php/menu/deleteDish.php", { dishId : dishId });
+      $.post("php/jsAPI/sessionAPI.php", { req : "del", var : "currentDish" });
       $("nav li[name='vendor_menu']").click();
     });
     $(".fa-plus").parent().click(function() {
