@@ -13,7 +13,7 @@ $(function() {
       loadPage("restaurants");
     } else {
       $(".vendor-nav").show();
-      loadPage("dashboard");
+      loadPage("vendor_orders");
     }
   }, "json");
 
