@@ -51,6 +51,7 @@
 
   function getAllCategories() {
     $result = getResult(func_get_args(), "SELECT * FROM categoria ORDER BY nome");
+    $data = array();
     while($row = $result->fetch_assoc())
       $data[$row["nome"]] = $row["idCategoria"];
     return $data;
@@ -58,6 +59,7 @@
 
   function getAllIngredients() {
     $result = getResult(func_get_args(), "SELECT * FROM ingrediente ORDER BY nome");
+    $data = array();
     while($row = $result->fetch_assoc())
       $data[$row["nome"]] = $row["idIngrediente"];
     return $data;
@@ -65,12 +67,26 @@
 
   function getAllVendors() {
     $result = getResult(func_get_args(), "SELECT username, ristorante, qual_sum, qual_tot, prez_sum, prez_tot FROM fornitore");
+    $data = array();
     while($row = $result->fetch_assoc()) {
       $data[$row["username"]]["name"] = $row["ristorante"];
       $data[$row["username"]]["quality"] = $row["qual_tot"] == 0 ? 0 : $row["qual_sum"] / $row["qual_tot"];
       $data[$row["username"]]["price"] = $row["prez_tot"] == 0 ? 0 : $row["prez_sum"] / $row["prez_tot"];
     }
     return $data;
+  }
+
+  function getVendorFromUsername($username) {
+    $result = getResult(func_get_args(), "SELECT * FROM fornitore WHERE fornitore.username = ?");
+    return $result->fetch_assoc();
+  }
+
+  function getVendorFromOrder($orderId) {
+    $result = getResult(func_get_args(), "SELECT fornitore.*
+                                          FROM fornitore, ordine
+                                          WHERE fornitore.username = ordine.forn_user
+                                          AND ordine.idOrdine = ?");
+    return $result->fetch_assoc();
   }
 
   function getVendorUserFromName($restName) {
@@ -97,6 +113,7 @@
                                           FROM pietanza, categoria
                                           WHERE categoria.idCategoria = pietanza.idCategoria
                                           AND pietanza.forn_user = ?");
+    $data = array();
     while ($row = $result->fetch_assoc())
      $data[] = $row;
     return $data;
@@ -107,6 +124,7 @@
                                           FROM pietanza
                                           WHERE pietanza.forn_user = ?
                                           AND pietanza.idCategoria = ?");
+    $data = array();
     while ($row = $result->fetch_assoc())
      $data[] = $row;
     return $data;
@@ -117,6 +135,7 @@
                                           FROM ingrediente, composizione
                                           WHERE ingrediente.idIngrediente = composizione.idIngrediente
                                           AND composizione.idPietanza = ?");
+    $data = array();
     while ($row = $result->fetch_assoc())
      $data[] = $row;
     return $data;
@@ -124,6 +143,7 @@
 
   function getDishIngredientsNames($dishId) {
     $result = getDishIngredients($dishId);
+    $data = array();
     foreach ($result as $key) {
       $data[] = $key["nome"];
     }
@@ -172,6 +192,7 @@
                                           AND ordine.idStato = 1
                                           AND ordine.forn_user = ?
                                           ORDER BY ordine.dataora ASC");
+    $data = array();
     while ($row = $result->fetch_assoc())
       $data[] = $row;
     return $data;
@@ -189,23 +210,30 @@
                                           AND ordine.idStato = 2
                                           AND ordine.forn_user = ?
                                           ORDER BY ordine.dataora ASC");
+    $data = array();
     while ($row = $result->fetch_assoc())
       $data[] = $row;
     return $data;
   }
 
   function getClientOrders($username) {
-    $result = getResult(func_get_args(), "SELECT fornitore.ristorante AS nominativo,
+    $result = getResult(func_get_args(), "SELECT fornitore.username AS fornitore,
+                                                 fornitore.ristorante AS nominativo,
                                                  ordine.idOrdine AS ordine,
                                                  ordine.costoTot AS costo,
                                                  ordine.dataora AS oraConsegna,
-                                                 aula.nome AS aula
-                                          FROM ordine, fornitore, aula
+                                                 aula.nome AS aula,
+                                                 stato.nome AS stato,
+                                                 stato.idStato AS idStato
+                                          FROM ordine, fornitore, aula, stato
                                           WHERE ordine.forn_user = fornitore.username
                                           AND ordine.idAula = aula.idAula
-                                          AND ordine.idStato = 1
+                                          AND ordine.idStato = stato.idStato
+                                          AND ordine.idStato <> 3
                                           AND ordine.cli_user = ?
-                                          ORDER BY ordine.dataora ASC");
+                                          AND ordine.dataora >= UNIX_TIMESTAMP(NOW() - INTERVAL 1 MONTH)
+                                          ORDER BY ordine.dataora DESC");
+    $data = array();
     while ($row = $result->fetch_assoc())
       $data[] = $row;
     return $data;
@@ -216,6 +244,7 @@
                                           FROM pietanza_in_ordine, pietanza
                                           WHERE pietanza_in_ordine.idPietanza = pietanza.idPietanza
                                           AND idOrdine = ?");
+    $data = array();
     while($row = $result->fetch_assoc())
       $data[] = $row;
     return $data;
@@ -223,5 +252,17 @@
 
   function changeOrderState($newState, $orderId) {
     getResult(func_get_args(), "UPDATE ordine SET idStato = ? WHERE idOrdine = ?");
+  }
+
+  function getReviewFromOrder($orderId) {
+    $result = getResult(func_get_args(), "SELECT rec_qualita, rec_prezzo FROM ordine WHERE idOrdine = ?");
+    return $result->fetch_assoc();
+  }
+
+  function setOrderReview($quality, $price, $orderId) {
+    getResult(func_get_args(), "UPDATE ordine SET rec_qualita = ?, rec_prezzo = ? WHERE ordine.idOrdine = ?");
+    $v = getVendorFromOrder($orderId);
+    getResult(array($v["qual_sum"] + $quality, $v["qual_tot"] + 1, $v["prez_sum"] + $price, $v["prez_tot"] + 1, $v["username"]),
+              "UPDATE fornitore SET qual_sum = ?, qual_tot = ?, prez_sum = ?, prez_tot = ? WHERE username = ?");
   }
 ?>

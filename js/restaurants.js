@@ -1,8 +1,8 @@
 function ratingInfo(upperBound, color, icon) {
-  return { "upperBound": upperBound, "color": color, "icon": icon };
+  return { upperBound: upperBound, color: color, icon: icon };
 }
 function sliderInfo(quality, price) {
-  return { "quality": quality, "price": price };
+  return { quality: quality, price: price };
 }
 
 var restaurants = [];
@@ -89,8 +89,7 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
-    var restName = $(this).find(".restaurant-name").text();
-    $.post("php/jsAPI/sessionAPI.php", { req : "set", var : "choosenRest", val : restName });
+    $.post("php/jsAPI/sessionAPI.php", { req : "set", var : "choosenRest", val : $(this).find(".restaurant-name").text() });
     var page = "html/client_menu.html";
     $("#pageContainer").load(page, function(responseTxt, statusTxt, xhr) {
       if(statusTxt === "error" && page !== "html/exit.html")

@@ -10,7 +10,7 @@ $(function() {
   $.post("php/jsAPI/sessionAPI.php", { req: "get", var: "all" }, function(output) {
     if (output["tipo"] === "cliente") {
       $(".client-nav").show();
-      loadPage("client_orders");
+      loadPage("restaurants");
     } else {
       $(".vendor-nav").show();
       loadPage("dashboard");
