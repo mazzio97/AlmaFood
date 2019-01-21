@@ -13,11 +13,8 @@ function getDateFromUTC(utc) {
     date.setTime(utc * 1000);
     return date.toLocaleString();
 }
-function getCurrentOrderId(e) {
-  return e.parentsUntil(".instance-current-orders").find(".order-id").text();
-}
-function getPastOrderId(e) {
-  return e.parentsUntil(".instance-past-orders").find(".order-id").text();
+function getOrderId(e) {
+  return e.parentsUntil(".notification-panel").find(".order-id").text();
 }
 
 $(function() {
@@ -39,8 +36,7 @@ $(function() {
                                                         statusMap[order.idStato - 1].color, statusMap[order.idStato - 1].icon, order.stato);
       else
         past_html_code += bindArgs(past_template, order.nominativo, ("00000" + order.ordine).slice(-6),
-                                                  getDateFromUTC(order.oraConsegna), order.aula, order.costo,
-                                                  statusMap[order.idStato - 1].color, statusMap[order.idStato - 1].icon, order.stato);
+                                                  getDateFromUTC(order.oraConsegna), order.aula, order.costo);
     }
     $(".title-current-orders").toggle(current_html_code != "");
     $(".instance-current-orders").html(current_html_code);
@@ -48,8 +44,8 @@ $(function() {
     $(".instance-past-orders").html(past_html_code);
   }, "json");
 
-  $(".instance-current-orders").on("click", ".text-info", function() {
-    $.post("php/client_orders/getData.php", { request: "dishes_in_order", orderId: getCurrentOrderId($(this)) }, function(output) {
+  $(".instance-current-orders, .instance-past-orders").on("click", ".text-info", function() {
+    $.post("php/client_orders/getData.php", { request: "dishes_in_order", orderId: getOrderId($(this)) }, function(output) {
       if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
         $(".instance-details").html(output["error"]["description"]);
         return;
@@ -57,13 +53,13 @@ $(function() {
       var html_code = "";
       var template = retrieveTemplate("template-details");
       for(key in output["dishes"])
-        html_code += bindArgs(template, output["dishes"][i]["pietanza"]);
+        html_code += bindArgs(template, output["dishes"][key]);
       $(".instance-details").html(html_code);
    }, "json");
  });
 
   $(".instance-past-orders").on("click", ".review", function() {
-    var id = getPastOrderId($(this));
+    var id = getOrderId($(this));
     $("#voteButton").prop('disabled', true);
     $.post("php/client_orders/getData.php", { request: "getReview", orderId: id }, function(output) {
       var review = output["review"];

@@ -246,7 +246,7 @@
                                           AND idOrdine = ?");
     $data = array();
     while($row = $result->fetch_assoc())
-      $data[] = $row;
+      $data[] = $row["pietanza"];
     return $data;
   }
 

@@ -65,7 +65,7 @@ $(function() {
       var html_code = "";
       var template = retrieveTemplate("template-details");
       for(var i = 0; i < output["dish"].length; i++)
-        html_code += bindArgs(template, output["dish"][i]["pietanza"]);
+        html_code += bindArgs(template, output["dish"][i]);
       $(".instance-details").html(html_code);
    }, "json");
   })
