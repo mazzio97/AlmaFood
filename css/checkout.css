@@ -24,7 +24,7 @@
   background-color: #60606085;
 }
 
-.basket-item:nth-last-child(2) {
+.basket-item:last-child {
   border-bottom: 0.2rem solid var(--alma);
 }
 

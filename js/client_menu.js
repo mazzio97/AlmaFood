@@ -34,8 +34,8 @@ function updateButtonsState(button, orderDetails) {
   if (button.attr("class").indexOf("minus") > -1 && getNextVal(button) == 0)
     button.addClass("disabled");
 }
-function updateOrderDetails(orderDetails ,dishName, quantity) {
-  orderDetails[dishName] = quantity;
+function updateOrderDetails(orderDetails ,dishName, quantity, price) {
+  orderDetails[dishName] = { quantity : quantity, price : price.slice(1)};
   if (quantity == 0)
     delete orderDetails[dishName];
   return orderDetails;
@@ -53,7 +53,8 @@ $(function() {
   $(".instance-categories").on("click", ".fas", function() {
     if (!pressable($(this)))
       return;
-    orderDetails = updateOrderDetails(orderDetails, $(this).parent().siblings(".col-8").find("h5").text(), getNextVal($(this)));
+    orderDetails = updateOrderDetails(orderDetails, $(this).parent().siblings(".col-8").find("h5").text(),
+                                      getNextVal($(this)), $(this).siblings("h5").text());
     updateButtonsState($(this), orderDetails);
     $(this).siblings("span").text(getNextVal($(this)));
   });
