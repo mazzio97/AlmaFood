@@ -1,0 +1,13 @@
+.table td .fa-plus {
+	display: none;
+}
+.table th:last-child {
+	width: 25%;
+}
+.table td:last-child .fa-plus {
+	display: inherit;
+}
+.custom-control-input:checked~.custom-control-label::before {
+	background-color: var(--alma);
+	border-color: var(--alma);
+}
