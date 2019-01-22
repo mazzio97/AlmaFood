@@ -21,11 +21,6 @@ $(function() {
     $("#registerErr").hide();
     $("#inputRestaurant").parent().hide();
 
-    $(".carousel-control a").click(function() {
-        $(".carousel-control").remove();
-        $(".plate").remove();
-    });
-
     $("#client").change(function() {
       checkboxToggle();
     });
