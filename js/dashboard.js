@@ -1,3 +1,5 @@
+var refreshTime = 10;
+
 function showNotification(msg, type) {
     if ($(window).width() > 976) {
         $.bootstrapGrowl(msg, {
@@ -27,12 +29,11 @@ function getOrderId(e) {
   return e.parentsUntil(".instance-orders").find(".order-id").text();
 }
 
-$(function() {
+function loadOrders() {
   $.post("php/dashboard/getData.php", { request: "orders" }, function(output) {
     var html_code = "";
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
-      html_code += '<li><p align="center" style="color: red">' + output["error"]["description"] + '</p></li>';
-      $("ul.notifications").html(html_code);
+      $(".instance-orders").html(output["error"]["description"]);
       return;
     }
     var template = retrieveTemplate("template-orders");
@@ -45,7 +46,14 @@ $(function() {
                                       ordine["costo"]);
     }
     $(".instance-orders").html(html_code);
-  }, "json");
+  }, "json")
+   .always(function() {
+     setTimeout(loadOrders, refreshTime * 1000);
+   });
+}
+
+$(function() {
+  loadOrders();
 
   $(".instance-orders").on("click", "a.text-success", function() {
     var id = getOrderId($(this));

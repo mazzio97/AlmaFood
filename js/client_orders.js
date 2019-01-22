@@ -1,3 +1,5 @@
+var refreshTime = 10;
+
 function statusInfo(color, icon) {
   return { color: color, icon: icon };
 }
@@ -17,7 +19,7 @@ function getOrderId(e) {
   return e.parentsUntil(".notification-panel").find(".order-id").text();
 }
 
-$(function() {
+function loadOrders() {
   $.post("php/client_orders/getData.php", { request: "orders" }, function(output) {
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       $(".instance-current-orders").html(output["error"]["description"]);
@@ -42,7 +44,13 @@ $(function() {
     $(".instance-current-orders").html(current_html_code);
     $(".title-past-orders").toggle(past_html_code != "");
     $(".instance-past-orders").html(past_html_code);
-  }, "json");
+  }, "json")
+    .always(function() {
+      setTimeout(loadOrders, refreshTime * 1000);
+    });
+}
+$(function() {
+  loadOrders();
 
   $(".instance-current-orders, .instance-past-orders").on("click", ".text-info", function() {
     $.post("php/client_orders/getData.php", { request: "dishes_in_order", orderId: getOrderId($(this)) }, function(output) {

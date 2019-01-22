@@ -33,7 +33,6 @@ $(function() {
   });
 
   $("#cancel").click(function() {
-    $.post("php/jsAPI/sessionAPI.php", { req: "del", var: "currentDish" });
     $("[name*='vendor_menu']").click();
   });
 

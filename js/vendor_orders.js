@@ -1,3 +1,5 @@
+var refreshTime = 10;
+
 function getDateFromUTC(utc) {
     var date = new Date();
     date.setTime(utc * 1000);
@@ -7,7 +9,7 @@ function getOrderId(e) {
   return e.closest(".notification-panel").data("id");
 }
 
-$(function() {
+function loadOrders() {
   $.post("php/vendor_orders/getData.php", { request: "orders" }, function(output) {
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       $(".instance-orders").html(output["error"]["description"]);
@@ -23,7 +25,13 @@ $(function() {
       html_code += bindArgs(template, order.ordine, order.nominativo, details, order.aula, getDateFromUTC(order.oraConsegna));
     }
     $(".instance-orders").html(html_code);
-  }, "json");
+  }, "json")
+    .always(function() {
+      setTimeout(loadOrders, refreshTime * 1000);
+    });
+}
+$(function() {
+  loadOrders();
 
   $(".instance-orders").on("click", ".send-order", function() {
     var panel = $(this).closest(".notification-panel");

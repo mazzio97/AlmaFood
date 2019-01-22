@@ -39,6 +39,7 @@ $(function() {
       $("nav li[name='vendor_menu']").click();
     });
     $(".fa-plus").parent().click(function() {
+      $.post("php/jsAPI/sessionAPI.php", { req: "del", var: "currentDish" });
       $("#pageContainer").load("html/dish.html", function(responseTxt, statusTxt, xhr) {
         if(statusTxt === "error" && page !== "html/exit.html")
           $("#pageContainer").html("<h1>ERROR 404</h1><br/><h4>page " + page + " not found</h4>");
