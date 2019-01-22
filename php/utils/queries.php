@@ -49,6 +49,10 @@
     getResult(func_get_args(), "INSERT INTO fornitore(email, username, password, ristorante) VALUES (?, ?, ?, ?)");
   }
 
+  function insertOrder($dateTime, $totalPrice, $placeId, $cli_user, $vendor_user) {
+    return getResult(func_get_args(), "INSERT INTO ordine(dataora, costoTot, rec_qualita, rec_prezzo, idAula, idStato, cli_user, forn_user) VALUES (?, ?, 0, 0, ?, 1, ?, ?)");
+  }
+
   function getAllCategories() {
     $result = getResult(func_get_args(), "SELECT * FROM categoria ORDER BY nome");
     $data = array();
@@ -75,6 +79,13 @@
     }
     return $data;
   }
+  function getAllRooms() {
+    $result = getResult(func_get_args(), "SELECT * FROM aula ORDER BY nome");
+    $data = array();
+    while($row = $result->fetch_assoc())
+      $data[$row["nome"]] = $row["idAula"];
+    return $data;
+  }
 
   function getVendorFromUsername($username) {
     $result = getResult(func_get_args(), "SELECT * FROM fornitore WHERE fornitore.username = ?");
@@ -93,6 +104,12 @@
     $result = getResult(func_get_args(), "SELECT fornitore.username FROM fornitore WHERE fornitore.ristorante = ?");
     $row = $result->fetch_assoc();
     return $row["username"];
+  }
+
+  function getPlaceIdFromName($name) {
+    $result = getResult(func_get_args(), "SELECT aula.idAula FROM aula WHERE aula.nome = ?");
+    $row = $result->fetch_assoc();
+    return $row["idAula"];
   }
 
   function getCategoriesFromVendor($vendor) {
@@ -158,6 +175,15 @@
     return $result->fetch_assoc();
   }
 
+  function getDishIdByName($dishName, $vendor_user) {
+    $result = getResult(func_get_args(), "SELECT pietanza.idPietanza
+                                          FROM pietanza
+                                          WHERE pietanza.nome = ?
+                                          AND pietanza.forn_user = ?");
+    $row = $result->fetch_assoc();
+    return $row["idPietanza"];
+  }
+
   function deleteDish($dishId) {
     getResult(func_get_args(), "DELETE p, c
                                 FROM pietanza p INNER JOIN composizione c ON p.idPietanza = c.idPietanza
@@ -174,6 +200,10 @@
 
   function bindIngredientWithDish($ingredientId, $dishId) {
     getResult(func_get_args(), "INSERT INTO composizione(idIngrediente, idPietanza) VALUES (?, ?)");
+  }
+
+  function bindDishWithOrder($dishId, $orderId, $quality) {
+    getResult(func_get_args(), "INSERT INTO pietanza_in_ordine(idPietanza, idOrdine, quantita) VALUES (?, ?, ?)");
   }
 
   function deleteBind($dishId) {
