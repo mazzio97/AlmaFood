@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if (!isset($_SESSION["username"]) || $_SESSION["username"] != "tr354m1g05")
+    header("location: /almafood/enter.php");
+?>
+
+
 <!DOCTYPE html>
 <html>
 

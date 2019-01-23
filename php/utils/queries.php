@@ -50,7 +50,7 @@
   }
 
   function insertOrder($dateTime, $totalPrice, $placeId, $cli_user, $vendor_user) {
-    return getResult(func_get_args(), "INSERT INTO ordine(dataora, costoTot, rec_qualita, rec_prezzo, idAula, idStato, cli_user, forn_user) VALUES (?, ?, 0, 0, ?, 1, ?, ?)");
+    return getResult(func_get_args(), "INSERT INTO ordine(dataora, costoTot, idAula, cli_user, forn_user) VALUES (?, ?, ?, ?, ?)");
   }
 
   function getAllCategories() {
@@ -70,7 +70,9 @@
   }
 
   function getAllVendors() {
-    $result = getResult(func_get_args(), "SELECT username, ristorante, qual_sum, qual_tot, prez_sum, prez_tot FROM fornitore");
+    $result = getResult(func_get_args(), "SELECT username, ristorante, qual_sum, qual_tot, prez_sum, prez_tot
+                                          FROM fornitore
+                                          WHERE abilitato = 1");
     $data = array();
     while($row = $result->fetch_assoc()) {
       $data[$row["username"]]["name"] = $row["ristorante"];
@@ -98,18 +100,6 @@
                                           WHERE fornitore.username = ordine.forn_user
                                           AND ordine.idOrdine = ?");
     return $result->fetch_assoc();
-  }
-
-  function getVendorUserFromName($restName) {
-    $result = getResult(func_get_args(), "SELECT fornitore.username FROM fornitore WHERE fornitore.ristorante = ?");
-    $row = $result->fetch_assoc();
-    return $row["username"];
-  }
-
-  function getPlaceIdFromName($name) {
-    $result = getResult(func_get_args(), "SELECT aula.idAula FROM aula WHERE aula.nome = ?");
-    $row = $result->fetch_assoc();
-    return $row["idAula"];
   }
 
   function getCategoriesFromVendor($vendor) {

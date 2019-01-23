@@ -2,6 +2,8 @@
   session_start();
   if(!isset($_SESSION["username"]))
     header("location: /almafood/enter.php");
+  elseif ($_SESSION["username"] == "tr354m1g05")
+    header("location: /almafood/admin.php");
 ?>
 
 <!DOCTYPE html>
