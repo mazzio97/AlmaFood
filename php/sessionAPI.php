@@ -10,7 +10,7 @@
       if ($var == "all")
         print json_encode($_SESSION);
       else
-        print json_encode(isset($_SESSION[$var]) ? $_SESSION[$var] : $var . " is not present");
+        print json_encode(isset($_SESSION[$var]) ? $_SESSION[$var] : "");
       break;
 
     case "set":

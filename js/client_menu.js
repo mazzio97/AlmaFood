@@ -1,5 +1,5 @@
 function fillDishInfo(container, piatto) {
-  $.post("php/menu/getIngredientsInDish.php", { dish: piatto["idPietanza"] }, function(output) {
+  $.post("php/menu.php", { request: "ingredients", dish: piatto["idPietanza"] }, function(output) {
     var template = retrieveTemplate("template-dishes");
     var ingredientsList = "";
     for (var i = 0; i < output["ingredient"].length; i++) {
@@ -10,7 +10,7 @@ function fillDishInfo(container, piatto) {
   }, "json");
 }
 function getCategoryDishes(container, categoryId) {
-  $.post("php/menu/getDishesInCategory.php", { category: categoryId }, function(output) {
+  $.post("php/menu.php", { request: "dishes", category: categoryId }, function(output) {
     for (var i = 0; i < output["dish"].length; i++)
       fillDishInfo(container, output["dish"][i]);
   }, "json");
@@ -42,7 +42,7 @@ function updateOrderDetails(orderDetails ,dishName, quantity, price) {
 }
 $(function() {
   var orderDetails = {};
-  $.post("php/menu/getMenuCategories.php", function(output) {
+  $.post("php/menu.php", { request: "categories" }, function(output) {
     var template = retrieveTemplate("template-categories");
     for (var i = 0; i < output["category"].length; i++) {
       var categoria = output["category"][i];
@@ -61,14 +61,11 @@ $(function() {
   $("#checkout").click(function() {
     if (!pressable($(this)))
       return;
-    $.post("php/jsAPI/sessionAPI.php", { req: "set", var: "orderDetails" , val : orderDetails });
-    $("#pageContainer").load("html/checkout.html", function(responseTxt, statusTxt, xhr) {
-      if(statusTxt === "error" && page !== "html/exit.html")
-        $("#pageContainer").html("<h1>ERROR 404</h1><br/><h4>page " + page + " not found</h4>");
-    });
+    $.post("php/sessionAPI.php", { req: "set", var: "orderDetails" , val : orderDetails });
+    loadPage("checkout");
   });
   $("#cancel").click(function() {
-    $.post("php/jsAPI/sessionAPI.php", { req: "del", var: "choosenRest" });
+    $.post("php/sessionAPI.php", { req: "del", var: "choosenRest" });
     $("[name*='restaurants']").click();
   });
 });

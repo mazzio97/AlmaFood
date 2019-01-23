@@ -1,5 +1,5 @@
 <?php
-  foreach (glob('../utils/*.php') as $f) require_once $f;
+  foreach (glob('utils/*.php') as $f) require_once $f;
 
   function cmp($a, $b) {
     return ($b["quality"] + $b["price"]) - ($a["quality"] + $a["price"]);

@@ -30,7 +30,7 @@ function getOrderId(e) {
 }
 
 function loadOrders() {
-  $.post("php/dashboard/getData.php", { request: "orders" }, function(output) {
+  $.post("php/dashboard.php", { request: "orders" }, function(output) {
     var html_code = "";
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       $(".instance-orders").html(output["error"]["description"]);
@@ -48,7 +48,7 @@ function loadOrders() {
     $(".instance-orders").html(html_code);
   }, "json")
    .always(function() {
-     setTimeout(loadOrders, refreshTime * 1000);
+     $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
    });
 }
 
@@ -59,17 +59,17 @@ $(function() {
     var id = getOrderId($(this));
     showNotification("Richiesta accettata", "success");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.post("php/dashboard/getData.php", { request: "modify_order", orderId: id, state: 2 });
+    $.post("php/dashboard.php", { request: "modify_order", orderId: id, state: 2 });
   });
   $(".instance-orders").on("click", "a.text-danger", function() {
     var id = getOrderId($(this));
     showNotification("Richiesta declinata", "danger");
     $(this).parentsUntil(".notification-panel").slideUp("slow");
-    $.post("php/dashboard/getData.php", { request: "modify_order", orderId: id, state: 3 });
+    $.post("php/dashboard.php", { request: "modify_order", orderId: id, state: 3 });
   });
   $(".instance-orders").on("click", "a.order-details", function() {
     var id = getOrderId($(this));
-    $.post("php/dashboard/getData.php", { request: "dishes_in_order", orderId: id }, function(output) {
+    $.post("php/dashboard.php", { request: "dishes_in_order", orderId: id }, function(output) {
       var html_code = "";
       var template = retrieveTemplate("template-details");
       for(var i = 0; i < output["dish"].length; i++)

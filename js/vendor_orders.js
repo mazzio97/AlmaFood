@@ -10,7 +10,7 @@ function getOrderId(e) {
 }
 
 function loadOrders() {
-  $.post("php/vendor_orders/getData.php", { request: "orders" }, function(output) {
+  $.post("php/vendor_orders.php", { request: "orders" }, function(output) {
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       $(".instance-orders").html(output["error"]["description"]);
       return;
@@ -27,7 +27,7 @@ function loadOrders() {
     $(".instance-orders").html(html_code);
   }, "json")
     .always(function() {
-      setTimeout(loadOrders, refreshTime * 1000);
+      $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
     });
 }
 $(function() {
@@ -35,7 +35,7 @@ $(function() {
 
   $(".instance-orders").on("click", ".send-order", function() {
     var panel = $(this).closest(".notification-panel");
-    $.post("php/vendor_orders/getData.php", { request: "send", orderId: getOrderId($(this)) }, function(output) {
+    $.post("php/vendor_orders.php", { request: "send", orderId: getOrderId($(this)) }, function(output) {
       if (output["error"]["class"] == "NONE")
         panel.fadeOut();
       else

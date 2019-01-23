@@ -1,5 +1,5 @@
 <?php
-  foreach (glob('../utils/*.php') as $f) require_once $f;
+  foreach (glob('utils/*.php') as $f) require_once $f;
 
   switch ($_POST["request"]) {
     case "orders":

@@ -47,7 +47,7 @@ function filterRestaurants() {
 }
 
 $(function() {
-  $.getJSON("php/restaurants/getData.php", function(output) {
+  $.getJSON("php/restaurants.php", function(output) {
     restaurants = output["restaurants"];
 
     var html_code = "";
@@ -89,11 +89,7 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
-    $.post("php/jsAPI/sessionAPI.php", { req : "set", var : "choosenRest", val : $(this).find(".restaurant-name").text() });
-    var page = "html/client_menu.html";
-    $("#pageContainer").load(page, function(responseTxt, statusTxt, xhr) {
-      if(statusTxt === "error" && page !== "html/exit.html")
-        $("#pageContainer").html("<h1>ERROR 404</h1><br/><h4>page " + page + " not found</h4>");
-    });
+    $.post("php/sessionAPI.php", { req : "set", var : "choosenRest", val : $(this).find(".restaurant-name").text() });
+    loadPage("client_menu");
   });
 });

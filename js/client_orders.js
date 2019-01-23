@@ -20,7 +20,7 @@ function getOrderId(e) {
 }
 
 function loadOrders() {
-  $.post("php/client_orders/getData.php", { request: "orders" }, function(output) {
+  $.post("php/client_orders.php", { request: "orders" }, function(output) {
     if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
       $(".instance-current-orders").html(output["error"]["description"]);
       return;
@@ -46,14 +46,14 @@ function loadOrders() {
     $(".instance-past-orders").html(past_html_code);
   }, "json")
     .always(function() {
-      setTimeout(loadOrders, refreshTime * 1000);
+      $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
     });
 }
 $(function() {
   loadOrders();
 
   $(".instance-current-orders, .instance-past-orders").on("click", ".text-info", function() {
-    $.post("php/client_orders/getData.php", { request: "dishes_in_order", orderId: getOrderId($(this)) }, function(output) {
+    $.post("php/client_orders.php", { request: "dishes_in_order", orderId: getOrderId($(this)) }, function(output) {
       if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
         $(".instance-details").html(output["error"]["description"]);
         return;
@@ -69,7 +69,7 @@ $(function() {
   $(".instance-past-orders").on("click", ".review", function() {
     var id = getOrderId($(this));
     $("#voteButton").prop('disabled', true);
-    $.post("php/client_orders/getData.php", { request: "getReview", orderId: id }, function(output) {
+    $.post("php/client_orders.php", { request: "getReview", orderId: id }, function(output) {
       var review = output["review"];
       if (review.rec_qualita == null && review.rec_prezzo == null) {
         currentReview = reviewInfo(id, null, null);
@@ -115,7 +115,7 @@ $(function() {
       quality: currentReview.quality,
       price: currentReview.price
     };
-    $.post("php/client_orders/getData.php", input, function() {
+    $.post("php/client_orders.php", input, function() {
       $("#vote").modal("hide");
     });
   });

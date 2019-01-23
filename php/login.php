@@ -1,5 +1,5 @@
 <?php
-foreach (glob('../utils/*.php') as $f) require_once $f;
+foreach (glob('utils/*.php') as $f) require_once $f;
 
 // CHECK
 $data = getUserData($_POST["user"], $_POST["user"]);

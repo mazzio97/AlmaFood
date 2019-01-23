@@ -9,7 +9,7 @@ function filterIngredients() {
 }
 
 $(function() {
-  $.getJSON("php/dish/getData.php", function(output) {
+  $.post("php/dish.php", { request: "get" }, function(output) {
     var template = retrieveTemplate("template-dish-categories");
     var html_code = bindArgs(template, "value='0' selected", "Scegli...");
     for(key in output["categories"])
@@ -30,16 +30,17 @@ $(function() {
       $("#coin").val(output["dishInfo"]["costo"]);
       $("#plateCategory").val(output["dishInfo"]["idCategoria"]);
     }
-  });
+  }, "json");
 
   $("#cancel").click(function() {
-    $("[name*='vendor_menu']").click();
+    loadPage("vendor_menu");
   });
 
   $("#searchFilter").keyup(() => filterIngredients());
 
   $("#save").click(function() {
     var input = {
+      request: "save",
       name: $("#plateName").val().trim(),
       price: $("#coin").val(),
       category: $("#plateCategory").val(),
@@ -68,7 +69,7 @@ $(function() {
 
     // POST
     if (ok) {
-      $.post("php/dish/saveDish.php", input, function(output) {
+      $.post("php/dish.php", input, function(output) {
         if(output["error"]["class"] === "NONE")
           $("[name*='vendor_menu']").click();
         else

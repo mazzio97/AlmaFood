@@ -29,7 +29,7 @@ $(function() {
   };
   var date = new Date();
   var maxHorsDifference = 1;
-  $.post("php/jsAPI/sessionAPI.php", { req: "get", var: "orderDetails" }, function(output) {
+  $.post("php/sessionAPI.php", { req: "get", var: "orderDetails" }, function(output) {
     var template = retrieveTemplate("template-basket");
     orderDetails["dishes"] = output;
     jQuery.each(output, function(dish, info) {
@@ -39,7 +39,7 @@ $(function() {
     });
     $(".basket-total-price").text(orderDetails["totalPrice"].toFixed(2) + "€");
   }, "json");
-  $.post("php/checkout/checkout.php", { req: "places" }, function(output) {
+  $.post("php/checkout.php", { req: "places" }, function(output) {
     var template = retrieveTemplate("template-place");
     orderDetails["placeName"] = Object.keys(output["places"])[0];
     jQuery.each(output["places"], function(name, id) {
@@ -51,7 +51,7 @@ $(function() {
   });
   $("#date").text(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear());
   $("#cancel").click(function() {
-    $.post("php/jsAPI/sessionAPI.php", { req: "del", var: "choosenRest" });
+    $.post("php/sessionAPI.php", { req: "del", var: "choosenRest" });
     $("[name*='restaurants']").click();
   });
   $("#save").click(function() {
@@ -67,7 +67,7 @@ $(function() {
       return;
     }
     showNotification("Ordine inviato", "success");
-    $.post("php/checkout/checkout.php", { req: "sendOrder", orderDetails : orderDetails });
+    $.post("php/checkout.php", { req: "sendOrder", orderDetails : orderDetails });
     $("[name*='restaurants']").click();
   });
 });
