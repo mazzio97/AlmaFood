@@ -14,10 +14,7 @@
 .filter {
 	margin-top: 2rem;
 }
-.filter:nth-child(even) {
-	text-align: right
-}
-.category-filter {
+.filter > div {
 	border-radius: 0.25rem;
 	padding: 1rem;
 	margin: 0.5rem 0;
@@ -28,7 +25,7 @@
 .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--alma);
 }
-.category-filter {
+.filter > div {
 	font-size: 1.25rem;
 }
 
@@ -61,7 +58,5 @@
 }
 
 @media only screen and (min-width: 1200px) {
-	.filter:nth-child(even) {
-		text-align: left;
-	}
+
 }

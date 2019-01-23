@@ -6,46 +6,45 @@
     <i class="fas fa-search"></i>
   </div>
   <div class="row mx-auto">
-    <div class="col-12 col-xl-4">
-      <div class="row">
-        <div class="filter col-6 col-xl-12">
-          <button class="btn-alma rounded" type="button" data-toggle="collapse" data-target="#categoryFilter"
-            aria-expanded="true" aria-controls="categoryFilter">
-            <i class="fas fa-filter"></i> Categoria
-          </button>
-          <div id="categoryFilter" class="collapse category-filter hide">
+    <div class="col-12 col-lg-4">
+      <div class="filter">
+        <button class="btn-alma rounded col-12 col-lg-8" type="button" data-toggle="collapse" data-target="#categoryFilter"
+          aria-expanded="true" aria-controls="categoryFilter">
+          <i class="fas fa-filter"></i> Categoria
+        </button>
+        <div id="categoryFilter" class="collapse col-12 hide">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="allCategory" checked disabled>
+            <label class="custom-control-label" for="allCategory">Tutte</label>
+          </div>
+          <hr />
+          <div class="instance-filter-categories"></div>
+          <div class="template-filter-categories d-none">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="allCategory" checked disabled>
-              <label class="custom-control-label" for="allCategory">Tutte</label>
-            </div>
-            <hr />
-            <div class="instance-filter-categories"></div>
-            <div class="template-filter-categories d-none">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="?Category">
-                <label class="custom-control-label" for="?Category">?</label>
-              </div>
+              <input type="checkbox" class="custom-control-input" id="?Category">
+              <label class="custom-control-label" for="?Category">?</label>
             </div>
           </div>
         </div>
-        <div class="filter col-6 col-xl-12">
-          <button class="btn-alma rounded" type="button" data-toggle="collapse" data-target="#opinionFilter"
-            aria-expanded="true" aria-controls="opinionFilter">
-            <i class="fas fa-meh-blank"></i> Rapporto Q/P
-          </button>
-          <div id="opinionFilter" class="collapse category-filter hide">
-            <div class="row">
-              <div class="col-2"><i class="fa fa-medal fa-2x"></i></div>
-              <div class="col-8"><input type="range" class="custom-range" id="sliderFilter" min="0" max="4" value="2" step="1"></div>
-              <div class="col-2"><i class="fa fa-euro-sign fa-2x"></i></div>
-            </div>
+      </div>
+      <div class="filter">
+        <button class="btn-alma rounded col-12 col-lg-8" type="button" data-toggle="collapse" data-target="#opinionFilter"
+          aria-expanded="true" aria-controls="opinionFilter">
+          <i class="fas fa-meh-blank"></i> Rapporto Q/P
+        </button>
+        <div id="opinionFilter" class="collapse col-12 hide">
+          <div class="row">
+            <div class="col-2"><i class="fa fa-medal fa-2x"></i></div>
+            <div class="col-8"><input type="range" class="custom-range" id="sliderFilter" min="0" max="4" value="2"
+                step="1"></div>
+            <div class="col-2"><i class="fa fa-euro-sign fa-2x"></i></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="instance-restaurants col-12 col-xl-7 offset-xl-1 vendors-list"></div>
-    <div class="template-restaurants d-none col-12 col-xl-7 offset-xl-1 vendors-list">
+    <div class="instance-restaurants col-12 col-lg-7 offset-lg-1 vendors-list"></div>
+    <div class="template-restaurants d-none col-12 col-lg-7 offset-lg-1 vendors-list">
       <div class="restaurant card vendor text-center" id="?Restaurant" style="background-color: #?">
         <div class="card-body">
           <h4 class="restaurant-name card-title text-uppercase">?</h4>

@@ -74,7 +74,7 @@ $(function() {
 
   $("#searchFilter").keyup(() => filterRestaurants());
   $("#sliderFilter").change(() => filterRestaurants());
-  $(".category-filter").on("click", "input[type='checkbox']", function() {
+  $(".filter").on("click", "input[type='checkbox']", function() {
     var category = $(this).attr("id").replace("Category", "");
     var allChecked;
     if (category == "all") {
