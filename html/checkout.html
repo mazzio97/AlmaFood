@@ -18,9 +18,9 @@
   <div class="row">
     <div class="col-12 col-lg-3 input-group input-group-lg mb-3">
       <div class="input-group-prepend">
-        <label for="time" class="input-group-text">Orario</label>
+        <label for="deliveryTime" class="input-group-text">Orario</label>
       </div>
-      <input id="time" class="form-control" type="time">
+      <input id="deliveryTime" class="form-control" type="time">
     </div>
     <div class="col-12 offset-lg-3 col-lg-6 input-group input-group-lg mb-3">
       <div class="input-group-prepend">
@@ -28,7 +28,7 @@
       </div>
       <select class="instance-place custom-select" id="deliveryPlace"></select>
       <select class="template-place d-none">
-        <option>?</option>
+        <option id="?">?</option>
       </select>
     </div>
     <div class="form-group col-12">
@@ -44,6 +44,6 @@
       <input type="radio" name="paymentMethod" value="bitcoin" id="bitcoin">
       <label for="bitcoin"><i class="fab fa-bitcoin fa-2x"></i></label>
     </div>
-    <button id="save" class="offset-sm-10 col-3 col-sm-2 btn-alma rounded-pill p-2">Ordina</button>
+    <button id="save" class="offset-sm-10 col-3 col-sm-2 btn-alma rounded-pill p-2 disabled">Ordina</button>
   </div>
 </div>

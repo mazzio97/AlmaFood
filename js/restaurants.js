@@ -67,7 +67,7 @@ $(function() {
       restaurant.categories.forEach(function(category) {
         categories_code += bindArgs(categoryTemplate, category);
       });
-      html_code += bindArgs(restaurantTemplate, key, info.color, restaurant.name, categories_code, info.icon);
+      html_code += bindArgs(restaurantTemplate, restaurant.username, info.color, restaurant.name, categories_code, info.icon);
     }
     $(".instance-restaurants").html(html_code == "" ? "Nessun Ristorante" : html_code);
   });
@@ -89,7 +89,7 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
-    $.post("php/sessionAPI.php", { req : "set", var : "choosenRest", val : $(this).find(".restaurant-name").text() });
+    $.post("php/sessionAPI.php", { req: "set", var: "choosenRest", val: $(this).attr("id") });
     loadPage("client_menu");
   });
 });

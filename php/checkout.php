@@ -7,12 +7,10 @@
       checkError(count($output["places"]) == 0, "SERVER", "QUERY", "Nessun aula visualizzare");
       break;
     case "sendOrder":
-      $vendor_user = getVendorUserFromName($_SESSION["choosenRest"]);
-      $placeId = getPlaceIdFromName($_POST["orderDetails"]["placeName"]);
       $orderId = insertOrder($_POST["orderDetails"]["date"], $_POST["orderDetails"]["totalPrice"],
-                             $placeId, $_SESSION["username"], $vendor_user);
+                             $_POST["orderDetails"]["place"], $_SESSION["username"], $_SESSION["choosenRest"]);
       foreach ($_POST["orderDetails"]["dishes"] as $key => $value)
-        bindDishWithOrder(getDishIdByName($key, $vendor_user), $orderId, $value["quantity"]);
+        bindDishWithOrder($key, $orderId, $value["quantity"]);
       break;
   }
 

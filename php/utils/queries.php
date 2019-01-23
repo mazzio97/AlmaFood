@@ -75,6 +75,7 @@
                                           WHERE abilitato = 1");
     $data = array();
     while($row = $result->fetch_assoc()) {
+      $data[$row["username"]]["username"] = $row["username"];
       $data[$row["username"]]["name"] = $row["ristorante"];
       $data[$row["username"]]["quality"] = $row["qual_tot"] == 0 ? 0 : $row["qual_sum"] / $row["qual_tot"];
       $data[$row["username"]]["price"] = $row["prez_tot"] == 0 ? 0 : $row["prez_sum"] / $row["prez_tot"];
@@ -163,15 +164,6 @@
                                           WHERE pietanza.idPietanza = ?");
 
     return $result->fetch_assoc();
-  }
-
-  function getDishIdByName($dishName, $vendor_user) {
-    $result = getResult(func_get_args(), "SELECT pietanza.idPietanza
-                                          FROM pietanza
-                                          WHERE pietanza.nome = ?
-                                          AND pietanza.forn_user = ?");
-    $row = $result->fetch_assoc();
-    return $row["idPietanza"];
   }
 
   function deleteDish($dishId) {

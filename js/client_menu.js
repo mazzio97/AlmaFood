@@ -34,10 +34,10 @@ function updateButtonsState(button, orderDetails) {
   if (button.attr("class").indexOf("minus") > -1 && getNextVal(button) == 0)
     button.addClass("disabled");
 }
-function updateOrderDetails(orderDetails ,dishName, quantity, price) {
-  orderDetails[dishName] = { quantity : quantity, price : price.slice(1)};
+function updateOrderDetails(orderDetails , dishId, dishName, quantity, price) {
+  orderDetails[dishId] = { name: dishName, quantity: quantity, price: price.slice(1)};
   if (quantity == 0)
-    delete orderDetails[dishName];
+    delete orderDetails[dishId];
   return orderDetails;
 }
 $(function() {
@@ -53,8 +53,9 @@ $(function() {
   $(".instance-categories").on("click", ".fas", function() {
     if (!pressable($(this)))
       return;
-    orderDetails = updateOrderDetails(orderDetails, $(this).parent().siblings(".col-8").find("h5").text(),
-                                      getNextVal($(this)), $(this).siblings("h5").text());
+    orderDetails = updateOrderDetails(orderDetails, $(this).parent().attr("id"),
+                                      $(this).parents(".menu-plate").find(".dish-name").text(),
+                                      getNextVal($(this)), $(this).siblings(".dish-price").text());
     updateButtonsState($(this), orderDetails);
     $(this).siblings("span").text(getNextVal($(this)));
   });
@@ -66,6 +67,6 @@ $(function() {
   });
   $("#cancel").click(function() {
     $.post("php/sessionAPI.php", { req: "del", var: "choosenRest" });
-    $("[name*='restaurants']").click();
+    loadPage("restaurants");
   });
 });
