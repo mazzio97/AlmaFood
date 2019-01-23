@@ -52,16 +52,7 @@ html, body, .carousel, .carousel-inner, .carousel-item {
 }
 
 /* Registration Form */
-input[name="userRole"] {
-	display: none;
-}
-input[name="userRole"]:hover + label {
-	cursor: pointer;
-}
-input[name="userRole"]:checked + label {
-    color: var(--alma);
-}
-input[name="userRole"] + label {
+input[type=radio] + label {
     padding: 0.45rem;
     margin-top: -0.25rem;
     margin-bottom: 0; 

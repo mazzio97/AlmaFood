@@ -1,6 +1,9 @@
 :root {
 	--check-size: 1.25rem;
 }
+.instance-ingredients {
+	width: 100%;
+}
 .input-group-prepend label {
 	color: #ffffff;
 	background-color: var(--alma);

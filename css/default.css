@@ -76,6 +76,17 @@ ul, ol {
   background-color: var(--alma);
 }
 
+/* Radio */
+input[type=radio] {
+	display: none;
+}
+input[type=radio]:hover + label {
+	cursor: pointer;
+}
+input[type=radio]:checked + label {
+    color: var(--alma);
+}
+
 /* Range */
 .custom-range {
   width: 110%;
