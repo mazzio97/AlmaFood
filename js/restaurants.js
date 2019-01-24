@@ -48,8 +48,9 @@ function filterRestaurants() {
 
 $(function() {
   $.getJSON("php/restaurants.php", function(output) {
-    restaurants = output["restaurants"];
-
+    restaurants = output["restaurants"].filter(function (value){
+      return value["enabled"] == 1;
+    });
     var html_code = "";
     var template = retrieveTemplate("template-filter-categories");
     output["categories"].forEach(function(category) {

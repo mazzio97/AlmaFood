@@ -3,8 +3,8 @@
 
   switch ($_POST["req"]) {
     case "places":
-      $output["places"] = getAllRooms();
-      checkError(count($output["places"]) == 0, "SERVER", "QUERY", "Nessun aula visualizzare");
+      $output["places"] = getAllPlaces();
+      checkError(count($output["places"]) == 0, "SERVER", "QUERY", "Nessun aula da visualizzare");
       break;
     case "sendOrder":
       $orderId = insertOrder($_POST["orderDetails"]["date"], $_POST["orderDetails"]["totalPrice"],

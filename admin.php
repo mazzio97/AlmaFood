@@ -42,29 +42,21 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6">
+        <i class="fas fa-2x fa-chevron-down" data-toggle="collapse" data-target="#collapseIngredients" aria-expanded="true"
+        aria-controls="collapseIngredients"></i>
+        <div id="collapseIngredients" class="collapse multi-collapse show">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Ingrediente</th>
-              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseIngredients" aria-expanded="true"
-              aria-controls="collapseIngredients"></i></th>
+              <th>Nome</th>
+              <th>Azioni</th>
             </tr>
           </thead>
-          <tbody id="collapseIngredients" class="collapse multi-collapse show">
+          <tbody class="instance-table-ingredients"></tbody>
+          <tbody class="template-table-ingredients d-none">
             <tr>
-              <td>?</td>
+              <td id="?">?</td>
               <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
-              </td>
-              <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
                 <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
                 <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
               </td>
@@ -72,30 +64,23 @@
           </tbody>
         </table>
       </div>
+      </div>
       <div class="col-12 col-lg-6">
+        <i class="fas fa-2x fa-chevron-down" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
+        aria-controls="collapseCategories"></i>
+        <div id="collapseCategories" class="collapse multi-collapse show">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Categoria</th>
-              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
-              aria-controls="collapseCategories"></i></th>
+              <th>Nome</th>
+              <th>Azioni</th>
             </tr>
           </thead>
-          <tbody id="collapseCategories" class="collapse multi-collapse show">
+          <tbody class="instance-table-categories"></tbody>
+          <tbody class="template-table-categories d-none">
             <tr>
-              <td>?</td>
+              <td id="?">?</td>
               <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
-              </td>
-              <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
                 <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
                 <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
               </td>
@@ -103,30 +88,23 @@
           </tbody>
         </table>
       </div>
+      </div>
       <div class="col-12 col-lg-6">
+        <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="true"
+        aria-controls="collapsePlaces"></i>
+        <div id="collapsePlaces" class="collapse multi-collapse show">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Luogo</th>
-              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="true"
-              aria-controls="collapsePlaces"></i></th>
+              <th>Nome</th>
+              <th>Azioni</th>
             </tr>
           </thead>
-          <tbody id="collapsePlaces" class="collapse multi-collapse show">
+          <tbody class="instance-table-places"></tbody>
+          <tbody class="template-table-places d-none">
             <tr>
-              <td>?</td>
+              <td id="?">?</td>
               <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
-              </td>
-              <td>
-                <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
                 <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
                 <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
               </td>
@@ -134,29 +112,34 @@
           </tbody>
         </table>
       </div>
+    </div>
       <div class="col-12 col-lg-6">
+        <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="true"
+        aria-controls="collapseRestaurants"></i>
+        <div id="collapseRestaurants" class="collapse multi-collapse show">
         <table class="table table-striped">
           <thead>
             <tr>
               <th>Ristorante</th>
               <th>Username</th>
-              <th>Abilitato<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="true"
-              aria-controls="collapseRestaurants"></i></th>
+              <th>Abilitato</th>
             </tr>
           </thead>
-          <tbody id="collapseRestaurants" class="collapse multi-collapse show">
+          <tbody class="instance-table-restaurants"></tbody>
+          <tbody class="template-table-restaurants d-none">
             <tr>
               <td>?</td>
               <td>?</td>
               <td>
                 <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                  <label class="custom-control-label" for="customSwitch1"></label>
+                  <input type="checkbox" class="custom-control-input" id="?" ?>
+                  <label class="custom-control-label" for="?"></label>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
       <div class="col-12 text-right">
         <a href="php/exit.php">

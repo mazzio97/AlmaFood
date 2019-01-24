@@ -70,19 +70,19 @@
   }
 
   function getAllVendors() {
-    $result = getResult(func_get_args(), "SELECT username, ristorante, qual_sum, qual_tot, prez_sum, prez_tot
-                                          FROM fornitore
-                                          WHERE abilitato = 1");
+    $result = getResult(func_get_args(), "SELECT username, ristorante, abilitato, qual_sum, qual_tot, prez_sum, prez_tot
+                                          FROM fornitore");
     $data = array();
     while($row = $result->fetch_assoc()) {
       $data[$row["username"]]["username"] = $row["username"];
       $data[$row["username"]]["name"] = $row["ristorante"];
+      $data[$row["username"]]["enabled"] = $row["abilitato"];
       $data[$row["username"]]["quality"] = $row["qual_tot"] == 0 ? 0 : $row["qual_sum"] / $row["qual_tot"];
       $data[$row["username"]]["price"] = $row["prez_tot"] == 0 ? 0 : $row["prez_sum"] / $row["prez_tot"];
     }
     return $data;
   }
-  function getAllRooms() {
+  function getAllPlaces() {
     $result = getResult(func_get_args(), "SELECT * FROM aula ORDER BY nome");
     $data = array();
     while($row = $result->fetch_assoc())
@@ -188,12 +188,52 @@
                                 WHERE p.idPietanza = ?");
   }
 
+  function deleteIngredient($ingredientId) {
+    getResult(func_get_args(), "DELETE FROM ingrediente WHERE idIngrediente = ?");
+  }
+
+  function deleteCategory($categoryId) {
+    getResult(func_get_args(), "DELETE FROM categoria WHERE idCategoria = ?");
+  }
+
+  function deletePlace($placeId) {
+    getResult(func_get_args(), "DELETE FROM aula WHERE idAula = ?");
+  }
+
   function insertDish($name, $price, $category, $username) {
     return getResult(func_get_args(), "INSERT INTO pietanza(nome, costo, idCategoria, forn_user) VALUES (?, ?, ?, ?)");
   }
 
+  function insertIngredient($name) {
+    return getResult(func_get_args(), "INSERT INTO ingrediente(nome) VALUES (?)");
+  }
+
+  function insertCategory($name) {
+    return getResult(func_get_args(), "INSERT INTO categoria(nome) VALUES (?)");
+  }
+
+  function insertPlace($name) {
+    return getResult(func_get_args(), "INSERT INTO aula(nome) VALUES (?)");
+  }
+
+  function updateRestaurantState($state, $restId) {
+    getResult(func_get_args(), "UPDATE fornitore SET abilitato = ? WHERE username = ?");
+  }
+
   function updateDish($name, $price, $category, $dishId) {
     getResult(func_get_args(), "UPDATE pietanza SET nome = ?, costo = ?, idCategoria = ?  WHERE idPietanza = ?");
+  }
+
+  function updateIngredient($name, $ingredientId) {
+    getResult(func_get_args(), "UPDATE ingrediente SET nome = ? WHERE idIngrediente = ?");
+  }
+
+  function updateCategory($name, $categoryId) {
+    getResult(func_get_args(), "UPDATE categoria SET nome = ? WHERE idCategoria = ?");
+  }
+
+  function updatePlace($name, $placeId) {
+    getResult(func_get_args(), "UPDATE aula SET nome = ? WHERE idAula = ?");
   }
 
   function bindIngredientWithDish($ingredientId, $dishId) {
