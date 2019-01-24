@@ -121,10 +121,14 @@ $(function() {
   });
 
   $(".instance-past-orders").on("click", ".order-again", function() {
-    var page = "html/checkout.html";
-    $("#pageContainer").load(page, function(responseTxt, statusTxt, xhr) {
-      if(statusTxt === "error" && page !== "html/exit.html")
-        $("#pageContainer").html("<h1>ERROR 404</h1><br/><h4>page " + page + " not found</h4>");
-    });
+    $.post("php/client_orders.php", { request: "getOrderDetails", orderId: parseInt(getOrderId($(this))) }, function(output) {
+      var orderDetails = {};
+      jQuery.each(output["orderDetails"]["dishes"], function(index, info) {
+        orderDetails[info["idPietanza"]] = { name: info["nome"], quantity: info["quantita"], price: info["costo"] };
+      });
+      $.post("php/sessionAPI.php", { req: "set", var: "chosenRest", val: output["orderDetails"]["restaurant"] });
+      $.post("php/sessionAPI.php", { req: "set", var: "orderDetails" , val: orderDetails });
+    }, "json");
+    loadPage("checkout");
   });
 });

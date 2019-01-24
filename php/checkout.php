@@ -8,7 +8,7 @@
       break;
     case "sendOrder":
       $orderId = insertOrder($_POST["orderDetails"]["date"], $_POST["orderDetails"]["totalPrice"],
-                             $_POST["orderDetails"]["place"], $_SESSION["username"], $_SESSION["choosenRest"]);
+                             $_POST["orderDetails"]["place"], $_SESSION["username"], $_SESSION["chosenRest"]);
       foreach ($_POST["orderDetails"]["dishes"] as $key => $value)
         bindDishWithOrder($key, $orderId, $value["quantity"]);
       break;

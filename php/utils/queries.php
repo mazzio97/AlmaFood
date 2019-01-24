@@ -90,6 +90,22 @@
     return $data;
   }
 
+  function getOrderDetails($orderId) {
+    $orderDetails = array("restaurant" => "", "dishes" => array());
+    $result = getResult(func_get_args(), "SELECT forn_user
+                                          FROM ordine
+                                          WHERE idOrdine = ?");
+    $row = $result->fetch_assoc();
+    $orderDetails["restaurant"] = $row["forn_user"];
+    $result = getResult(func_get_args(), "SELECT PO.idPietanza, P.nome, PO.quantita, P.costo
+                                          FROM pietanza_in_ordine PO, pietanza P
+                                          WHERE PO.idPietanza = P.idPietanza
+                                          AND PO.idOrdine = ?");
+    while($row = $result->fetch_assoc())
+      $orderDetails["dishes"][] = $row;
+    return $orderDetails;
+  }
+
   function getVendorFromUsername($username) {
     $result = getResult(func_get_args(), "SELECT * FROM fornitore WHERE fornitore.username = ?");
     return $result->fetch_assoc();

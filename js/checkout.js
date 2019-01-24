@@ -8,9 +8,9 @@ function dateDifference(from, to) {
 }
 function updateButtonState(date, requiredDate, maxHorsDifference) {
   if (dateDifference(date, requiredDate) > maxHorsDifference)
-    $("#save").removeClass("disabled");
+    $("#order").removeClass("disabled");
   else
-    $("#save").addClass("disabled");
+    $("#order").addClass("disabled");
 }
 function pressable(button) {
   return button.attr("class").indexOf("disabled") < 0;
@@ -37,7 +37,7 @@ $(function() {
   }, "json");
   $.post("php/checkout.php", { req: "places" }, function(output) {
     var template = retrieveTemplate("template-place");
-    orderDetails["place"] = Object.values(output["places"])[0];
+    orderDetails["place"] = (Object.values(output["places"])[0]).toString();
     jQuery.each(output["places"], function(name, id) {
       $(".instance-place").append(bindArgs(template, id, name));
     });
@@ -47,15 +47,14 @@ $(function() {
   });
   $("#deliveryTime").focusout(function() {
     var requiredDate = getRequiredDate(date, $(this).val());
-    console.log(requiredDate);
     orderDetails["date"] = parseInt(requiredDate.getTime() / 1000);
     updateButtonState(date, requiredDate, maxHorsDifference);
   });
   $("#cancel").click(function() {
-    $.post("php/sessionAPI.php", { req: "del", var: "choosenRest" });
+    $.post("php/sessionAPI.php", { req: "del", var: "chosenRest" });
     loadPage("restaurants");
   });
-  $("#save").click(function() {
+  $("#order").click(function() {
     if (!pressable($(this)))
       return;
     $.post("php/checkout.php", { req: "sendOrder", orderDetails: orderDetails });

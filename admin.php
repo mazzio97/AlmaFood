@@ -4,7 +4,6 @@
     header("location: /almafood/enter.php");
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -35,6 +34,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
   <script src="js/utils/htmlRetriever.js"></script>
+  <script src="js/utils/pageLoader.js"></script>
   <script src="js/admin.js"></script>
 </head>
 
@@ -159,7 +159,12 @@
         </table>
       </div>
       <div class="col-12 text-right">
-        <button class="col-5 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill"><i class="fas fa-sign-out-alt"></i> Esci</button>
+        <a href="php/exit.php">
+          <button class="col-5 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Esci</span>
+          </button>
+        </a>
       </div>
     </div>
   </div>

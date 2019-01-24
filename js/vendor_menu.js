@@ -32,8 +32,8 @@ $(function() {
     });
     $(".instance-categories").on("click", ".fa-trash", function() {
       var dishId = $(this).parent().attr("id");
-      $.post("php/sessionAPI.php", { req : "del", var : "currentDish" });
-      $("nav li[name='vendor_menu']").click();
+      $.post("php/menu.php", { request: "delete", dish : dishId});
+      loadPage("vendor_menu");
     });
     $(".fa-plus").parent().click(function() {
       $.post("php/sessionAPI.php", { req: "del", var: "currentDish" });

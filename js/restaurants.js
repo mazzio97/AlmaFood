@@ -89,7 +89,7 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
-    $.post("php/sessionAPI.php", { req: "set", var: "choosenRest", val: $(this).attr("id") });
+    $.post("php/sessionAPI.php", { req: "set", var: "chosenRest", val: $(this).attr("id") });
     loadPage("client_menu");
   });
 });

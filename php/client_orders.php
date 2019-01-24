@@ -19,6 +19,11 @@
     case "setReview":
       setOrderReview($_POST["quality"], $_POST["price"], $_POST["orderId"]);
       break;
+
+    case "getOrderDetails":
+      $output["orderDetails"] = getOrderDetails($_POST["orderId"]); 
+      break;
+
   }
   closeWithoutErrors($output);
 ?>

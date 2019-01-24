@@ -9,6 +9,7 @@
         $output["dishInfo"] = getDishInfo($_SESSION["currentDish"]);
         $output["dishIngredients"] = getDishIngredientsNames($_SESSION["currentDish"]);
       }
+      closeWithoutErrors($output);
       break;
 
     case "save":
@@ -26,8 +27,7 @@
           foreach($_POST["ingredients"] as $ingredientID)
             bindIngredientWithDish($ingredientID, $dishID);
       }
+      closeWithoutErrors(array());
       break;
   }
-
-  closeWithoutErrors($output);
 ?>

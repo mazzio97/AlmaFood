@@ -71,7 +71,7 @@ $(function() {
     if (ok) {
       $.post("php/dish.php", input, function(output) {
         if(output["error"]["class"] === "NONE")
-          $("[name*='vendor_menu']").click();
+          loadPage("vendor_menu");
         else
           alert(output["error"]["description"]);
       }, "json");

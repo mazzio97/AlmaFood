@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(function() {
+
 	$(document).on("click", ".add", function() {
 		var emptyInput = $(this).parents("table").find("tr").last().html();
 		var input = $(this).parents("tr").find('input[type="text"]');
@@ -14,7 +15,7 @@ $(document).ready(function() {
 		});
     });
 	// Delete row on delete button click
-	$(document).on("click", ".delete", function(){
+	$(document).on("click", ".delete", function() {
 		$(this).parents("tr").remove();
-    });
+  });
 });

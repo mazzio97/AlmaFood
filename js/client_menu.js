@@ -35,7 +35,7 @@ function updateButtonsState(button, orderDetails) {
     button.addClass("disabled");
 }
 function updateOrderDetails(orderDetails , dishId, dishName, quantity, price) {
-  orderDetails[dishId] = { name: dishName, quantity: quantity, price: price.slice(1)};
+  orderDetails[dishId] = { name: dishName, quantity: quantity, price: price.slice(1) };
   if (quantity == 0)
     delete orderDetails[dishId];
   return orderDetails;
@@ -62,11 +62,11 @@ $(function() {
   $("#checkout").click(function() {
     if (!pressable($(this)))
       return;
-    $.post("php/sessionAPI.php", { req: "set", var: "orderDetails" , val : orderDetails });
+    $.post("php/sessionAPI.php", { req: "set", var: "orderDetails" , val: orderDetails });
     loadPage("checkout");
   });
   $("#cancel").click(function() {
-    $.post("php/sessionAPI.php", { req: "del", var: "choosenRest" });
+    $.post("php/sessionAPI.php", { req: "del", var: "chosenRest" });
     loadPage("restaurants");
   });
 });
