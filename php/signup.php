@@ -7,6 +7,7 @@ checkError($data and $data["username"] === $_POST["username"], "USER", "USERNAME
 checkError($data and $data["email"] === $_POST["email"], "USER", "EMAIL", "questa e-mail è già stata utilizzata");
 
 // INSERTION
+$_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 if ($_POST["userRole"] === "cliente")
   insertClient($_POST["email"], $_POST["username"], $_POST["password"], $_POST["name"], $_POST["surname"]);
 else

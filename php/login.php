@@ -4,7 +4,7 @@ foreach (glob('utils/*.php') as $f) require_once $f;
 // CHECK
 $data = getUserData($_POST["user"], $_POST["user"]);
 checkError($data === NULL, "USER", "USERNAME", "questo username/e-mail non è presente");
-checkError($data["password"] != $_POST["password"], "USER", "PASSWORD", "password errata");
+checkError(!password_verify($_POST["password"], $data["password"]), "USER", "PASSWORD", "password errata");
 unset($data["password"]);
 
 // SESSION AND COOKIES

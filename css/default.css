@@ -71,7 +71,7 @@ ul, ol {
 }
 
 /* Checkbox */
-.custom-control-input:checked ~ .custom-control-label::before, 
+.custom-control-input:checked ~ .custom-control-label::before,
 .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--alma);
 }
@@ -117,7 +117,7 @@ input[type=range]:focus::-moz-range-thumb {
 }
 
 /* Visibility */
-.disabled {
+button[disabled], .disabled {
   opacity: 0.6;
   cursor: not-allowed !important;
 }

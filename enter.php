@@ -131,7 +131,7 @@
                 <p id="registerErr" class="badge badge-danger w-100">Errore</p>
                 <div class="custom-checkbox custom-control mb-3">
                   <input type="checkbox" class="custom-control-input" id="acceptTerms">
-                  <label class="custom-control-label" for="acceptTerms">Accetto <a href="#">Termini &amp; Condizioni</a></label>
+                  <label class="custom-control-label" for="acceptTerms">Accetto <a target="_blank" href="https://www.justeat.it/termsandconditions">Termini &amp; Condizioni</a></label>
                 </div>
                 <button class="btn btn-alma btn-block text-uppercase" type="submit" id="registerBtn">Registrati</button>
               </form>

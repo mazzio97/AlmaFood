@@ -1,6 +1,7 @@
 <?php
   foreach (glob('utils/*.php') as $f) require_once $f;
 
+  $output = array();
   switch ($_POST["request"]) {
     case "get":
       $output["categories"] = getAllCategories();
@@ -9,25 +10,21 @@
         $output["dishInfo"] = getDishInfo($_SESSION["currentDish"]);
         $output["dishIngredients"] = getDishIngredientsNames($_SESSION["currentDish"]);
       }
-      closeWithoutErrors($output);
       break;
 
     case "save":
       if (isset($_SESSION["currentDish"])) {
         updateDish($_POST["name"], $_POST["price"], $_POST["category"],  $_SESSION["currentDish"]);
-        if (isset($_POST["ingredients"])) {
-          deleteBind($_SESSION["currentDish"]);
-          foreach($_POST["ingredients"] as $ingredientID)
-            bindIngredientWithDish($ingredientID, $_SESSION["currentDish"]);
-        }
-        unset($_SESSION["currentDish"]);
+        deleteBind($_SESSION["currentDish"]);
       } else {
-        $dishID = insertDish($_POST["name"], $_POST["price"], $_POST["category"], $_SESSION["username"]);
-        if (isset($_POST["ingredients"]))
-          foreach($_POST["ingredients"] as $ingredientID)
-            bindIngredientWithDish($ingredientID, $dishID);
+        $_SESSION["currentDish"] = insertDish($_POST["name"], $_POST["price"], $_POST["category"], $_SESSION["username"]);
       }
-      closeWithoutErrors(array());
+      if (isset($_POST["ingredients"])) {
+        foreach($_POST["ingredients"] as $ingredientID)
+          bindIngredientWithDish($ingredientID, $_SESSION["currentDish"]);
+      unset($_SESSION["currentDish"]);
+      }
       break;
   }
+  closeWithoutErrors($output);
 ?>

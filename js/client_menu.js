@@ -23,10 +23,7 @@ function pressable(button) {
   return button.attr("class").indexOf("disabled") < 0;
 }
 function updateButtonsState(button, orderDetails) {
-  if (!$.isEmptyObject(orderDetails))
-    $("#checkout").removeClass("disabled");
-  else
-    $("#checkout").addClass("disabled");
+  $("#checkout").prop('disabled', $.isEmptyObject(orderDetails));
 
   if (button.attr("class").indexOf("plus") > -1 && getNextVal(button) == 1)
     button.siblings(".fa-minus-square").removeClass("disabled");
@@ -52,7 +49,7 @@ $(function() {
       getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
     }
   }, "json");
-  $(".instance-categories").on("click", ".fas", function() {
+  $(".instance-categories").on("click", ".collapse .fas", function() {
     if (!pressable($(this)))
       return;
     orderDetails = updateOrderDetails(orderDetails, $(this).parent().attr("id"),
