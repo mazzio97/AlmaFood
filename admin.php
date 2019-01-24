@@ -42,14 +42,15 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Ingrediente</th>
-              <th>Azioni</th>
+              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseIngredients" aria-expanded="true"
+              aria-controls="collapseIngredients"></i></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="collapseIngredients" class="collapse multi-collapse show">
             <tr>
               <td>?</td>
               <td>
@@ -60,7 +61,7 @@
             </tr>
             <tr>
               <td>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
               </td>
               <td>
                 <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
@@ -72,14 +73,15 @@
         </table>
       </div>
       <div class="col-12 col-lg-6">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Categoria</th>
-              <th>Azioni</th>
+              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
+              aria-controls="collapseCategories"></i></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="collapseCategories" class="collapse multi-collapse show">
             <tr>
               <td>?</td>
               <td>
@@ -90,7 +92,7 @@
             </tr>
             <tr>
               <td>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
               </td>
               <td>
                 <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
@@ -102,14 +104,15 @@
         </table>
       </div>
       <div class="col-12 col-lg-6">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Luogo</th>
-              <th>Azioni</th>
+              <th>Azioni<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="true"
+              aria-controls="collapsePlaces"></i></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="collapsePlaces" class="collapse multi-collapse show">
             <tr>
               <td>?</td>
               <td>
@@ -120,7 +123,7 @@
             </tr>
             <tr>
               <td>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" autocomplete="off" class="form-control form-control-sm" name="name" id="name">
               </td>
               <td>
                 <a class="add" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
@@ -132,15 +135,16 @@
         </table>
       </div>
       <div class="col-12 col-lg-6">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Ristorante</th>
               <th>Username</th>
-              <th>Abilitato</th>
+              <th>Abilitato<i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="true"
+              aria-controls="collapseRestaurants"></i></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="collapseRestaurants" class="collapse multi-collapse show">
             <tr>
               <td>?</td>
               <td>?</td>
@@ -153,6 +157,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="col-12 text-right">
+        <button class="col-5 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill"><i class="fas fa-sign-out-alt"></i> Esci</button>
       </div>
     </div>
   </div>

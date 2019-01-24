@@ -1,8 +1,28 @@
+body {
+	background-color: #ffffff;
+}
 .table td .fa-plus {
 	display: none;
 }
+.table th {
+	background-color: var(--alma);
+	color: var(--light-grey);
+}
+.table th i {
+	float: right;
+	padding-top: 0.25rem;
+}
+.table td:last-child {
+	text-align: center;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: var(--light-grey);
+}
+.table-striped tbody tr:nth-of-type(even) {
+	background-color: var(--silver);
+}
 .table th:last-child {
-	width: 25%;
+	width: 33%;
 }
 .table td:last-child .fa-plus {
 	display: inherit;
