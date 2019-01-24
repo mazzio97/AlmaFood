@@ -1,5 +1,5 @@
 function getRequiredDate(date, time) {
-  return new Date(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + (parseInt(time.slice(0, 2)) - 1) + ":" + time.slice(3) + ":00Z");
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate(), parseInt(time.slice(0, 2)), parseInt(time.slice(3)), 0);
 }
 function dateDifference(from, to) {
   var fromDate = parseInt(from.getTime() / 1000);
@@ -47,6 +47,7 @@ $(function() {
   });
   $("#deliveryTime").focusout(function() {
     var requiredDate = getRequiredDate(date, $(this).val());
+    console.log(requiredDate);
     orderDetails["date"] = parseInt(requiredDate.getTime() / 1000);
     updateButtonState(date, requiredDate, maxHorsDifference);
   });
