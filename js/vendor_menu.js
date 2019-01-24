@@ -21,7 +21,9 @@ $(function() {
       var template = retrieveTemplate("template-categories");
       for (var i = 0; i < output["category"].length; i++) {
         var categoria = output["category"][i];
-        $(".instance-categories").append(bindArgs(template, categoria["nome"]));
+        $(".instance-categories").append(bindArgs(template, categoria["nome"],
+                                                  "data-target='#collapseCategory" + categoria["idCategoria"] + "'",
+                                                  categoria["idCategoria"]));
         getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
       }
     }, "json");
