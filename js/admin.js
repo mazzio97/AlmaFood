@@ -46,7 +46,7 @@ $(function() {
     $.post("php/admin.php", { request: type + "Insertion", name: input.val().trim() }, function(output) {
       var template = retrieveTemplate("template-table-" + type);
       input.parents("tbody").append(bindArgs(template, type + output["id"], input.val().trim()));
-      input.parents("tbody").append(newElementRow);
+      input.parents("tbody").append(bindArgs(newElementRow, type));
       input.parents("tr").remove();
     }, "json");
   });

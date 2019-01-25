@@ -9,6 +9,6 @@ function bindArgs(template, ...args) {
   return template;
 }
 
-function retrieveAndBind(id, ...args) {
-  return bindArgs(retrieveTemplate(id), args);
+function retrieveAndBind(className, ...args) {
+  return bindArgs(retrieveTemplate(className), args);
 }
