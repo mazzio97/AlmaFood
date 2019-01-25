@@ -33,7 +33,12 @@ $(function() {
       $(".instance-basket").append(bindArgs(template, info["quantity"], info["name"], partialPrice.toFixed(2)));
     });
     orderDetails["totalPrice"] = orderDetails["totalPrice"].toFixed(2);
-    $(".basket-total-price").text(orderDetails["totalPrice"] + "€");
+    var basketTotalRow = `<div class="basket-total row">
+                            <div class="basket-total-text">TOTALE</div>
+                            <div class="dots"></div>
+                            <div class="basket-total-price">` + orderDetails["totalPrice"] + `€</div>
+                          </div>`;
+    $(".instance-basket").append(basketTotalRow);
   }, "json");
   $.post("php/checkout.php", { req: "places" }, function(output) {
     var template = retrieveTemplate("template-place");

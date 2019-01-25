@@ -1,6 +1,5 @@
-.alma-title {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+.instance-basket {
+  margin: 2rem;
 }
 
 .basket-item,
@@ -24,8 +23,8 @@
   background-color: #60606085;
 }
 
-.basket-item:last-child {
-  border-bottom: 0.2rem solid var(--alma);
+.basket-item:nth-last-child(2) {
+  border-bottom: 0.25rem solid var(--alma);
 }
 
 .basket-item-quantity,
