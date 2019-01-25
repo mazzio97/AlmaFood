@@ -21,7 +21,7 @@ function loadOrders() {
       var ordine = output["order"][i];
       html_code += bindArgs(template, ordine["nominativo"],
                                       ("00000" + ordine["ordine"]).slice(-6),
-                                      getDateFromUTC(ordine["oraConsegna"]),
+                                      getHoursMin(ordine["oraConsegna"]),
                                       ordine["aula"],
                                       ordine["costo"]);
     }

@@ -25,6 +25,8 @@ $(function() {
   var date = new Date();
   var maxHoursDifference = 1;
   var hoursmin = getHoursMin(Date.now() / 1000 + maxHoursDifference * 3600);
+  var requiredDate = getRequiredDate(date, hoursmin);
+  orderDetails["date"] = parseInt(requiredDate.getTime() / 1000);
   if (hoursmin.substr(0, 1) == 0) {
     $("#deliveryTime").attr({ "min": "23:59", "value": "--:--" });
   } else {

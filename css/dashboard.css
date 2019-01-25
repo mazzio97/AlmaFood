@@ -32,7 +32,7 @@
 }
 
 .instance-orders .card-footer i, .instance-current-orders .card-footer i, .instance-past-orders .card-footer i {
-  margin-right: 0.33rem;
+  margin-right: 0.25rem;
 }
 
 ul.instance-details, ul.instance-orders .card-body {

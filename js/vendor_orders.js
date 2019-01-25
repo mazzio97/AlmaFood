@@ -22,7 +22,7 @@ function loadOrders() {
       var order = output.orders[key];
       for (key in order.dishes)
         details += "<li>" + order.dishes[key] + "</li>";
-      html_code += bindArgs(template, order.ordine, order.nominativo, details, order.aula, getDateFromUTC(order.oraConsegna));
+      html_code += bindArgs(template, order.ordine, order.nominativo, details, order.aula, getHoursMin(order.oraConsegna));
     }
     $(".instance-orders").html(html_code);
   }, "json")
