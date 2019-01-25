@@ -63,7 +63,6 @@ $(function() {
     orderDetails = updateOrderDetails(orderDetails, plate.find(".select-quantity").attr("id"),
                                       plate.find(".dish-name").text(),
                                       getNextVal($(this)), plate.find(".dish-price").text());
-                                      console.log(orderDetails);
     updateButtonsState($(this), orderDetails);
     $(this).siblings("span").text(getNextVal($(this)));
   });

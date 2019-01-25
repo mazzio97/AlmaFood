@@ -10,11 +10,6 @@ var statusMap = [ statusInfo("555555", "clock"), statusInfo("6aa84f", "check"), 
 var currentReview = reviewInfo(null, null, null);
 var orders;
 
-function getDateFromUTC(utc) {
-    var date = new Date();
-    date.setTime(utc * 1000);
-    return date.toLocaleString();
-}
 function getOrderId(e) {
   return e.parentsUntil(".notification-panel").find(".order-id").text();
 }
@@ -27,7 +22,6 @@ function loadOrders() {
   // RETRIEVE ORDERS
   $.post("php/client_orders.php", { request: "orders" }, function(output) {
     if(output["error"]["class"] != "NONE") {
-      console.log(output["error"]["description"]);
       $(".instance-current-orders").html(getNoResultsHtml());
       return;
     }
@@ -36,7 +30,6 @@ function loadOrders() {
     var current_html_code = "";
     var past_html_code = "";
     orders = output["orders"];
-    console.log(orders);
     for(key in orders) {
       var order = orders[key];
       if (order.idStato <= 2)
