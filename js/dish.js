@@ -1,11 +1,15 @@
 var numIngredients;
 
 function filterIngredients() {
+  var atLeastOnce = false;
   $(".instance-ingredients .ingredient-checkbox").each(function() {
     var ingredient = $(this).find("label").html().toLowerCase();
     var substring = $("#searchFilter").val().toLowerCase();
-    $(this).toggle(ingredient.includes(substring));
+    var filter = ingredient.includes(substring);
+    $(this).toggle(filter);
+    atLeastOnce = atLeastOnce || filter;
   });
+  $(".nothing-found").toggle(!atLeastOnce);
 }
 
 $(function() {
@@ -24,7 +28,8 @@ $(function() {
         status = "checked";
       html_code += bindArgs(template, output["ingredients"][key], status, output["ingredients"][key], key);
     }
-    $(".instance-ingredients").html(html_code);
+    $(".instance-ingredients").html(html_code + getNoResultsHtml());
+
     if (output["dishIngredients"] !== undefined) {
       $("#plateName").val(output["dishInfo"]["nome"]);
       $("#coin").val(output["dishInfo"]["costo"]);
