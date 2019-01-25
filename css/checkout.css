@@ -14,13 +14,13 @@
 }
 
 .basket-item {
-  color: var(--light-grey);
-  background-color: var(--dark-grey);
+  color: black;
+  background-color: #cccccc;
   font-size: 1.2rem;
 }
 
-.basket-item:nth-child(odd) {
-  background-color: #60606085;
+.basket-item:nth-child(even) {
+  background-color: #dddddd;
 }
 
 .basket-item:nth-last-child(2) {

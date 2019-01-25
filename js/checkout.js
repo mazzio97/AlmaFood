@@ -4,10 +4,10 @@ function getRequiredDate(date, time) {
 function dateDifference(from, to) {
   var fromDate = parseInt(from.getTime() / 1000);
   var toDate = parseInt(to.getTime() / 1000);
-  return (toDate - fromDate) / 3600;
+  return (toDate - fromDate + 60) / 3600;
 }
-function updateButtonState(date, requiredDate, maxHorsDifference) {
-  if (dateDifference(date, requiredDate) > maxHorsDifference)
+function updateButtonState(date, requiredDate, maxHoursDifference) {
+  if (dateDifference(date, requiredDate) > maxHoursDifference)
     $("#order").removeClass("disabled");
   else
     $("#order").addClass("disabled");
@@ -23,7 +23,14 @@ $(function() {
     dishes : []
   };
   var date = new Date();
-  var maxHorsDifference = 1;
+  var maxHoursDifference = 1;
+  var hoursmin = getHoursMin(Date.now() / 1000 + maxHoursDifference * 3600);
+  if (hoursmin.substr(0, 1) == 0) {
+    $("#deliveryTime").attr({ "min": "23:59", "value": "--:--" });
+  } else {
+    $("#deliveryTime").attr({ "min": hoursmin, "value": hoursmin });
+    $("#order").removeClass("disabled");
+  }
   $.post("php/sessionAPI.php", { req: "get", var: "orderDetails" }, function(output) {
     var template = retrieveTemplate("template-basket");
     orderDetails["dishes"] = output;
@@ -53,7 +60,7 @@ $(function() {
   $("#deliveryTime").focusout(function() {
     var requiredDate = getRequiredDate(date, $(this).val());
     orderDetails["date"] = parseInt(requiredDate.getTime() / 1000);
-    updateButtonState(date, requiredDate, maxHorsDifference);
+    updateButtonState(date, requiredDate, maxHoursDifference);
   });
   $("#cancel").click(function() {
     $.post("php/sessionAPI.php", { req: "del", var: "chosenRest" });
