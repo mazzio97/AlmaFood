@@ -297,9 +297,9 @@
                                           WHERE ordine.forn_user = fornitore.username
                                           AND ordine.idAula = aula.idAula
                                           AND ordine.idStato = stato.idStato
-                                          AND ordine.idStato <> 3
-                                          AND ordine.cli_user = ?
+                                          AND (ordine.idStato <> 3 OR ordine.dataora >= UNIX_TIMESTAMP(NOW()))
                                           AND ordine.dataora >= UNIX_TIMESTAMP(NOW() - INTERVAL 1 MONTH)
+                                          AND ordine.cli_user = ?
                                           ORDER BY ordine.dataora DESC");
     $data = array();
     while ($row = $result->fetch_assoc())

@@ -32,7 +32,7 @@ function loadOrders() {
     orders = output["orders"];
     for(key in orders) {
       var order = orders[key];
-      if (order.idStato <= 2)
+      if (order.idStato <= 3)
         current_html_code += bindArgs(current_template, order.nominativo, ("00000" + order.ordine).slice(-6),
                                                         getDateFromUTC(order.oraConsegna), order.aula, order.costo,
                                                         statusMap[order.idStato - 1].color, statusMap[order.idStato - 1].icon, order.stato);
