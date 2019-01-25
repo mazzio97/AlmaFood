@@ -13,5 +13,5 @@ function getUTCFromDate(date) {
     return Math.floor(date.getTime() / 1000);
 }
 function getHoursMin(utc) {
-    return getDateFromUTC(utc).substr(9, 13);
+    return getDateFromUTC(utc).substr(9, 5);
 }
