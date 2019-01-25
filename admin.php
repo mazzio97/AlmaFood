@@ -41,114 +41,138 @@
 <body>
   <div class="container">
     <div class="row">
+      <!-- FORNITORI -->
       <div class="col-12 col-lg-6">
-        <i class="fas fa-2x fa-chevron-down" data-toggle="collapse" data-target="#collapseIngredients" aria-expanded="true"
-        aria-controls="collapseIngredients"></i>
-        <div id="collapseIngredients" class="collapse multi-collapse show">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody class="instance-table-ingredients"></tbody>
-          <tbody class="template-table-ingredients d-none">
-            <tr>
-              <td id="?">?</td>
-              <td>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
-      <div class="col-12 col-lg-6">
-        <i class="fas fa-2x fa-chevron-down" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
-        aria-controls="collapseCategories"></i>
-        <div id="collapseCategories" class="collapse multi-collapse show">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody class="instance-table-categories"></tbody>
-          <tbody class="template-table-categories d-none">
-            <tr>
-              <td id="?">?</td>
-              <td>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
-      <div class="col-12 col-lg-6">
-        <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="true"
-        aria-controls="collapsePlaces"></i>
-        <div id="collapsePlaces" class="collapse multi-collapse show">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody class="instance-table-places"></tbody>
-          <tbody class="template-table-places d-none">
-            <tr>
-              <td id="?">?</td>
-              <td>
-                <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-      <div class="col-12 col-lg-6">
-        <i class="fas fa-chevron-down" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="true"
-        aria-controls="collapseRestaurants"></i>
-        <div id="collapseRestaurants" class="collapse multi-collapse show">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Ristorante</th>
-              <th>Username</th>
-              <th>Abilitato</th>
-            </tr>
-          </thead>
-          <tbody class="instance-table-restaurants"></tbody>
-          <tbody class="template-table-restaurants d-none">
-            <tr>
-              <td>?</td>
-              <td>?</td>
-              <td>
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="?" ?>
-                  <label class="custom-control-label" for="?"></label>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="admin-table-header" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="false">
+          <h4 class="mb-0 float-left">Fornitori</h4>
+          <div class="float-right">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        <div id="collapseRestaurants" class="collapse multi-collapse">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Ristorante</th>
+                <th>Username</th>
+                <th>Abilitato</th>
+              </tr>
+            </thead>
+            <tbody class="instance-table-restaurants"></tbody>
+            <tbody class="template-table-restaurants d-none">
+              <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="?" ?>
+                    <label class="custom-control-label" for="?"></label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="col-12 text-right">
-        <a href="php/exit.php">
-          <button class="col-5 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Esci</span>
-          </button>
-        </a>
+
+      <!--LUOGHI -->
+      <div class="col-12 col-lg-6">
+        <div class="admin-table-header" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="false">
+          <h4 class="mb-0 float-left">Luoghi</h4>
+          <div class="float-right">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        <div id="collapsePlaces" class="collapse multi-collapse">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody class="instance-table-places"></tbody>
+            <tbody class="template-table-places d-none">
+              <tr>
+                <td id="?">?</td>
+                <td>
+                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <!-- CATEGORIE -->
+      <div class="col-12 col-lg-6">
+        <div class="admin-table-header" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="false">
+          <h4 class="mb-0 float-left">Categorie</h4>
+          <div class="float-right">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        <div id="collapseCategories" class="collapse multi-collapse">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody class="instance-table-categories"></tbody>
+            <tbody class="template-table-categories d-none">
+              <tr>
+                <td id="?">?</td>
+                <td>
+                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--INGREDIENTI -->
+      <div class="col-12 col-lg-6">
+        <div class="admin-table-header" data-toggle="collapse" data-target="#collapseIngredients" aria-expanded="false">
+          <h4 class="mb-0 float-left">Ingredienti</h4>
+          <div class="float-right">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        <div id="collapseIngredients" class="collapse multi-collapse">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody class="instance-table-ingredients"></tbody>
+            <tbody class="template-table-ingredients d-none">
+              <tr>
+                <td id="?">?</td>
+                <td>
+                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 text-right">
+      <a href="php/exit.php">
+        <button class="col-3 col-lg-2 btn-alma rounded-pill mb-3 mt-4">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Esci</span>
+        </button>
+      </a>
     </div>
   </div>
 </body>

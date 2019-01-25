@@ -8,9 +8,14 @@ body {
 	background-color: var(--alma);
 	color: var(--light-grey);
 }
-.table th i {
-	float: right;
-	padding-top: 0.25rem;
+.table th:last-child {
+	text-align: center;
+}
+.table td i {
+	margin: auto 0.5rem;
+}
+.table td i:hover {
+	cursor: pointer;
 }
 .table td:last-child {
 	text-align: center;
@@ -30,4 +35,15 @@ body {
 .custom-control-input:checked~.custom-control-label::before {
 	background-color: var(--alma);
 	border-color: var(--alma);
+}
+
+.admin-table-header {
+	background-color: var(--alma);
+	color: white;
+	height: 3.5rem;
+	padding: 0.75rem;
+	margin: 2rem auto 0;
+}
+.admin-table-header:hover {
+	cursor: pointer;
 }
