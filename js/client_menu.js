@@ -41,6 +41,10 @@ $(function() {
   var orderDetails = {};
   $.post("php/menu.php", { request: "categories" }, function(output) {
     var template = retrieveTemplate("template-categories");
+    if (output["error"]["class"] != "NONE") {
+      $("#pageContainer").html(getNoResultsHtml());
+      return;
+    }
     for (var i = 0; i < output["category"].length; i++) {
       var categoria = output["category"][i];
       $(".instance-categories").append(bindArgs(template, categoria["nome"],

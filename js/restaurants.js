@@ -37,18 +37,22 @@ function getCategoryMatch(rest, filt) {
   return false;
 }
 function filterRestaurants() {
+  var atLeastOnce = false;
   $(".instance-restaurants .restaurant").each(function() {
     var restaurant = restaurants[$(this).attr("id").replace("Restaurant", "")];
-    $(this).toggle(restaurant.name.toLowerCase().includes(filters.getSubstring()) &&
-                   restaurant.quality >= sliderMap[filters.getSliderValue()].quality &&
-                   restaurant.price >= sliderMap[filters.getSliderValue()].price &&
-                   getCategoryMatch(restaurant.categories, filters.getCategories()));
+    var filter = restaurant.name.toLowerCase().includes(filters.getSubstring()) &&
+                 restaurant.quality >= sliderMap[filters.getSliderValue()].quality &&
+                 restaurant.price >= sliderMap[filters.getSliderValue()].price &&
+                 getCategoryMatch(restaurant.categories, filters.getCategories());
+    $(this).toggle(filter);
+    atLeastOnce = atLeastOnce || filter;
   });
+  $(".nothing-found").toggle(!atLeastOnce);
 }
 
 $(function() {
   $.getJSON("php/restaurants.php", function(output) {
-    restaurants = output["restaurants"].filter(function (value){
+    restaurants = output["restaurants"].filter(function (value) {
       return value["enabled"] == 1;
     });
     var html_code = "";
@@ -68,9 +72,10 @@ $(function() {
       restaurant.categories.forEach(function(category) {
         categories_code += bindArgs(categoryTemplate, category);
       });
-      html_code += bindArgs(restaurantTemplate, restaurant.username, info.color, restaurant.name, categories_code, info.icon);
+      html_code += bindArgs(restaurantTemplate, "Restaurant" + key, info.color, restaurant.name, categories_code, info.icon);
     }
-    $(".instance-restaurants").html(html_code == "" ? "Nessun Ristorante" : html_code);
+    $(".instance-restaurants").html(html_code + getNoResultsHtml());
+    $(".nothing-found").hide();
   });
 
   $("#searchFilter").keyup(() => filterRestaurants());
@@ -90,7 +95,8 @@ $(function() {
   });
 
   $(".instance-restaurants").on("click", ".vendor", function() {
-    $.post("php/sessionAPI.php", { req: "set", var: "chosenRest", val: $(this).attr("id") });
+    var username = restaurants[$(this).attr("id").replace("Restaurant", "")].username;
+    $.post("php/sessionAPI.php", { req: "set", var: "chosenRest", val: username });
     loadPage("client_menu");
   });
 });

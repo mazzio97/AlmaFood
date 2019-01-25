@@ -33,3 +33,20 @@
   background-color: var(--alma);
   color: var(--light-grey);
 }
+
+.nothing-found {
+  color: var(--dark-grey);
+  text-align: center;
+}
+
+.nothing-found > svg {
+  height: 10rem;
+  margin: 0 auto -1.5rem;
+  fill: var(--dark-grey);
+  display: block;
+}
+
+.nothing-found > span {
+  font-weight: bold;
+  font-size: 1.25rem;
+}

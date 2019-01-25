@@ -20,9 +20,15 @@ function getOrderId(e) {
 }
 
 function loadOrders() {
+  // REMOVE PREVIOUS TIMEOUT IF PRESENT
+  $.post("php/sessionAPI.php", { req: "get", var: "currentTimeout" }, function(timeoutId) {
+      clearTimeout(timeoutId);
+  }, "json");
+  // RETRIEVE ORDERS
   $.post("php/client_orders.php", { request: "orders" }, function(output) {
-    if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
-      $(".instance-current-orders").html(output["error"]["description"]);
+    if(output["error"]["class"] != "NONE") {
+      console.log(output["error"]["description"]);
+      $(".instance-current-orders").html(getNoResultsHtml());
       return;
     }
     var current_template = retrieveTemplate("template-current-orders");
@@ -45,6 +51,7 @@ function loadOrders() {
     $(".title-past-orders").toggle(past_html_code != "");
     $(".instance-past-orders").html(past_html_code);
   }, "json")
+  // SET NEW TIMEOUT
     .always(function() {
       $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
     });
@@ -54,7 +61,7 @@ $(function() {
 
   $(".instance-current-orders, .instance-past-orders").on("click", ".text-info", function() {
     $.post("php/client_orders.php", { request: "dishes_in_order", orderId: getOrderId($(this)) }, function(output) {
-      if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
+      if(output["error"]["class"] != "NONE") {
         $(".instance-details").html(output["error"]["description"]);
         return;
       }

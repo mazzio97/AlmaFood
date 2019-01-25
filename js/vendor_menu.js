@@ -19,12 +19,16 @@ function getCategoryDishes(container, categoryId) {
 $(function() {
     $.post("php/menu.php", { request: "categories" }, function(output) {
       var template = retrieveTemplate("template-categories");
-      for (var i = 0; i < output["category"].length; i++) {
-        var categoria = output["category"][i];
-        $(".instance-categories").append(bindArgs(template, categoria["nome"],
-                                                  "data-target='#collapseCategory" + categoria["idCategoria"] + "'",
-                                                  categoria["idCategoria"]));
-        getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
+      if (output["error"]["class"] != "NONE") {
+        loadPage("dish");
+      } else {
+        for (var i = 0; i < output["category"].length; i++) {
+          var categoria = output["category"][i];
+          $(".instance-categories").append(bindArgs(template, categoria["nome"],
+          "data-target='#collapseCategory" + categoria["idCategoria"] + "'",
+          categoria["idCategoria"]));
+          getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
+        }
       }
     }, "json");
     $(".instance-categories").on("click", ".fa-edit", function() {

@@ -1,3 +1,7 @@
-$.post("php/sessionAPI.php", { req: "get", var: "currentTimeout" }, function(timeoutId) {
-  clearTimeout(timeoutId);
-}, "json");
+function removeTimeout() {
+  $.post("php/sessionAPI.php", { req: "get", var: "currentTimeout" }, function(timeoutId) {
+    clearTimeout(timeoutId);
+  }, "json");
+}
+
+removeTimeout();

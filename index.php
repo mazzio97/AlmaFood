@@ -31,6 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
   <script src="js/utils/htmlRetriever.js"></script>
   <script src="js/utils/pageLoader.js"></script>
+  <script src="js/utils/noResults.js"></script>
   <script src="js/main.js"></script>
 </head>
 

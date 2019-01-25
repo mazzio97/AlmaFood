@@ -10,9 +10,14 @@ function getOrderId(e) {
 }
 
 function loadOrders() {
+  // REMOVE PREVIOUS TIMEOUT IF PRESENT
+  $.post("php/sessionAPI.php", { req: "get", var: "currentTimeout" }, function(timeoutId) {
+      clearTimeout(timeoutId);
+  }, "json");
+  // RETRIEVE ORDERS
   $.post("php/vendor_orders.php", { request: "orders" }, function(output) {
-    if(output["error"]["class"] == "SERVER" && output["error"]["source"] == "QUERY") {
-      $(".instance-orders").html(output["error"]["description"]);
+    if(output["error"]["class"] != "NONE") {
+      $(".instance-orders").html(getNoResultsHtml());
       return;
     }
     var html_code = "";
@@ -26,6 +31,7 @@ function loadOrders() {
     }
     $(".instance-orders").html(html_code);
   }, "json")
+  // SET NEW TIMEOUT
     .always(function() {
       $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
     });
@@ -36,10 +42,12 @@ $(function() {
   $(".instance-orders").on("click", ".send-order", function() {
     var panel = $(this).closest(".notification-panel");
     $.post("php/vendor_orders.php", { request: "send", orderId: getOrderId($(this)) }, function(output) {
-      if (output["error"]["class"] == "NONE")
-        panel.fadeOut();
-      else
+      if (output["error"]["class"] != "NONE")
         alert(output["error"]["description"]);
+      else
+        panel.fadeOut(function() {
+          loadOrders();
+        });
     }, "json");
   });
 });
