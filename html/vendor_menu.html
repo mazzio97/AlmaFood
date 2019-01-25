@@ -4,10 +4,10 @@
   <div class="template-categories d-none">
     <div class="col-12">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header" data-toggle="collapse" ? aria-expanded="false">
           <h4 class="mb-0 float-left">?</h4>
           <div class="float-right">
-            <i class="fas fa-chevron-down" data-toggle="collapse" ? aria-expanded="false"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
         </div>
         <div id="collapseCategory?" class="collapse multi-collapse">
@@ -18,10 +18,16 @@
                 <h5>?</h5>
                 <p>?</p>
               </div>
-              <div id="?" class="col-4 text-right">
-                <h5 class="d-inline">&euro;?</h5>
-                <i class="fas fa-edit"></i>
-                <i class="fas fa-trash"></i>
+              <div id="?" class="select-action col-4 text-right">                
+                <div class="row">
+                  <div class="col-12 col-xl-8">
+                    <h5>&euro;?</h5>
+                  </div>
+                  <div class="col-12 col-xl-4 mb-3">    
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -31,7 +37,7 @@
   </div>
   <div class="row">
     <div class="col-12 text-right">
-      <button class="col-5 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill"><i class="fas fa-plus"></i> Inserisci piatto</button>
+      <button class="col-3 col-md-4 col-lg-3 col-xl-2 btn-alma rounded-pill mb-3"><i class="fas fa-plus"></i><span> Inserisci piatto</span></button>
     </div>
   </div>
 </div>

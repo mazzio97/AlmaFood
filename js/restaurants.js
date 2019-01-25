@@ -18,8 +18,8 @@ var filters = {
     return ret;
   }
 }
-var ratingMap = [ ratingInfo(-2.5, "e06666", "sad-cry"), ratingInfo(-1, "ea9999", "frown"), ratingInfo(1, "dddddd", "meh"),
-                  ratingInfo(2.5, "b6d7a8", "smile"), ratingInfo(5.5, "93c47d", "grin-hearts") ];
+var ratingMap = [ ratingInfo(-2.5, "ea9999", "sad-cry"), ratingInfo(-1, "ea9999", "frown"), ratingInfo(1, "dddddd", "meh"),
+                  ratingInfo(2.5, "b6d7a8", "smile"), ratingInfo(5.5, "b6d7a8", "grin-hearts") ];
 var sliderMap = [ sliderInfo(1.5, -2), sliderInfo(0, -2), sliderInfo(-3, -2), sliderInfo(-3, 0), sliderInfo(-3, 1) ];
 
 function getRatingInfo(rating) {

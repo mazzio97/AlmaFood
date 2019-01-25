@@ -2,9 +2,13 @@ function fillDishInfo(container, piatto) {
   $.post("php/menu.php", { request: "ingredients", dish: piatto["idPietanza"] }, function(output) {
     var template = retrieveTemplate("template-dishes");
     var ingredientsList = "";
-    for (var i = 0; i < output["ingredient"].length; i++) {
-      var ingrediente = output["ingredient"][i];
-      ingredientsList += ingrediente["nome"] + ", ";
+    if (output["ingredient"] == undefined) {
+      ingredientsList = "  ";
+    } else {
+      for (var i = 0; i < output["ingredient"].length; i++) {
+        var ingrediente = output["ingredient"][i];
+        ingredientsList += ingrediente["nome"] + ", ";
+      }
     }
     container.append(bindArgs(template, piatto["nome"], ingredientsList.slice(0, -2), piatto["idPietanza"], piatto["costo"]));
   }, "json");
@@ -47,8 +51,7 @@ $(function() {
     }
     for (var i = 0; i < output["category"].length; i++) {
       var categoria = output["category"][i];
-      $(".instance-categories").append(bindArgs(template, categoria["nome"],
-                                                "data-target='#collapseCategory" + categoria["idCategoria"] + "'",
+      $(".instance-categories").append(bindArgs(template, "data-target='#collapseCategory" + categoria["idCategoria"] + "'", categoria["nome"],
                                                 categoria["idCategoria"]));
       getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
     }
@@ -56,9 +59,11 @@ $(function() {
   $(".instance-categories").on("click", ".collapse .fas", function() {
     if (!pressable($(this)))
       return;
-    orderDetails = updateOrderDetails(orderDetails, $(this).parent().attr("id"),
-                                      $(this).parents(".menu-plate").find(".dish-name").text(),
-                                      getNextVal($(this)), $(this).siblings(".dish-price").text());
+    var plate = $(this).parents(".menu-plate");
+    orderDetails = updateOrderDetails(orderDetails, plate.find(".select-quantity").attr("id"),
+                                      plate.find(".dish-name").text(),
+                                      getNextVal($(this)), plate.find(".dish-price").text());
+                                      console.log(orderDetails);
     updateButtonsState($(this), orderDetails);
     $(this).siblings("span").text(getNextVal($(this)));
   });

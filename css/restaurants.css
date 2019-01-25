@@ -28,16 +28,6 @@
 .filter > div {
 	font-size: 1.25rem;
 }
-
-.fa-sad-cry, .fa-frown {
-	color: var(--danger);
-}
-.fa-meh {
-	color: var(--warning);
-}
-.fa-smile, .fa-grin-hearts {
-	color: var(--success);
-}
 .checkbox-opinion input:checked + label .fa-sad-cry,
 .checkbox-opinion input:checked + label .fa-frown {
 	color: var(--light-grey);
@@ -53,10 +43,18 @@
 	background-color: var(--success);
 }
 
-.badge {
-	font-size: 1.1rem;
+.instance-restaurant-categories {
+	text-align: left;
 }
 
-@media only screen and (min-width: 1200px) {
+.badge {
+	font-size: 0.75rem;
+	margin: 0.125rem;
+}
 
+@media only screen and (min-width: 576px) {
+	.badge {
+		font-size: 1.1rem;
+		margin: 0.25rem;
+	}	
 }

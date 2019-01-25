@@ -2,9 +2,13 @@ function fillDishInfo(container, piatto) {
   $.post("php/menu.php", { request: "ingredients", dish: piatto["idPietanza"] }, function(output) {
     var template = retrieveTemplate("template-dishes");
     var ingredientsList = "";
-    for (var i = 0; i < output["ingredient"].length; i++) {
-      var ingrediente = output["ingredient"][i];
-      ingredientsList += ingrediente["nome"] + ", ";
+    if (output["ingredient"] == undefined) {
+      ingredientsList = "  ";
+    } else {
+      for (var i = 0; i < output["ingredient"].length; i++) {
+        var ingrediente = output["ingredient"][i];
+        ingredientsList += ingrediente["nome"] + ", ";
+      }
     }
     container.append(bindArgs(template, piatto["nome"], ingredientsList.slice(0, -2), piatto["idPietanza"], piatto["costo"]));
   }, "json");
@@ -24,20 +28,19 @@ $(function() {
       } else {
         for (var i = 0; i < output["category"].length; i++) {
           var categoria = output["category"][i];
-          $(".instance-categories").append(bindArgs(template, categoria["nome"],
-          "data-target='#collapseCategory" + categoria["idCategoria"] + "'",
-          categoria["idCategoria"]));
+          $(".instance-categories").append(bindArgs(template, "data-target='#collapseCategory" + categoria["idCategoria"] + "'", 
+                                                    categoria["nome"], categoria["idCategoria"]));
           getCategoryDishes($(".instance-categories .instance-dishes").last(), categoria["idCategoria"]);
         }
       }
     }, "json");
     $(".instance-categories").on("click", ".fa-edit", function() {
-      var dishId = $(this).parent().attr("id");
+      var dishId = $(this).parents(".select-action").attr("id");
       $.post("php/sessionAPI.php", { req : "set", var : "currentDish", val : dishId });
       loadPage("dish");
     });
     $(".instance-categories").on("click", ".fa-trash", function() {
-      var dishId = $(this).parent().attr("id");
+      var dishId = $(this).parents(".select-action").attr("id");
       $.post("php/menu.php", { request: "delete", dish : dishId});
       loadPage("vendor_menu");
     });

@@ -11,6 +11,10 @@ body {
 	background-color: var(--light-grey);
 }
 
+form {
+  margin-bottom: 0;
+}
+
 /* Position */
 .centered {
   position: absolute;
@@ -61,13 +65,16 @@ ul, ol {
   color: var(--alma);
   background-color: var(--light-grey);
 }
-.btn-outline-alma {
-  color: var(--alma);
-  background-color: var(--light-grey);
+.btn-alma.rounded-pill > i + span {
+  display: none;
 }
-.btn-outline-alma:hover {
-  color: var(--light-grey);
-  background-color: var(--alma);
+@media only screen and (min-width: 768px) {
+  .btn-alma.rounded-pill > i {
+    display: none;
+  }
+  .btn-alma.rounded-pill > i + span {
+    display: inline;
+  }  
 }
 
 /* Checkbox */
@@ -120,4 +127,22 @@ input[type=range]:focus::-moz-range-thumb {
 button[disabled], .disabled {
   opacity: 0.6;
   cursor: not-allowed !important;
+}
+
+/* Nothing Found */
+.nothing-found {
+  color: var(--dark-grey);
+  text-align: center;
+}
+
+.nothing-found > svg {
+  height: 10rem;
+  margin: 0 auto -1.5rem;
+  fill: var(--dark-grey);
+  display: block;
+}
+
+.nothing-found > span {
+  font-weight: bold;
+  font-size: 1.25rem;
 }

@@ -36,6 +36,7 @@ function loadOrders() {
     var current_html_code = "";
     var past_html_code = "";
     orders = output["orders"];
+    console.log(orders);
     for(key in orders) {
       var order = orders[key];
       if (order.idStato <= 2)
@@ -52,9 +53,9 @@ function loadOrders() {
     $(".instance-past-orders").html(past_html_code);
   }, "json")
   // SET NEW TIMEOUT
-    .always(function() {
-      $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
-    });
+  .always(function() {
+    $.post("php/sessionAPI.php", { req: "set", var: "currentTimeout", val: setTimeout(loadOrders, refreshTime * 1000) });
+  });
 }
 $(function() {
   loadOrders();

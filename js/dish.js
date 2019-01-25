@@ -29,6 +29,7 @@ $(function() {
       html_code += bindArgs(template, output["ingredients"][key], status, output["ingredients"][key], key);
     }
     $(".instance-ingredients").html(html_code + getNoResultsHtml());
+    filterIngredients();
 
     if (output["dishIngredients"] !== undefined) {
       $("#plateName").val(output["dishInfo"]["nome"]);

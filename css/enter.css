@@ -51,6 +51,13 @@ html, body, .carousel, .carousel-inner, .carousel-item {
     margin-left: 0.25rem;
 }
 
+.btn-alma.rounded-pill > i {
+    display:inline;
+}
+.btn-alma.rounded-pill > i + span {
+    display: inline;
+}
+
 /* Registration Form */
 input[type=radio] + label {
     padding: 0.45rem;

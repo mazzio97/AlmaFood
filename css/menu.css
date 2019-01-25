@@ -32,7 +32,7 @@
 	margin-right: 0.5rem;
 }
 
-.card-body {
+.instance-dishes.card-body {
 	color: var(--dark-grey);
 	padding-top: 0;
 	padding-bottom: 0;

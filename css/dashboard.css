@@ -1,8 +1,15 @@
-/* Notifications */
-.notifications {
-  position: relative;
-  padding: 0;
-  list-style: none;
+:root {
+  --increment: 55%;
+}
+
+.title-current-orders, .title-past-orders {
+  text-align: center;
+  color: var(--dark-grey);
+  margin: 2rem auto 0;
+  display: none;
+}
+.instance-orders, .instance-current-orders, .instance-past-orders {
+  padding-left: 0;
 }
 .notification-panel {
   position: relative;
@@ -24,6 +31,15 @@
   border-right: none;
 }
 
+.instance-orders .card-footer i, .instance-current-orders .card-footer i, .instance-past-orders .card-footer i {
+  margin-right: 0.33rem;
+}
+
+ul.instance-details, ul.instance-orders .card-body {
+  list-style-type: disc;
+  margin-left: 1rem;
+}
+
 .vote-modal i {
   margin: 0 0.5rem;
 }
@@ -34,19 +50,12 @@
   color: var(--light-grey);
 }
 
-.nothing-found {
-  color: var(--dark-grey);
-  text-align: center;
+.quality-1, .price-1 {
+  font-size: 100%;
 }
-
-.nothing-found > svg {
-  height: 10rem;
-  margin: 0 auto -1.5rem;
-  fill: var(--dark-grey);
-  display: block;
+.quality-2, .price-2 {
+  font-size: calc(100% + var(--increment));
 }
-
-.nothing-found > span {
-  font-weight: bold;
-  font-size: 1.25rem;
+.quality-3, .price-3 {
+  font-size: calc(100% + var(--increment)*2);
 }
