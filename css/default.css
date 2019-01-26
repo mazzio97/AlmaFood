@@ -52,9 +52,9 @@ ul, ol {
 
 /* Buttons */
 .btn-alma, .btn-outline-alma {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: bold;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0;
   border: 0.15rem solid var(--alma);
 }
 .btn-alma {
@@ -74,8 +74,12 @@ ul, ol {
   }
   .btn-alma.rounded-pill > i + span {
     display: inline;
-  }  
+  }
 }
+.btn-alma em {
+  font-size: 1.05rem;
+}
+
 
 /* Checkbox */
 .custom-control-input:checked ~ .custom-control-label::before,

@@ -28,6 +28,10 @@ function pressable(button) {
 }
 function updateButtonsState(button, orderDetails) {
   $("#checkout").prop('disabled', $.isEmptyObject(orderDetails));
+  var totalPrice = 0;
+  for (key in orderDetails)
+    totalPrice += orderDetails[key]["price"] * orderDetails[key]["quantity"];
+  $("#totalPrice").html(totalPrice.toFixed(2));
 
   if (button.attr("class").indexOf("plus") > -1 && getNextVal(button) == 1)
     button.siblings(".fa-minus-square").removeClass("disabled");
