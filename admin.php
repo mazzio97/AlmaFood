@@ -12,20 +12,14 @@
   <title>AlmaFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/png" href="./img/almafood.png" sizes="196x196" />
-  <!-- styles -->
+  <!-- STYLES -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/default.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/dashboard.css" />
-  <link rel="stylesheet" href="css/restaurants.css" />
-  <link rel="stylesheet" href="css/menu.css" />
-  <link rel="stylesheet" href="css/dish.css" />
-  <link rel="stylesheet" href="css/checkout.css" />
   <link rel="stylesheet" href="css/admin.css" />
-  <!-- scripts -->
+  <!-- SCRIPTS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
@@ -96,8 +90,8 @@
               <tr>
                 <td id="?">?</td>
                 <td>
-                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                  <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -126,8 +120,8 @@
               <tr>
                 <td id="?">?</td>
                 <td>
-                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                  <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -156,8 +150,8 @@
               <tr>
                 <td id="?">?</td>
                 <td>
-                  <a class="edit" data-toggle="tooltip"><i class="fa fa-pen"></i></a>
-                  <a class="delete" data-toggle="tooltip"><i class="fa fa-eraser"></i></a>
+                  <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
+                  <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
               </tr>
             </tbody>

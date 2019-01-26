@@ -40,6 +40,9 @@ ul.instance-details, ul.instance-orders .card-body {
   margin-left: 1rem;
 }
 
+.review {
+  color: var(--cloth);
+}
 .vote-modal i {
   margin: 0 0.5rem;
 }

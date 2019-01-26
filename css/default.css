@@ -62,6 +62,7 @@ ul, ol {
   background-color: var(--alma);
 }
 .btn-alma:hover {
+  cursor: pointer;
   color: var(--alma);
   background-color: var(--light-grey);
 }
@@ -149,4 +150,8 @@ button[disabled], .disabled {
 .nothing-found > span {
   font-weight: bold;
   font-size: 1.25rem;
+}
+
+.shadow-edge {
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
 }
