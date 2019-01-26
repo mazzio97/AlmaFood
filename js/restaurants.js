@@ -38,7 +38,7 @@ function getCategoryMatch(rest, filt) {
 }
 function filterRestaurants() {
   var atLeastOnce = false;
-  $(".instance-restaurants .restaurant").each(function() {
+  $(".instance-restaurants .vendor").each(function() {
     var restaurant = restaurants[$(this).attr("id").replace("Restaurant", "")];
     var filter = restaurant.name.toLowerCase().includes(filters.getSubstring()) &&
                  restaurant.quality >= sliderMap[filters.getSliderValue()].quality &&
@@ -72,7 +72,7 @@ $(function() {
       restaurant.categories.forEach(function(category) {
         categories_code += bindArgs(categoryTemplate, category);
       });
-      html_code += bindArgs(restaurantTemplate, "Restaurant" + key, info.color, restaurant.name, categories_code, info.icon);
+      html_code += bindArgs(restaurantTemplate, key, info.color, restaurant.name, categories_code, info.icon);
     }
     $(".instance-restaurants").html(html_code + getNoResultsHtml());
     $(".nothing-found").hide();
