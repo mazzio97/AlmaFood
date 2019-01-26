@@ -1,20 +1,11 @@
-.badge-category {
-	font-size: 0.75rem;
-	color: #ffffff;
-	background-color: var(--cloth);
-}
-
-.vendor {
-	background-color: #ffffff;
-	box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
-	margin: 2rem auto;
-	padding: 0.5rem 0;
-}
-
 .filter {
 	margin-top: 2rem;
 }
+.filter > .btn-alma:hover {
+	cursor: pointer;
+}
 .filter > div {
+	font-size: 1.25rem;
 	border-radius: 0.25rem;
 	padding: 1rem;
 	margin: 0.5rem 0;
@@ -25,31 +16,27 @@
 .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--alma);
 }
-.filter > div {
-	font-size: 1.25rem;
-}
-.checkbox-opinion input:checked + label .fa-sad-cry,
-.checkbox-opinion input:checked + label .fa-frown {
-	color: var(--light-grey);
-	background-color: var(--danger);
-}
-.checkbox-opinion input:checked + label .fa-meh {
-	color: var(--light-grey);
-	background-color: var(--warning);
-}
-.checkbox-opinion input:checked + label .fa-smile,
-.checkbox-opinion input:checked + label .fa-grin-hearts {
-	color: var(--light-grey);
-	background-color: var(--success);
-}
 
 .instance-restaurant-categories {
 	text-align: left;
+}
+.vendor {
+	background-color: #ffffff;
+	margin: 2rem auto;
+	padding: 0.5rem 0;
+}
+.vendor:hover {
+	cursor: pointer;
 }
 
 .badge {
 	font-size: 0.75rem;
 	margin: 0.125rem;
+}
+.badge-category {
+	font-size: 0.75rem;
+	color: #ffffff;
+	background-color: var(--cloth);
 }
 
 @media only screen and (min-width: 576px) {

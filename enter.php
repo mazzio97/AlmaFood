@@ -16,12 +16,12 @@
   <title>Accedi ad AlmaFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/png" href="./img/almafood.png" sizes="196x196" />
-  <!-- styles -->
+  <!-- STYLES -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="css/default.css" />
   <link rel="stylesheet" href="css/enter.css" />
-  <!-- scripts -->
+  <!-- SCRIPTS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
   <div id="almaCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
 
-      <!-- login -->
+      <!-- LOGIN -->
       <div class="carousel-item">
         <div class="container centered">
           <div class="row">
@@ -70,12 +70,12 @@
         </div>
       </div>
 
-      <!-- logo -->
+      <!-- LOGO -->
       <div class="carousel-item active">
         <div class="plate rounded-circle centered"></div>
-        <img class="logo centered" src="img/almafood.png" />
+        <img class="logo centered" src="img/almafood.png" alt="" />
 
-        <!-- controls -->
+        <!-- CONTROLS -->
         <div class="container row">
           <div class="carousel-control mx-auto">
             <a href="#almaCarousel" class="col-8 col-sm-4 col-md-3 col-lg-2 d-inline-block btn-alma rounded-pill mb-3" role="button" data-slide="prev">
@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <!-- registration -->
+      <!-- REGISTRATION -->
       <div class="carousel-item">
         <div class="container centered">
           <div class="row">
@@ -117,9 +117,9 @@
                   </div>
                   <div class="form-group col-5 col-md-4 text-right">
                     <input type="radio" name="userRole" value="client" id="client" checked="checked">
-                    <label for="client"><i class="fas fa-user fa-2x"></i></label>
+                    <label for="client" data-toggle="tooltip" data-placement="bottom" title="Cliente"><i class="fas fa-user fa-2x"></i></label>
                     <input type="radio" name="userRole" value="vendor" id="vendor">
-                    <label for="vendor"><i class="fas fa-shipping-fast fa-2x"></i></label>
+                    <label for="vendor" data-toggle="tooltip" data-placement="bottom" title="Fornitore"><i class="fas fa-shipping-fast fa-2x"></i></label>
                   </div>
                 </div>
                 <div class="form-group">
