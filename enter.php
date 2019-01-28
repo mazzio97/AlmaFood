@@ -10,7 +10,8 @@
   }
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <title>Accedi ad AlmaFood</title>
@@ -36,7 +37,7 @@
     </g>
   </svg>
   <svg class="knife centered" version="1.1" xmlns="http://www.w3.org/2000/svg" width="31.714291mm" height="289.38098mm"
-    viewBox="0 0 31.714291 289.38098" version="1.1">
+    viewBox="0 0 31.714291 289.38098">
     <g transform="translate(-95.772277,-4.7514431)">
       <path d="m 115.03172,5.3493596 c -2.93936,1.3671481 -5.99266,5.4002324 -8.54466,11.2789654 -2.16466,4.990088 -4.8078,14.423406 -6.1066,21.646501 -0.501287,2.825439 -1.162076,6.471166 -1.458286,8.111743 -1.572224,8.521883 -1.982367,13.648686 -2.848227,36.343338 -0.136714,3.46344 -0.27343,11.939743 -0.296216,18.798273 -0.02279,11.93976 0,12.8284 0.592431,19.34512 1.162073,12.69171 1.253221,13.23856 4.147018,27.25182 2.52922,12.25875 2.87101,14.37783 3.73686,24.01622 0.86586,9.57003 0.88865,19.86921 0.0456,35.09012 -0.25063,4.5116 -0.50128,9.84347 -0.59242,11.8486 -0.319,8.59025 -0.61522,13.99049 -1.25322,22.78579 -1.73172,24.33523 -2.620372,38.69028 -2.620372,42.60944 0,3.09887 0.478502,4.30651 2.255802,6.01546 2.41529,2.2558 5.65088,3.37228 10.50425,3.60014 5.85594,0.27342 9.82068,-0.7975 12.55497,-3.3723 1.48108,-1.41273 2.16465,-2.96215 2.32414,-5.10401 0.0911,-1.52665 -0.27342,-6.60788 -0.97978,-13.44362 -0.18229,-1.75451 -0.50128,-4.99008 -0.68357,-7.17752 -0.20508,-2.18743 -0.61521,-6.24332 -0.91143,-9.00039 -0.319,-2.75708 -0.72914,-7.51931 -0.91144,-10.59539 -0.18228,-3.07608 -0.70636,-9.84346 -1.13928,-15.03863 -2.07351,-24.79094 -2.48366,-33.99639 -2.32416,-52.29338 0.13672,-15.63106 0.34179,-20.78064 1.18486,-29.73546 0.319,-3.32672 0.61523,-6.69902 0.68358,-7.51931 0.25065,-3.12165 1.25322,-25.61123 1.48107,-33.29004 0.13672,-4.44324 0.45572,-12.213188 0.70637,-17.294418 0.56964,-11.415676 0.7975,-19.231201 1.1165,-38.052264 0.38735,-23.036435 0.38735,-34.429329 0.0455,-36.571193 -0.72915,-4.329299 -1.80008,-7.4509524 -3.05329,-8.8864573 -1.68616,-1.914007 -5.14959,-2.5520093 -7.65603,-1.3671481 z" />
     </g>
@@ -52,10 +53,10 @@
               <form class="card-body">
                 <h3 class="text-center">Accedi</h3>
                 <div class="form-group">
-                  <input type="text" id="inputUser" class="form-control" placeholder="Email o Username" required="true">
+                  <input type="text" id="inputUser" class="form-control" placeholder="Email o Username" required />
                 </div>
                 <div class="form-group">
-                  <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required="true">
+                  <input type="password" id="inputLoginPassword" class="form-control" placeholder="Password" required />
                 </div>
                 <p id="loginErr" class="badge badge-danger w-100">Errore</p>
                 <div class="custom-checkbox custom-control mb-3">
@@ -96,24 +97,24 @@
           <div class="row">
             <div class="card col-11 col-sm-9 col-md-7 col-lg-5 mx-auto">
               <form class="card-body">
-                <h3 class="text-center">Registrati</h5>
+                <h3 class="text-center">Registrati</h3>
                 <div class="form-row">
                   <div class="form-group col-12">
-                    <input type="text" id="inputRestaurant" class="form-control" placeholder="Ristorante" required="true">
+                    <input type="text" id="inputRestaurant" class="form-control" placeholder="Ristorante" required />
                   </div>
                   <div class="form-group col-6">
-                    <input type="text" id="inputName" class="form-control" placeholder="Nome" required="true">
+                    <input type="text" id="inputName" class="form-control" placeholder="Nome" required />
                   </div>
                   <div class="form-group col-6">
-                    <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" required="true">
+                    <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" required />
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="true">
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email" required />
                 </div>
                 <div class="form-row">
                   <div class="form-group col-7 col-md-8">
-                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="true">
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required />
                   </div>
                   <div class="form-group col-5 col-md-4 text-right">
                     <input type="radio" name="userRole" value="client" id="client" checked="checked">
@@ -123,10 +124,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required="true">
+                  <input type="password" id="inputRegisterPassword" class="form-control" placeholder="Password" required />
                 </div>
                 <div class="form-group">
-                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Conferma Password" required="true">
+                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Conferma Password" required />
                 </div>
                 <p id="registerErr" class="badge badge-danger w-100">Errore</p>
                 <div class="custom-checkbox custom-control mb-3">
