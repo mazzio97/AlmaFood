@@ -47,17 +47,17 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Ristorante</th>
-                <th>Username</th>
-                <th>Abilitato</th>
+                <th id="rest" scope="col">Ristorante</th>
+                <th id="user" scope="col">Username</th>
+                <th id="enable" scope="col">Abilitato</th>
               </tr>
             </thead>
             <tbody class="instance-table-restaurants"></tbody>
             <tbody class="template-table-restaurants d-none">
               <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>
+                <td headers="rest">?</td>
+                <td headers="user">?</td>
+                <td headers="enable">
                   <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="?" ?>
                     <label class="custom-control-label" for="?"></label>
@@ -81,15 +81,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>Azioni</th>
+                <th id="placename" scope="col">Nome</th>
+                <th id="placeactions" scope="col">Azioni</th>
               </tr>
             </thead>
             <tbody class="instance-table-places"></tbody>
             <tbody class="template-table-places d-none">
               <tr>
-                <td id="?">?</td>
-                <td>
+                <td id="?" headers="placename">?</td>
+                <td headers="placeactions">
                   <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
                   <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
@@ -111,15 +111,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>Azioni</th>
+                <th id="catname" scope="col">Nome</th>
+                <th id="catactions" scope="col">Azioni</th>
               </tr>
             </thead>
             <tbody class="instance-table-categories"></tbody>
             <tbody class="template-table-categories d-none">
               <tr>
-                <td id="?">?</td>
-                <td>
+                <td id="?" headers="catname">?</td>
+                <td headers="catactions">
                   <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
                   <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
@@ -141,15 +141,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>Azioni</th>
+                <th id="ingname" scope="col">Nome</th>
+                <th id="ingactions" scope="col">Azioni</th>
               </tr>
             </thead>
             <tbody class="instance-table-ingredients"></tbody>
             <tbody class="template-table-ingredients d-none">
               <tr>
-                <td id="?">?</td>
-                <td>
+                <td id="?" headers="ingname">?</td>
+                <td headers="ingactions">
                   <a class="edit" data-toggle="tooltip" data-placement="bottom" title="Modifica"><i class="fa fa-pen"></i></a>
                   <a class="delete" data-toggle="tooltip" data-placement="bottom" title="Elimina"><i class="fa fa-eraser"></i></a>
                 </td>
