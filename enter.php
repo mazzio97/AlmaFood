@@ -100,13 +100,13 @@
                 <h3 class="text-center">Registrati</h3>
                 <div class="form-row">
                   <div class="form-group col-12">
-                    <input type="text" id="inputRestaurant" class="form-control" placeholder="Ristorante" required />
+                    <input type="text" id="inputRestaurant" class="form-control" placeholder="Ristorante" />
                   </div>
                   <div class="form-group col-6">
-                    <input type="text" id="inputName" class="form-control" placeholder="Nome" required />
+                    <input type="text" id="inputName" class="form-control" placeholder="Nome" />
                   </div>
                   <div class="form-group col-6">
-                    <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" required />
+                    <input type="text" id="inputSurname" class="form-control" placeholder="Cognome" />
                   </div>
                 </div>
                 <div class="form-group">

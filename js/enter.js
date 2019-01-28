@@ -44,7 +44,24 @@ $(function() {
     });
 
     $("#registerBtn").click(function(event) {
-      event.preventDefault();
+      event.preventDefault(); 
+      // JSON DATA
+      var input = {
+        name: $("#inputName").val().trim(),
+        surname: $("#inputSurname").val().trim(),
+        restaurant: $("#inputRestaurant").val().trim(),
+        email: $("#inputEmail").val().trim(),
+        username: $("#inputUsername").val().trim(),
+        userRole: $("#client").prop("checked") ? "cliente" : "fornitore",
+        password: $("#inputRegisterPassword").val()
+      };
+      // REQUIRED CHECKS
+      if($("input:invalid").length != 0 ||
+        (input.userRole == "cliente" && (input.name == "" || input.surname == "")) ||
+        (input.userRole == "fornitore" && input.ristorante == "")) {
+        $("input").css("border-color", "red");
+        return;
+      }
       // TERMS CHECKS
       if(!$("#acceptTerms").prop("checked")) {
         $("#registerErr").show();
@@ -57,16 +74,6 @@ $(function() {
         $("#registerErr").html("le password non corrispondono");
         return;
       }
-      // JSON DATA
-      var input = {
-        name: $("#inputName").val().trim(),
-        surname: $("#inputSurname").val().trim(),
-        restaurant: $("#inputRestaurant").val().trim(),
-        email: $("#inputEmail").val().trim(),
-        username: $("#inputUsername").val().trim(),
-        userRole: $("#client").prop("checked") ? "cliente" : "fornitore",
-        password: $("#inputRegisterPassword").val()
-      };
       // POST
       $.post("php/signup.php", input, function(output) {
         showError(output["error"], "#registerErr");
